@@ -7,6 +7,8 @@ import Commandes from "../components/Admin/Commandes/Commandes";
 import PartnerList from "../components/Admin/PartnerList/PartnerList";
 import DemandPartner from "../components/Admin/DemandPartner/DemandPartner";
 import InvalidOrder from "../components/Admin/InvalidOrder/InvalidOrder";
+import Login from "../components/Login/Login";
+import Register from "../components/Register";
 import Search from "../components/Search/Search";
 import Location from "../components/Location/Location";
 
@@ -28,6 +30,11 @@ const Router = () => {
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Register />}></Route>
+        <Route path="/espace" element={<Search />}></Route>
+        <Route path="/espace/:id" element={<Location />}></Route>
+
       </Routes>
     </BrowserRouter>
   );

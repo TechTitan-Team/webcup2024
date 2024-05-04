@@ -43,14 +43,16 @@ const model = {
 
         return result
     },
-    create: async (name:string, last_name:string, email:string, password:string) => {
+    create: async (name:string,pdp: string,type: string, last_name:string, email:string, password:string) => {
 
         const result = await prisma.users.create({
             data: {
                 name,
+                pdp,
                 last_name,
                 email, 
-                password
+                password,
+                type
               },
         })
 

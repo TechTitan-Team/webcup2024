@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "./Banner/Banner";
 import Featured from "./Featured/Featured";
 import About from "./About/About";
 import Faq from "./Faq/Faq";
 import Layout from "../Layout/Layout";
 import Cta from "./Cta/Cta";
-import Searchbar from "./Searchbar/Searchbar";
+import useHttps from "../../hooks/useHttps";
 
 const Home = () => {
+  const { http } = useHttps();
+  const testBack = async () => {
+    try {
+      let response = await http.get("/users")
+      if(response)
+        console.log(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    testBack()
+  }, [])
   return (
     <Layout>
       <Banner />
-      <Searchbar />
       <Featured />
       <About />
       <Cta />

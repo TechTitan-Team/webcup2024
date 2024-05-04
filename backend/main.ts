@@ -2,8 +2,8 @@ import { Response, Request } from "express"
 import express from "express"
 import cors from "cors"
 import userRoute from './src/routes/users'
-import https from 'https'
-import fs from 'fs'
+import routerPartenaire from "./src/routes/partenaires"
+import routerCommands from "./src/routes/commands"
 const app = express()
 
 app.use(cors())
@@ -20,13 +20,8 @@ app.get('/api/test',(req:Request, res:Response) => {
   })
 })
 
-const options = {
-  key: fs.readFileSync(__dirname + '/private.key', 'utf8'),
- cert: fs.readFileSync(__dirname + '/public.cert', 'utf8')
-};
-
 app.use('/api/users', userRoute)
+app.use('/api/partenaires', routerPartenaire)
+app.use('/api/commands', routerCommands)
 
-https.createServer(app).listen(9001, function(){
-  console.log("Express server listening on port " + 9001);
-});
+app.listen(9001, () => console.log("Api listen on port 9001"))

@@ -6,7 +6,7 @@ const Footer = () => {
         <hr/>
         <div className="row">
           <div className="col-lg-12 my-4">
-              &copy; Copyright <strong><span>eNno</span></strong>. Tous droit réservés
+              &copy; Copyright <strong><span>Elite Events</span></strong>. Tous droit réservés
           </div>
         </div>
       </div>

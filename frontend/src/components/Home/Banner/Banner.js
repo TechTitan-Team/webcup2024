@@ -9,11 +9,11 @@ const Banner = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <AnimationWrapper text="Elite events"/>
+            <AnimationWrapper text="Elite Events"/>
             <h2>Réalisez vos soirées d'exception, sans compromis</h2>
 
             <p>
-            <ElegantText text="Bienvenue sur Élite évents, votre destination ultime pour des soirées mémorables et impeccables. Que ce soit pour une fête mondaine ou un événement professionnel, notre plateforme vous permet de réserver facilement des services sur mesure qui correspondent à vos besoins et à vos exigences." title={false}/>
+            <ElegantText text="Bienvenue sur Elite Events, votre destination ultime pour des soirées mémorables et impeccables. Que ce soit pour une fête mondaine ou un événement professionnel, notre plateforme vous permet de réserver facilement des services sur mesure qui correspondent à vos besoins et à vos exigences." title={false}/>
             </p>
             <div className="d-flex">
               <a href="#about" className="btn-get-started scrollto">

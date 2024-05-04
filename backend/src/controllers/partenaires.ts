@@ -18,6 +18,42 @@ const controllerPartenaire = {
             res.status(500).send(error.message)
         }
     },
+    getByType: async (req: Request, res: Response) => {
+        const { isValid } = req.body;
+
+        try {
+            let data = await modelPartenaire.getByType(Boolean(isValid))
+
+            if (data)
+                res.status(200).send(data)
+            else
+                res.status(200).send([])
+        }
+        catch (error: any) {
+            console.log(error)
+            res.status(500).send(error.message)
+        }
+    },
+    approve:  async (req: Request, res: Response) => {
+        try {
+            const id = req.body.id
+            let data = await modelPartenaire.getOne(parseInt(id))
+            if (data) {
+                let reponse = await modelPartenaire.approve(
+                    parseInt(id),
+                    true,
+                )
+                res.status(200).send(reponse)
+            }
+            else
+                res.status(200).send({})
+        }
+        catch (error: any) {
+            console.log(error)
+            res.status(500).send(error.message)
+
+        }
+    },
     getOne: async (req: Request, res: Response) => {
         try {
             const id = req.params.id

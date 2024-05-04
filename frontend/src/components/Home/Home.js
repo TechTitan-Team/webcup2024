@@ -8,6 +8,7 @@ import Cta from "./Cta/Cta";
 import useHttps from "../../hooks/useHttps";
 import Service from "./Service/Service";
 import Cible from "./Cible/Cible";
+import Call from "./Call/Call";
 const Home = () => {
   const { http } = useHttps();
   const testBack = async () => {
@@ -28,6 +29,7 @@ const Home = () => {
       <Service />
       <Cible />
       {/* <Featured /> */}
+      <Call />
       <About />
       <Cta />
       <Faq />

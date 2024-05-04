@@ -201,11 +201,10 @@ const Service = () => {
             </figure>
             {/* Content */}
             <h5 className="mb-3">
-              <a href="#">Experience design</a>
+              <a href="#">Services de conciergerie</a>
             </h5>
             <p>
-              From website design to app development, we blend aesthetics with
-              usability to leave a lasting impression.
+                Laissez-nous nous occuper de tous les détails de votre événement, de la gestion des invitations à la coordination des fournisseurs, pour que vous puissiez vous détendre et profiter de chaque instant.
             </p>
           </div>
           {/* Card footer */}
@@ -214,7 +213,7 @@ const Service = () => {
               className="icon-link icon-link-hover stretched-link z-index-2"
               href="#"
             >
-              View detail
+              Voir detail
               <i className="bi bi-arrow-right" />{" "}
             </a>
           </div>
@@ -250,11 +249,10 @@ const Service = () => {
             </figure>
             {/* Content */}
             <h5 className="mb-3">
-              <a href="#">Business consulting</a>
+              <a href="#">Services de décoration </a>
             </h5>
             <p>
-              Our consultants become your trusted advisors on the path to
-              success.
+            Créez une ambiance spectaculaire avec notre équipe de designers d'intérieur et de décorateurs experts, qui peuvent transformer n'importe quel espace en un décor de rêve pour votre soirée.
             </p>
           </div>
           {/* Card footer */}
@@ -263,7 +261,7 @@ const Service = () => {
               className="icon-link icon-link-hover stretched-link z-index-2"
               href="#"
             >
-              View detail
+              Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
           </div>
@@ -299,11 +297,10 @@ const Service = () => {
             </figure>
             {/* Content */}
             <h5 className="mb-3">
-              <a href="#">Tax consultant</a>
+              <a href="#">Services de photographie</a>
             </h5>
             <p>
-              We're here to optimize your tax strategy, so you can focus on what
-              matters most to your business.
+            Capturez chaque moment spécial de votre événement avec nos professionnels de la photographie et de la vidéographie, qui sauront immortaliser vos souvenirs pour les années à venir.
             </p>
           </div>
           {/* Card footer */}
@@ -312,7 +309,7 @@ const Service = () => {
               className="icon-link icon-link-hover stretched-link z-index-2"
               href="#"
             >
-              View detail
+              Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
           </div>

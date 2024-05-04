@@ -365,7 +365,7 @@
   color: #899bbd;
 }
 
-.admin-container .sidebar-nav .nav-link:hover {
+.admin-container .sidebar-nav .nav-link:hover, .admin-container .sidebar-nav .nav-link.active {
   color: #4154f1;
   background: #f6f9ff;
 }

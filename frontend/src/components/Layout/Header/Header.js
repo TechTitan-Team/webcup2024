@@ -92,6 +92,11 @@ const Header = () => {
               </a>
             </li>
             <li>
+            <a href="https://bff.ecoindex.fr/redirect/?url=https://techtitan.madagascar.webcup.hodi.host" target="_blank">
+    <img src="https://bff.ecoindex.fr/badge/?theme=dark&url=https://techtitan.madagascar.webcup.hodi.host" alt="Ecoindex Badge" />
+</a>
+            </li>
+            <li>
               <a className="getstarted scrollto" href="#about">
                 Get Started
               </a>

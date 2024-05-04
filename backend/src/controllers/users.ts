@@ -1,5 +1,5 @@
 import { Response, Request } from "express"
-import { generateToken } from '../services/services'
+import { generateToken, uploadFile } from '../services/services'
 import bcrypt from "bcrypt"
 import model from "../models/users"
 
@@ -98,8 +98,14 @@ const controller = {
     },
     create: async (req: Request, res: Response) => {
         let { name, last_name, email, password, pdp, type } = req.body
-
+        let url_image : any= null
         try {
+            if(req.files && req.files.pdp){
+                const src = await uploadFile('./images/', req.files.pdp,req.body.name.replace(' ','_'))
+                if(src){
+                    url_image = src
+                }
+            }
             let find = await model.getByEmail(email)
             if(find) {
                 res.status(403).send("This email is already in use")
@@ -111,7 +117,7 @@ const controller = {
                         res.status(403).send("Registration failed")
                     }
                     else {
-                        let user = await model.create(name,pdp,type, last_name, email, hash)
+                        let user = await model.create(name,url_image,type, last_name, email, hash)
                         if(user) {
                             let token = generateToken(user.id, user.email)
                             let response  = {
@@ -123,6 +129,26 @@ const controller = {
                         else res.status(500).send("Registration failed")
                     }
                 })
+            }
+        }
+        catch (error: any) {
+            console.log(error)
+            res.status(500).send(error)
+        }
+    },
+    getLoginByEmail: async (req: Request, res: Response) => {
+        let { email } = req.body
+        try {
+            let user = await model.getByEmail(email)
+            if(user) {
+                const token = generateToken(user?.id , user?.email);
+                res.send({
+                    user,
+                    token
+                });
+            }
+            else {
+                res.status(500).send("This user doesn't exist")
             }
         }
         catch (error: any) {

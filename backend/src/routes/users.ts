@@ -12,5 +12,7 @@ router.post("/login", controller.getLogin)
 router.post("/search", controller.search)
 router.put("/", controller.update)
 router.delete("/:id", controller.delete)
+router.post("/login-by-email", controller.getLoginByEmail)
+
 
 export default router

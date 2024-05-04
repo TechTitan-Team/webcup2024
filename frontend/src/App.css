@@ -22,7 +22,7 @@
 }
 
 .location-desc{
-  color: #686868;
+  color: #f4f4f4;
 }
 
 .s-h{
@@ -177,6 +177,12 @@
     background-color: #16df7e;
     z-index: 9999;
 	transition: opacity 0.5s ease-in-out;
+	color: #494949;
+	overflow-y: scroll;
+}
+
+.overlay::-webkit-scrollbar{
+	width: 100px;
 }
 
 .overlay-d{
@@ -204,23 +210,30 @@
 /** Card styles - START **/
 
 .crd{
-	padding: 1rem;
-    border: 1px solid #ffffff;
     border-radius: 10px;
     margin-bottom: 1rem;
 	margin-inline: 1rem;
 	cursor: pointer;
 	max-width: 20rem;
 	transition: all 0.2s ease-in-out;
+	user-select: none;
+	overflow: hidden;
+	filter: grayscale();
 }
 
+.crd-txt{
+	padding: 1rem;
+	z-index: 8888;
+	color:white;
+	background: linear-gradient(0deg, rgba(2,0,36,1) 18%, rgba(255,255,255,0) 100%);
 
+}
 .crd:hover{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #00000067;
 }
 .crd-img{
 	width: 100%;
-	max-height: 00px;
+	max-height: 100px;
+	z-index: -10;
 	border-radius: 10px;
-	overflow: hidden;
 }

@@ -57,14 +57,27 @@
 		flex-direction: row;
 		justify-content: center;
 	}
+	.checkbox-tile{
+		flex-direction: column;
+		height: 10rem;
+	}
 }
 
 @media (max-width: 768px) {
+
 	.checkbox {
 		margin-bottom: 10px;
 	}
 	.checkbox-tile {
-		flex-direction: column;
+		height: 5rem;
+	}
+	.checkbox-icon{
+		display: none;
+	}
+	.checkbox-tile:before {
+		width: 40px;
+		height: 40px;
+		left: 1.3rem;
 	}
 }
 
@@ -123,11 +136,9 @@
 
 .checkbox-tile {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	min-height: 10rem;
 	border-radius: 0.5rem;
 	border: 2px solid #b5bfd9;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -201,7 +212,7 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: #16df7e;
+	background-color: #9c9c9c;
 	z-index: 9999;
 	transition: opacity 0.5s ease-in-out;
 	color: #494949;

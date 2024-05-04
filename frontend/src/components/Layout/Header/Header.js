@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
 
 const Header = () => {
   const headerScroll = () => {
@@ -9,34 +10,33 @@ const Header = () => {
       header.classList.add("header-scrolled");
     }
   };
+  const [toggle,setToggle] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", headerScroll);
   }, []);
 
   return (
-    <header id="header" className="fixed-top">
+    <header id="header" className= {`fixed-top ${toggle?"header-scrolled":""}`}>
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
-          <img src="/rect2.png" alt="logo" className="mx-2"/>
-          <a href={"/"} style={{verticalAlign:"middle"}}>Elite Events</a>
+          <img src="/rect2.png" alt="logo" className="mx-2" />
+          <a href={"/"} style={{ verticalAlign: "middle" }}>Elite Events</a>
         </h1>
-        {/* Uncomment below if you prefer to use an image logo */}
-        {/* <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
         <nav id="navbar" className="navbar">
-          <ul>
+          <ul className={`${toggle?"d-block":""}`}>
             <li>
-              <a className="nav-link scrollto active" href="#hero">
-                Home
+              <a className="nav-link  active" href={"/"}>
+                Accueil
               </a>
             </li>
             <li>
-              <a className="nav-link scrollto" href={"/espace"}>
+              <a className="nav-link " href={"/espace"}>
                 Services
               </a>
             </li>
             <li>
-              <a className="nav-link scrollto" href="#contact">
+              <a className="nav-link " href="#contact">
                 Contact
               </a>
             </li>
@@ -46,7 +46,7 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a className="getstarted scrollto" href="#about">
+              <a className="getstarted " href="#about">
                 Devenir un parternaire
               </a>
             </li>
@@ -61,7 +61,9 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <i className="bi bi-list mobile-nav-toggle" />
+          <button className={`mobile-nav-toggle ${toggle?"viewed":""}`}  onClick={()=>setToggle(!toggle)}>
+            <i className="bi bi-list" />
+          </button>
         </nav>
       </div>
     </header>

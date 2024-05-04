@@ -2,15 +2,15 @@ import React, { useState } from "react";
 // import Layout from "../Layout/Layout";
 import logo from "../../assets/img/logo-horizontal.png";
 import LoginCarousel from "./LoginCarousel";
-// import { Link, useNavigate } from "react-router-dom";
-// import FaceDetectorModal from "./FaceDetectorModal/FaceDetectorModal";
-// import Alert from "react-bootstrap/Alert";
-// import useToken from "../../hooks/useToken";
-// import useHttps from "../../hooks/useHttps";
+import { Link, useNavigate } from "react-router-dom";
+import FaceDetectorModal from "./FaceDetectorModal/FaceDetectorModal";
+import Alert from "react-bootstrap/Alert";
+import useToken from "../../hooks/useToken";
+import useHttps from "../../hooks/useHttps";
 
 const Login = () => {
 //   const nav = useNavigate();
-//   const [faceDetector, setFaceDetector] = useState(false);
+  const [faceDetector, setFaceDetector] = useState(false);
 //   const [data, setData] = useState(null);
 //   const [loading, setLoading] = useState(false);
 //   const [error, setError] = useState(null);
@@ -70,7 +70,7 @@ const Login = () => {
               {/* Social btn */}
               <div className="col-xxl-6 d-grid">
                 <div
-                //   onClick={() => setFaceDetector(true)}
+                  onClick={() => setFaceDetector(true)}
                   className="btn border mb-2 mb-xxl-0"
                 >
                   <i class="bi bi-person-bounding-box"></i> Reconnaissance
@@ -162,9 +162,10 @@ const Login = () => {
           </div>
         </div>
       </div>
-      {/* <FaceDetectorModal
-       
-      /> */}
+      <FaceDetectorModal
+        show={faceDetector}
+        onHide={() => setFaceDetector(false)}
+      />
     </div>
   );
 };

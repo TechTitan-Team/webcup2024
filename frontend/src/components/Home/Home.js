@@ -5,13 +5,11 @@ import About from "./About/About";
 import Faq from "./Faq/Faq";
 import Layout from "../Layout/Layout";
 import Cta from "./Cta/Cta";
-import Searchbar from "./Searchbar/Searchbar";
 
 const Home = () => {
   return (
     <Layout>
       <Banner />
-      <Searchbar />
       <Featured />
       <About />
       <Cta />

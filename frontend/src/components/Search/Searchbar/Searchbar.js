@@ -1,6 +1,9 @@
 export default function Searchbar() {
     return <>
-        <div className="container mb-4">
+        <div className="container mb-4 dis-header">
+        <div className="fw-bold m-4">
+                Rechercher maintenant un éspaces à réservés
+            </div>
             <div className="search-bar p-4">
                 <div className="row">
                     <div className="col-md">

@@ -154,7 +154,25 @@ const controllerPartenaire = {
     delete : async(req: Request, res: Response)=>{
         try{
             let id = req.body;
-            let data = modelPartenaire.delete(parseInt(id))
+            let data = await modelPartenaire.delete(parseInt(id))
+            if(data)
+                res.status(200).send(data)
+            else
+                res.status(200).send([])
+        }catch(error: any){
+            console.log(error);
+            res.status(500).send(error.message)
+        }
+    },
+    filter: async(req: Request, res: Response)=>{
+        try{
+            let {service, pers_min, pers_max, location} = req.params
+            let data = await modelPartenaire.filter(
+                service,
+                parseInt(pers_min),
+                parseInt(pers_max),
+                location
+            )
             if(data)
                 res.status(200).send(data)
             else

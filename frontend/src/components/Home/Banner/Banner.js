@@ -1,15 +1,15 @@
 import React from "react";
-import heroImg from "../../../assets/img/hero-img.png";
-
+import heroImg from "../../../assets/img/photo1.jpg";
+import background from "../../../assets/img/photo5.jpg";
 const Banner = () => {
   return (
     <section id="hero" className="d-flex align-items-center">
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>Elegant and creative solutions</h1>
+            <h1>Elite envents</h1>
             <h2>
-              We are team of talented designers making websites with Bootstrap
+              Réalisez vos soirées d'exception, sans compromis
             </h2>
             <div className="d-flex">
               <a href="#about" className="btn-get-started scrollto">
@@ -27,7 +27,7 @@ const Banner = () => {
           <div className="col-lg-6 order-1 order-lg-2 hero-img">
             <img
               src={heroImg}
-              className="img-fluid animated"
+              className="img-fluid "
               alt=""
             />
           </div>

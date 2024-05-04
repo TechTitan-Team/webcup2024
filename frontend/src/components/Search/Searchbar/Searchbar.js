@@ -6,32 +6,35 @@ export default function Searchbar() {
 
     return <>
         <div className="container mb-4 dis-header">
-            <div className="fw-bold m-4">
-                Rechercher maintenant un éspaces à réservés
-            </div>
-            <div className="search-bar p-4">
-                <div className="row">
-                    <div className="col-md">
-                        <div className="s-l">
-                            Espace
+            <div className="mb-4">
+                <div className="s-h fw-bold">
+                    Rechercher maintenant un éspaces à réservés
+                </div>
+                <p>Vous pouvez </p>
+                <div className="search-bar p-4">
+                    <div className="row">
+                        <div className="col-md">
+                            <div className="s-l">
+                                Espace
+                            </div>
+                            <div>
+                                <input type="text" className="form-control" placeholder="Rechercher" />
+                            </div>
                         </div>
-                        <div>
-                            <input type="text" className="form-control" placeholder="Rechercher" />
+                        <div className="col-md-5">
+                            <div className="s-l">
+                                Espace
+                            </div>
+                            <div>
+                                <input type="text" className="form-control" placeholder="Rechercher" />
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-5">
-                        <div className="s-l">
-                            Espace
+                        <div className="col-md-2">
+                            <button className="btn btn-primary w-100 h-100">
+                                <i className="bi bi-search me-2"></i>
+                                Rechercher
+                            </button>
                         </div>
-                        <div>
-                            <input type="text" className="form-control" placeholder="Rechercher" />
-                        </div>
-                    </div>
-                    <div className="col-md-2">
-                        <button className="btn btn-primary w-100 h-100">
-                            <i className="bi bi-search me-2"></i>
-                            Rechercher
-                        </button>
                     </div>
                 </div>
             </div>
@@ -42,7 +45,7 @@ export default function Searchbar() {
                 <div className="m-4">
                     Choisissez un espace
                 </div>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex flex-man">
                     <div className="checkbox">
                         <label className="checkbox-wrapper">
                             <input type="checkbox" className="checkbox-input" />
@@ -122,9 +125,9 @@ export default function Searchbar() {
                 </div>
             </div>
             <div className="w-100 my-4">
-                <button className="btn btn-primary w-100 fw-bold" onClick={()=>setOverlay(!overlay)}>C'est parti</button>
+                <button className="btn btn-primary w-100 fw-bold" onClick={() => setOverlay(!overlay)}>C'est parti</button>
             </div>
         </div>
-        <Overlay state={overlay} action={()=>setOverlay(!overlay)}/>
+        <Overlay state={overlay} action={() => setOverlay(!overlay)} />
     </>
 }

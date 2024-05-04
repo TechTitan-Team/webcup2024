@@ -8,12 +8,10 @@ const Faq = () => {
           <div className="col-lg-4">
             <div className="content px-xl-5">
               <h3>
-                Frequently Asked <strong>Questions</strong>
+                Les questions frequentes
               </h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
-                aute irure dolor in reprehenderit
+                On nous pose toujours des questions à propos de notre services.
               </p>
             </div>
           </div>
@@ -31,7 +29,7 @@ const Faq = () => {
                     data-bs-target="#faq-content-1"
                   >
                     <span className="num">1.</span>
-                    Non consectetur a erat nam at lectus urna duis?
+                    Qui est Elite Events?
                   </button>
                 </h3>
                 <div
@@ -40,10 +38,7 @@ const Faq = () => {
                   data-bs-parent="#faqlist"
                 >
                   <div className="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id
-                    volutpat lacus laoreet non curabitur gravida. Venenatis
-                    lectus magna fringilla urna porttitor rhoncus dolor purus
-                    non.
+                    Elite Events est un service.
                   </div>
                 </div>
               </div>

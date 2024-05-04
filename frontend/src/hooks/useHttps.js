@@ -1,6 +1,6 @@
 import axios from "axios";
-export const apiUrl = "https://royal-tilapia.com/api";
-export const aiUrl = "http://127.0.0.1:5000"
+export const apiUrl = "http://localhost:9001/api";
+export const aiUrl = "https://royal-tilapia.com/face"
 export const voiceAiUrl = "http://127.0.0.1:5001"
 export const imgUrl = "https://royal-tilapia.com/images/"
 

@@ -6,7 +6,7 @@ import modelCommands from "../models/commands";
 const controllerCommands = {
     getAll: async(req: Request, res: Response) =>{
         try{
-            let data = modelCommands.getAll()
+            let data = await modelCommands.getAll()
             if(data)
                 res.status(200).send(data)
             else
@@ -19,7 +19,7 @@ const controllerCommands = {
     getOne: async(req: Request, res: Response)=>{
         try{
             let id = req.params.id
-            let data = modelCommands.getOne(parseInt(id))
+            let data = await modelCommands.getOne(parseInt(id))
             if(data)
                 res.status(200).send(data)
             else
@@ -32,16 +32,15 @@ const controllerCommands = {
     create: async(req: Request, res: Response)=>{
         try{
             let {beginDate, totalPrice, id_user, id_partenaire} = req.body;
-            let data = modelCommands.create(
+            let data = await modelCommands.create(
                 beginDate,
                 parseFloat(totalPrice),
                 parseInt(id_user),
                 parseInt(id_partenaire)
             )
-            if(data)
-                {console.log(data);
-                
-                res.status(200).send(data)}
+            if(data) {
+                res.status(200).send(data)
+            }
             else
                 res.status(404).send([])
         }catch(error: any){

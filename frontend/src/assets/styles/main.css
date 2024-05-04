@@ -480,6 +480,7 @@ section {
   overflow: hidden;
   scroll-margin-top: 70px;
   overflow: clip;
+  padding-bottom: 7.5rem;
 }
 
 .sections-bg {
@@ -924,3 +925,58 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     line-height: 1.25;
     color: var(--bs-heading-color);
   }
+
+  /* Call */
+  .rotate-33 {
+    -webkit-transform: rotate(33deg) !important;
+    transform: rotate(33deg) !important;
+  }
+  .h-200px {
+    height: 200px !important;
+  }
+
+  @keyframes imageBounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateX(-20px);
+    }
+
+    80% {
+      transform: translateX(20px);
+    }
+
+    90% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animated-image {
+    animation-name: imageBounce;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes imageRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animated-image1 {
+    animation-name: imageRotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite; /* Rotate once and return to original position */
+  }
+  
+  

@@ -11,6 +11,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register";
 import Search from "../components/Search/Search";
 import Location from "../components/Location/Location";
+import PartnerRequest from "../components/PartnerRequest/PartnerRequest";
 
 const Router = () => {
   return (
@@ -25,6 +26,7 @@ const Router = () => {
         <Route path="/admin/orders-inactive" element={<InvalidOrder />}></Route>
         <Route path="/espace" element={<Search />}></Route>
         <Route path="/espace/:id" element={<Location />}></Route>
+        <Route path="/become-partner" element={<PartnerRequest />}></Route>
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Register />}></Route>

@@ -30,7 +30,10 @@ model partenaires {
   location    String    @db.VarChar(255)
   description String    @db.VarChar(255)
   password    String?   @db.VarChar(255)
-  type        String   @db.VarChar(255)
+  type        String    @db.VarChar(255)
+  pers_min    Int?
+  pers_max    Int?
+  isValid     Boolean?  @default(false)
   command     commands[]
 }
 

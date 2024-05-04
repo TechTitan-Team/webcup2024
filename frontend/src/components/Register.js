@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import logo from "../assets/img/logo-horizontal.png";
 import LoginCarousel from "./Login/LoginCarousel";
-// import { Link, useNavigate } from "react-router-dom";
+import useHttps from "../hooks/useHttps";
+import { Link, useNavigate } from "react-router-dom";
 // import FaceDetectorModal from "./FaceDetectorModal/FaceDetectorModal";
 // import useHttps from "../../hooks/useHttps";
 // import useToken from "../../hooks/useToken";
@@ -11,11 +12,18 @@ import LoginCarousel from "./Login/LoginCarousel";
 
 
 const Register = () => {
-//   const nav = useNavigate();
+  const nav = useNavigate();
 //   const [faceDetector, setFaceDetector] = useState(false);
 //   const [voiceDetector, setVoiceDetector] = useState(false);
 //   const [data, setData] = useState(null);
 const [registerLoad, setRegisterLoad] = useState(false);
+const [user, setUser] = useState({
+  name: '',
+  lastName: '',
+  email: '',
+  pdp: '',
+  password: ''
+})
 //   const [error, setError] = useState(null);
 //   const { http } = useHttps();
 //   const { setToken } = useToken();
@@ -49,6 +57,67 @@ const [registerLoad, setRegisterLoad] = useState(false);
 //       }
 //     }
 //   };
+const {aiFileHttp, fileHttp} = useHttps()
+function dataURLtoFile(dataurl) {
+  var arr = dataurl.split(","),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[arr.length - 1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], Date.now() + ".jpg", { type: mime });
+}
+const handleFileInputChange = (e) => {
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = () => {
+    setUser({...user, pdp: reader.result})
+    
+    // Afficher le résultat de la lecture de l'image
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+};
+
+const register = (e)=>{
+  e.preventDefault();
+  setRegisterLoad(true);
+  const imgFile = dataURLtoFile(user.pdp);
+  let formData = new FormData();
+  formData.append("img", imgFile);
+  formData.append("name", user.email);
+  console.log(formData);
+  aiFileHttp.post('/create-dataset', formData)
+  .then((res)=>{
+    console.log(res);
+    let data = new FormData();
+    data.append("name", user.name)
+    data.append("last_name", user.lastName)
+    data.append("email", user.email)
+    data.append("password", user.password)
+    data.append("type", 'client')
+    data.append("pdp", imgFile)
+
+    fileHttp.post('/users', data).then((res)=>{
+      console.log(res);
+      setRegisterLoad(false)
+      nav('/')
+    }).catch(
+      (err)=>{
+        console.log(err)
+        setRegisterLoad(false)
+      }
+    )
+  })
+  .catch((err)=>{
+    console.log(err.message)
+    setRegisterLoad(false)
+  })
+}
 
   return (
     <div className="row g-0">
@@ -74,7 +143,7 @@ const [registerLoad, setRegisterLoad] = useState(false);
               </div>
             </div>
             {/* Form START */}
-            <form >
+            <form onSubmit={register}>
               {/* Email */}
               <div className="input-floating-label form-floating mb-4">
                 <input
@@ -82,7 +151,8 @@ const [registerLoad, setRegisterLoad] = useState(false);
                   className="form-control"
                   id="floatingInput"
                   name="name"
-                 
+                  value={user.name}
+                  onChange={(e)=>setUser({...user, name: e.target.value})}
                 />
                 <label htmlFor="floatingInput">Nom</label>
               </div>
@@ -93,7 +163,8 @@ const [registerLoad, setRegisterLoad] = useState(false);
                   className="form-control"
                   id="floatingInput"
                   name="last_name"
-                 
+                  value={user.lastName}
+                  onChange={(e)=>setUser({...user, lastName: e.target.value})}
                 />
                 <label htmlFor="floatingInput">Prenom</label>
               </div>
@@ -104,7 +175,8 @@ const [registerLoad, setRegisterLoad] = useState(false);
                   className="form-control"
                   id="floatingInput"
                   name="email"
-                 
+                  value={user.email}
+                  onChange={(e)=>setUser({...user, email: e.target.value})}
                 />
                 <label htmlFor="floatingInput">Adresse email</label>
               </div>
@@ -120,7 +192,7 @@ const [registerLoad, setRegisterLoad] = useState(false);
               </div> */}
               <div class=" mb-4">
                 <label htmlFor="floatingInput">Photo de profil</label>
-                <input type="file" className="form-control " id="floatingInput" name="imageFile"/>
+                <input type="file" className="form-control " id="floatingInput" name="imageFile" onChange={handleFileInputChange}/>
               </div>
 
              
@@ -131,7 +203,8 @@ const [registerLoad, setRegisterLoad] = useState(false);
                   className="form-control fakepassword pe-6"
                   id="psw-input"
                   name="password"
-                  
+                  value={user.password}
+                  onChange={(e)=>setUser({...user, password: e.target.value})}
                 />
                 <label htmlFor="floatingInput">Mot de passe</label>
                 <span className="position-absolute top-50 end-0 translate-middle-y p-0 me-2">

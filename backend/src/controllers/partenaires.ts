@@ -1,5 +1,5 @@
 import { Response, Request } from "express"
-import { generateToken } from '../services/services'
+import { generateToken, uploadFile } from '../services/services'
 import bcrypt from "bcrypt"
 import modelPartenaire from "../models/partenaires"
 
@@ -36,7 +36,7 @@ const controllerPartenaire = {
     update: async (req: Request, res: Response) => {
         try {
 
-            let { email, id, number, name, image, price, location, description, password, type } = req.body
+            let { email, id, number, name, image, price, location, description, password, type, pers_min, pers_max } = req.body
             let find = await modelPartenaire.getByEmail(email)
             if (find) {
                 res.status(403).send("This email is already in use")
@@ -57,7 +57,9 @@ const controllerPartenaire = {
                         description,
                         hash,
                         type,
-                        email
+                        email,
+                        pers_min, 
+                        pers_max
                     )
                     if (data)
                         res.status(200).send(data)
@@ -73,9 +75,16 @@ const controllerPartenaire = {
         }
     },
     create: async (req: Request, res: Response) => {
+        let { email, number, name, price, location, description, password, type, pers_min, pers_max } = req.body
+        let url_image : any = null
+        console.log(email)
         try {
-
-            let { email, number, name, image, price, location, description, password, type } = req.body
+            if(req.files && req.files.image){
+                const src = await uploadFile('./images/', req.files.image,req.body.name.replace(' ','_'))
+                if(src){
+                    url_image = src
+                }
+            }
             let find = await modelPartenaire.getByEmail(email)
             if (find) {
                 res.status(403).send("This email is already in use")
@@ -89,13 +98,15 @@ const controllerPartenaire = {
                     let data = await modelPartenaire.create(
                         parseInt(number),
                         name,
-                        image,
+                        url_image,
                         parseFloat(price),
                         location,
                         description,
                         hash,
                         type,
-                        email
+                        email, 
+                        parseInt(pers_min), 
+                        parseInt(pers_max)
                     )
                     if (data)
                         res.status(200).send(data)

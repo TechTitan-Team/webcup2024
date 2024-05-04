@@ -25,7 +25,6 @@ const Home = () => {
   return (
     <Layout>
       <Banner />
-      <Searchbar />
       <Featured />
       <About />
       <Cta />

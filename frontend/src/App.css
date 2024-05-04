@@ -28,3 +28,21 @@
   font-size: xx-large;
   font-weight: bold;
 }
+
+.footer{
+  position:static;
+  bottom: 0;
+}
+
+.dis-header{
+  padding-top: 82px;
+}
+
+.br{
+  border-radius: 10px;
+}
+
+.detail-img{
+  max-height: 300px;
+  overflow-y: hidden;
+}

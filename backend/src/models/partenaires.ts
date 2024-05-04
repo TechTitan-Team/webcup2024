@@ -13,6 +13,14 @@ const modelPartenaire = {
       },
     });
   },
+  getByType: async (isValid:boolean) => {
+    console.log(isValid)
+    return prisma.partenaires.findMany({
+      where: {
+        isValid: isValid
+      }
+    });
+  },
   getOne: async (id: number) => {
     return prisma.partenaires.findUnique({
       where: { id: id },
@@ -63,11 +71,11 @@ const modelPartenaire = {
     price: number,
     location: string,
     description: string,
-    password: string,
+    password: any,
     type: string,
     email: string,
-    pers_min: number, 
-    pers_max: number
+    pers_min: number | null, 
+    pers_max: number | null
   ) => {
     const res = await prisma.partenaires.update({
       where: { id: id },
@@ -83,6 +91,18 @@ const modelPartenaire = {
         type,
         pers_min, 
         pers_max
+      },
+    });
+    return res;
+  },
+  approve: async (
+    id: number,
+    isValid: boolean
+  ) => {
+    const res = await prisma.partenaires.update({
+      where: { id: id },
+      data: {
+        isValid
       },
     });
     return res;

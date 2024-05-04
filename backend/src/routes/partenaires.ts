@@ -11,4 +11,7 @@ routerPartenaire.post("/", controllerPartenaire.getLogin)
 routerPartenaire.put("/", controllerPartenaire.update)
 routerPartenaire.delete("/", controllerPartenaire.delete)
 
+routerPartenaire.post("/by-type", controllerPartenaire.getByType)
+routerPartenaire.post("/approve", controllerPartenaire.approve)
+
 export default routerPartenaire;

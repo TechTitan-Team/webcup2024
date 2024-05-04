@@ -1,6 +1,16 @@
 import React from "react";
+import useToken from "../../../../hooks/useToken";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const { token, clearToken } = useToken();
+  const nav = useNavigate();
+
+  const deconnect = () => {
+    clearToken()
+    nav("/admin/login")
+  }
+
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
       <div className="d-flex align-items-center justify-content-between">
@@ -11,24 +21,6 @@ const Header = () => {
         {/* <i className="bi bi-list toggle-sidebar-btn" /> */}
       </div>
       {/* End Logo */}
-      <div className="search-bar">
-        <form
-          className="search-form d-flex align-items-center"
-          method="POST"
-          action="#"
-        >
-          <input
-            type="text"
-            name="query"
-            placeholder="Search"
-            title="Enter search keyword"
-          />
-          <button type="submit" title="Search">
-            <i className="bi bi-search" />
-          </button>
-        </form>
-      </div>
-      {/* End Search Bar */}
       <nav className="header-nav ms-auto">
         <ul className="d-flex align-items-center">
           <li className="nav-item d-block d-lg-none">
@@ -44,65 +36,40 @@ const Header = () => {
               href="/"
               data-bs-toggle="dropdown"
             >
-              <img
+              {/* <img
                 src="assets/img/profile-img.jpg"
                 alt="Profile"
                 className="rounded-circle"
-              />
+              /> */}
               <span className="d-none d-md-block dropdown-toggle ps-2">
-                K. Anderson
+                {token && token.user.name + " " + token.user.last_name}
               </span>
             </a>
             {/* End Profile Iamge Icon */}
             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li className="dropdown-header">
-                <h6>Kevin Anderson</h6>
-                <span>Web Designer</span>
+                <h6>{token && token.user.name + " " + token.user.last_name}</h6>
+                <span>{token && token.user.email}</span>
               </li>
               <li>
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a
+                <span
                   className="dropdown-item d-flex align-items-center"
-                  href="users-profile.html"
                 >
                   <i className="bi bi-person" />
-                  <span>My Profile</span>
-                </a>
+                  <span>Mon Profil</span>
+                </span>
               </li>
               <li>
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a
-                  className="dropdown-item d-flex align-items-center"
-                  href="users-profile.html"
-                >
-                  <i className="bi bi-gear" />
-                  <span>Account Settings</span>
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a
-                  className="dropdown-item d-flex align-items-center"
-                  href="pages-faq.html"
-                >
-                  <i className="bi bi-question-circle" />
-                  <span>Need Help?</span>
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a className="dropdown-item d-flex align-items-center" href="/">
+                <span onClick={deconnect} className="dropdown-item d-flex align-items-center">
                   <i className="bi bi-box-arrow-right" />
-                  <span>Sign Out</span>
-                </a>
+                  <span>Se déconnecter</span>
+                </span>
               </li>
             </ul>
             {/* End Profile Dropdown Items */}

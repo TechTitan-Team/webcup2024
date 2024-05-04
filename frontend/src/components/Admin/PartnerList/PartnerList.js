@@ -1,19 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "../AdminLayout/AdminLayout";
 import { Link } from "react-router-dom";
+import useHttps from "../../../hooks/useHttps";
 
 const PartnerList = () => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const { http } = useHttps();
+
+  const getData = async () => {
+    try {
+      let response = await http.post("/partenaires/by-type", {
+        isValid: true,
+      });
+      if (response) {
+        console.log(response.data);
+        setData(response.data);
+      }
+    } catch (error) {
+      setError(error.response.data);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const approved = async (id) => {
+    try {
+      let response = await http.post("/partenaires/approve", {
+        id,
+      });
+      if (response) {
+        console.log(response.data);
+        getData();
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      setError(error.response.data);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <AdminLayout>
       <main id="main" className="main">
         <div className="pagetitle">
-          <h1>Partennaires</h1>
+          <h1>Liste des Partenaires</h1>
           <nav>
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
                 <Link to="/admin">Dashboard</Link>
               </li>
-              <li className="breadcrumb-item active">Liste des Partennaires</li>
+              <li className="breadcrumb-item active">Partenaires</li>
             </ol>
           </nav>
         </div>
@@ -22,54 +65,47 @@ const PartnerList = () => {
           <div class="row">
             <div class="col-lg-12">
               <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title"></h5>
-                  <table class="table">
+                <div className="card-body pt-3">
+                  <table className="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Start Date</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Brandon Jacob</td>
-                        <td>Designer</td>
-                        <td>28</td>
-                        <td>2016-05-25</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Bridie Kessler</td>
-                        <td>Developer</td>
-                        <td>35</td>
-                        <td>2014-12-05</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Ashleigh Langosh</td>
-                        <td>Finance</td>
-                        <td>45</td>
-                        <td>2011-08-12</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>Angus Grady</td>
-                        <td>HR</td>
-                        <td>34</td>
-                        <td>2012-06-11</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>Raheem Lehner</td>
-                        <td>Dynamic Division Officer</td>
-                        <td>47</td>
-                        <td>2011-04-19</td>
-                      </tr>
+                      {loading && (
+                        <tr>
+                          <td style={{ textAlign: "center" }} colSpan={7}>
+                            Chargement...
+                          </td>
+                        </tr>
+                      )}
+                      {data &&
+                        data.map((partner, idx) => (
+                          <tr key={idx}>
+                            <th scope="row">
+                              <Link to={`/admin/partner/${partner.id}`}>{partner.name}</Link>
+                            </th>
+                            <td>{partner.email}</td>
+                            <td>
+                              <Link to={`/admin/partner/${partner.id}`} className="text-primary">
+                                {partner.number}
+                              </Link>
+                            </td>
+                            <td>{partner.location}</td>
+                            <td>
+                              <Link to={`/admin/partner/${partner.id}`}>{partner.type}</Link>
+                            </td>
+                            <td>
+                              <span className="badge bg-success">Approuvé</span>
+                            </td>
+                          </tr>
+                        ))}
                     </tbody>
                   </table>
                 </div>

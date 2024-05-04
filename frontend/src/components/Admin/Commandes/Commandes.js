@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "../AdminLayout/AdminLayout";
 import { Link } from "react-router-dom";
+import useHttps from "../../../hooks/useHttps";
 
 const Commandes = () => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const { http } = useHttps();
+
+  const getData = async () => {
+    try {
+      let response = await http.get("/commands");
+      if (response) {
+        console.log(response.data);
+        setData(response.data);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      setError(error.response.data);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <AdminLayout>
       <main id="main" className="main">

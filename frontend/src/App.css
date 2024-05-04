@@ -21,7 +21,7 @@
 }
 
 .location-desc{
-  color: #858ea1;
+  color: #686868;
 }
 
 .s-h{
@@ -48,7 +48,6 @@
 }
 
 /*** Checkboxes classes **/
-
 
 .checkbox-group {
 	display: flex;
@@ -162,4 +161,66 @@
 }
 .checkbox-wrapper {
 	width: 100%;
+}
+
+/*** Checkboxes classes - END **/
+
+
+/*** Overlay styles - START **/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #16df7e;
+    z-index: 9999;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.overlay-d{
+	opacity: 0;
+	z-index: -9999;
+}
+
+.btn-overlay{
+	padding: 0.75rem;
+	border-radius: 10px;
+	border:1px solid #494949;
+	background-color: transparent;
+	font-weight: bold;
+	color:#494949;
+	transition: all 0.2s ease-in-out;
+}
+
+.btn-overlay:hover{
+    background-color: #494949;
+    color: #fff;
+}
+
+/*** Overlay styles - END **/
+
+/** Card styles - START **/
+
+.crd{
+	padding: 1rem;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+	margin-inline: 1rem;
+	cursor: pointer;
+	max-width: 20rem;
+	transition: all 0.2s ease-in-out;
+}
+
+
+.crd:hover{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #00000067;
+}
+.crd-img{
+	width: 100%;
+	max-height: 00px;
+	border-radius: 10px;
+	overflow: hidden;
 }

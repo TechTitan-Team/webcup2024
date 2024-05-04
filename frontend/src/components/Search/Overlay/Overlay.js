@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import jega from "../../../assets/img/04.jpg"
-import useHttps from "../../../hooks/useHttps"
+import useHttps, { imgUrl } from "../../../hooks/useHttps"
 export function Overlay(props) {
     const { http } = useHttps()
     const [services, setServices] = useState({
@@ -74,7 +74,7 @@ export function Overlay(props) {
                                     return (
                                         <div className="crd" key={index}>
                                             <div className="crd-img">
-                                                <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
+                                                <img src={`${imgUrl+res.image}`} alt="logo" className="img-fluid" />
                                             </div>
                                             <div className="crd-txt">
                                                 <h2 className="fw-bold">{res.name}</h2>

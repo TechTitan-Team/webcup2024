@@ -93,7 +93,7 @@ export function Overlay(props) {
                     </div>
                 }
                 {
-                    services.traiteurs.length !== 0 && <div>
+                    services.lieux.length !== 0 && services.traiteurs.length !== 0 && <div>
 
                         <h1 className="my-4 fw-bold">
                             Selectionner le traiteur

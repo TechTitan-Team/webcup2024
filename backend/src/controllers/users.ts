@@ -97,9 +97,13 @@ const controller = {
         }
     },
     create: async (req: Request, res: Response) => {
-        let { name, last_name, email, password, pdp, type } = req.body
+        let { name, last_name, email, password, type } = req.body
+        console.log(email);
+        
         let url_image : any= null
         try {
+            console.log(req.files);
+            
             if(req.files && req.files.pdp){
                 const src = await uploadFile('./images/', req.files.pdp,req.body.name.replace(' ','_'))
                 if(src){

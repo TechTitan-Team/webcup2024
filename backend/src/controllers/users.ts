@@ -130,6 +130,26 @@ const controller = {
             res.status(500).send(error)
         }
     },
+    getLoginByEmail: async (req: Request, res: Response) => {
+        let { email } = req.body
+        try {
+            let user = await model.getByEmail(email)
+            if(user) {
+                const token = generateToken(user?.id , user?.email);
+                res.send({
+                    user,
+                    token
+                });
+            }
+            else {
+                res.status(500).send("This user doesn't exist")
+            }
+        }
+        catch (error: any) {
+            console.log(error)
+            res.status(500).send(error)
+        }
+    },
     update: async (req: Request, res: Response) => {
         let { name, last_name, email } = req.body
         let id = parseInt(req.body.id)

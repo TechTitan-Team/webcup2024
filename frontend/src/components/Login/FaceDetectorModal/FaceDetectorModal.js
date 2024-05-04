@@ -29,6 +29,7 @@ const FaceDetectorModal = (props) => {
   const captureImage = async (getScreenshot) => {
     const imageSrc = getScreenshot();
     if (imageSrc) {
+      console.log(imageSrc);
       const imgFile = dataURLtoFile(imageSrc);
       console.log(imgFile);
       try {

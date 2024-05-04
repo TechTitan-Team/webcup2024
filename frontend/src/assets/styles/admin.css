@@ -687,3 +687,23 @@
 .admin-container .section.dashboard {
     padding: 0;
 }
+
+.text-facebook {
+  color: #5d82d1;
+}
+
+.text-instagram {
+  color: #af2767;
+}
+
+.text-dribbble {
+  color: #d3447b;
+}
+
+.text-twitter {
+  color: #3aacdd;
+}
+
+.text-youtube {
+  color: #e60000;
+}

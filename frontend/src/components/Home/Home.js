@@ -7,6 +7,7 @@ import Layout from "../Layout/Layout";
 import Cta from "./Cta/Cta";
 import useHttps from "../../hooks/useHttps";
 import Service from "./Service/Service";
+import Cible from "./Cible/Cible";
 const Home = () => {
   const { http } = useHttps();
   const testBack = async () => {
@@ -25,6 +26,7 @@ const Home = () => {
     <Layout>
       <Banner />
       <Service />
+      <Cible />
       {/* <Featured /> */}
       <About />
       <Cta />

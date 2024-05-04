@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from '@prisma/client'
+import { connect } from 'http2'
 const prisma = new PrismaClient()
 
 const modelCommands = {
@@ -29,10 +30,19 @@ const modelCommands = {
         const beginDate = new Date(date)
         const res = await prisma.commands.create({
             data:{
-                beginDate,
+                beginDate,   
+                state: false,
                 totalPrice,
-                id_user,
-                id_partenaire
+                user: {
+                    connect: {
+                        id: id_user
+                    } 
+                },
+                partenaire: {
+                    connect: {
+                        id: id_partenaire
+                    }
+                }
             }
         })
         return res

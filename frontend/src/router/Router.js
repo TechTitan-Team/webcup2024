@@ -12,18 +12,68 @@ import Register from "../components/Register";
 import Search from "../components/Search/Search";
 import Location from "../components/Location/Location";
 import PartnerRequest from "../components/PartnerRequest/PartnerRequest";
+import AdminLogin from "../components/Admin/AdminLogin/AdminLogin";
+import IsAdmin from "../pageGuard/IsAdmin";
+import PartnerProfile from "../components/Admin/PartnerProfile/PartnerProfile";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/admin" element={<Dashboard />}></Route>
-        <Route path="/admin/user-list" element={<UserList />}></Route>
-        <Route path="/admin/orders" element={<Commandes />}></Route>
-        <Route path="/admin/partners" element={<PartnerList />}></Route>
-        <Route path="/admin/partners-request" element={<DemandPartner />}></Route>
-        <Route path="/admin/orders-inactive" element={<InvalidOrder />}></Route>
+        <Route
+          path="/admin"
+          element={
+            <IsAdmin>
+              <Dashboard />
+            </IsAdmin>
+          }
+        ></Route>
+        <Route
+          path="/admin/user-list"
+          element={
+            <IsAdmin>
+              <UserList />
+            </IsAdmin>
+          }
+        ></Route>
+        <Route
+          path="/admin/orders"
+          element={
+            <IsAdmin>
+              <Commandes />
+            </IsAdmin>
+          }
+        ></Route>
+        <Route
+          path="/admin/partners"
+          element={
+            <IsAdmin>
+              <PartnerList />
+            </IsAdmin>
+          }
+        ></Route>
+        <Route
+          path="/admin/partners-request"
+          element={<DemandPartner />}
+        ></Route>
+        <Route
+          path="/admin/orders-inactive"
+          element={
+            <IsAdmin>
+              <InvalidOrder />
+            </IsAdmin>
+          }
+        ></Route>
+        <Route
+          path="/admin/partner/:id"
+          element={
+            <IsAdmin>
+              <PartnerProfile />
+            </IsAdmin>
+          }
+        ></Route>
+        <Route path="/admin/login" element={<AdminLogin />}></Route>
         <Route path="/espace" element={<Search />}></Route>
         <Route path="/espace/:id" element={<Location />}></Route>
         <Route path="/become-partner" element={<PartnerRequest />}></Route>
@@ -32,7 +82,6 @@ const Router = () => {
         <Route path="/signup" element={<Register />}></Route>
         {/* <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Register />}></Route> */}
-
       </Routes>
     </BrowserRouter>
   );

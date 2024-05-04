@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { Overlay } from "../Overlay/Overlay";
+
 export default function Searchbar() {
+    const [overlay, setOverlay] = useState(false);
+
     return <>
         <div className="container mb-4 dis-header">
             <div className="fw-bold m-4">
@@ -117,9 +122,9 @@ export default function Searchbar() {
                 </div>
             </div>
             <div className="w-100 my-4">
-                <button className="btn btn-primary w-100 fw-bold">C'est parti</button>
+                <button className="btn btn-primary w-100 fw-bold" onClick={()=>setOverlay(!overlay)}>C'est parti</button>
             </div>
         </div>
-
+        <Overlay state={overlay} action={()=>setOverlay(!overlay)}/>
     </>
 }

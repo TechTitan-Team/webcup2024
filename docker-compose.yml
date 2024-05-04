@@ -1,25 +1,18 @@
-version: "3.7"
-
+version: "3.1"
 services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
+  postgres:
+    image: postgres:14.1
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: webcup_db
-      MYSQL_USER: techtitan
-      MYSQL_PASSWORD: webcup_dev_2024
+      POSTGRES_USER: webcup24
+      POSTGRES_PASSWORD: webcup2442
+      POSTGRES_DB: webcup24-db
     ports:
-      - "3306:3306"
+      - "5432:5432"
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "1024:80"
+  pgadmin:
+    image: dpage/pgadmin4:6
     environment:
-      PMA_USER: techtitan
-      PMA_PASSWORD: webcup_dev_2024
-
-volumes:
-  db_data:
+      PGADMIN_DEFAULT_EMAIL: webcup24@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 2k23_admin
+    ports:
+      - "98:80"

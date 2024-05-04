@@ -6,7 +6,6 @@ import Faq from "./Faq/Faq";
 import Layout from "../Layout/Layout";
 import Cta from "./Cta/Cta";
 import useHttps from "../../hooks/useHttps";
-import Searchbar from "./Searchbar/Searchbar";
 
 const Home = () => {
   const { http } = useHttps();

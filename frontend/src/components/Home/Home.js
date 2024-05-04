@@ -6,7 +6,7 @@ import Faq from "./Faq/Faq";
 import Layout from "../Layout/Layout";
 import Cta from "./Cta/Cta";
 import useHttps from "../../hooks/useHttps";
-
+import Service from "./Service/Service";
 const Home = () => {
   const { http } = useHttps();
   const testBack = async () => {
@@ -24,7 +24,8 @@ const Home = () => {
   return (
     <Layout>
       <Banner />
-      <Featured />
+      <Service />
+      {/* <Featured /> */}
       <About />
       <Cta />
       <Faq />

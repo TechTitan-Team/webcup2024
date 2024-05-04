@@ -38,69 +38,23 @@ const Cible = () => {
               </li>
             </ul>
             <q className="h6 fw-semibold mb-0">
-              Using the Mizzle theme has been a seamless journey from beginning
-              to end!
+            Le professionnalisme est la compétence ou la pratique qui distingue les experts d'amateurs.
             </q>
-            <p className="mb-0 mt-3 text-body-secondary">
-              <span className="heading-color fw-normal">Dennis Barrett</span>{" "}
-              CEO of company
+            <p className="mb-0 mt-3 text-body-primary">
+              <span className="heading-color fw-normal">Stephen Covey</span>{" "}
             </p>
             {/* Location */}
             <div className="row row-cols-sm-2 mt-3">
               <div className="cols">
                 <hr className="mb-4" />
                 {/* Icon */}
-                <figure className="text-primary mb-2">
-                  <svg
-                    width={32}
-                    height={32}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.47802 7.91504C2.25 8.79835 2.25 9.94603 2.25 11.9996C2.25 14.3272 2.25 15.491 2.582 16.4252C3.16141 18.0555 4.44414 19.3382 6.07444 19.9176C7.0086 20.2496 8.1724 20.2496 10.5 20.2496H13.5C15.8276 20.2496 16.9914 20.2496 17.9256 19.9176C19.5559 19.3382 20.8386 18.0555 21.418 16.4252C21.75 15.491 21.75 14.3272 21.75 11.9996C21.75 9.94605 21.75 8.79838 21.522 7.91506L17.754 10.6916C16.6402 11.5123 15.7625 12.1591 15.002 12.6175C14.2228 13.087 13.5145 13.3922 12.7288 13.4926C12.2452 13.5543 11.7557 13.5543 11.2721 13.4926C10.4864 13.3923 9.77801 13.0871 8.99883 12.6176C8.23833 12.1593 7.36057 11.5125 6.24672 10.6918L2.47802 7.91504Z"
-                      fill="currentColor"
-                      fillOpacity="0.25"
-                    />
-                    <path
-                      d="M3.09186 6.50448L7.10646 9.46247C8.25692 10.3101 9.07916 10.915 9.77305 11.3332C10.4551 11.7442 10.9602 11.941 11.4621 12.005C11.8195 12.0507 12.1813 12.0507 12.5387 12.005C13.0406 11.9409 13.5457 11.7441 14.2277 11.3331C14.9216 10.9149 15.7438 10.31 16.8942 9.46225L20.9082 6.50449C20.2273 5.38896 19.1792 4.52754 17.9256 4.082C16.9914 3.75 15.8276 3.75 13.5 3.75L10.5 3.75C8.17241 3.75 7.00861 3.75 6.07445 4.082C4.82082 4.52754 3.7727 5.38895 3.09186 6.50448Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </figure>
-                <p className="heading-color mb-0">
-                  1421 Coburn Hollow Road Metamora, IL 61548.
-                </p>
+             
+               
               </div>
               <div className="cols">
                 <hr className="mb-4" />
                 {/* Icon */}
-                <figure className="text-primary mb-2">
-                  <svg
-                    width={32}
-                    height={32}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.5573 21.3204C14.2451 20.8085 15.174 20.072 16.1369 19.1733C18.0303 17.4062 20.1864 14.8931 20.7356 12.1471C21.8463 6.59263 17.3472 2.25 12.0001 2.25C6.65311 2.25 2.15361 6.5926 3.26469 12.1471C3.81397 14.8931 5.97011 17.4062 7.86344 19.1733C8.8263 20.072 9.75517 20.8085 10.443 21.3204C10.4887 21.3544 10.3745 21.2694 10.3908 21.2812C11.275 21.9193 12.7253 21.9193 13.6095 21.2812C13.6258 21.2694 13.5116 21.3544 13.5573 21.3204Z"
-                      fill="currentColor"
-                      fillOpacity="0.25"
-                    />
-                    <path
-                      d="M15.5 11.1504C15.5 13.0834 13.933 14.6504 12 14.6504C10.067 14.6504 8.5 13.0834 8.5 11.1504C8.5 9.21739 10.067 7.65039 12 7.65039C13.933 7.65039 15.5 9.21739 15.5 11.1504Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </figure>
-                <a
-                  href="#"
-                  className="heading-color text-primary-hover text-decoration-underline mb-0"
-                >
-                  example@gmail.com
-                </a>
+            
               </div>
             </div>
           </div>
@@ -196,146 +150,9 @@ const Cible = () => {
     </div>{" "}
     
     <div className="row mt-6 mt-lg-8">
-      <div className="col-md-10 text-center mx-auto">
-        <p className="heading-color fw-semibold mb-4">
-          Used by the world best companies
-        </p>
-        <div
-          className="swiper swiper-initialized swiper-horizontal swiper-backface-hidden"
-          data-swiper-options='{
-					"loop": false, 
-					"slidesPerView": 2, 
-					"spaceBetween": 30,
-					"breakpoints": { 
-						"576": {"slidesPerView": 2}, 
-						"768": {"slidesPerView": 3}, 
-						"992": {"slidesPerView": 4}, 
-						"1200": {"slidesPerView": 6}
-					}}'
-        >
-          {/* Slider items */}
-          <div
-            className="swiper-wrapper align-items-center"
-            id="swiper-wrapper-cfbbf710ec0caef92"
-            aria-live="off"
-            style={{
-              transitionDuration: "0ms",
-              transform: "translate3d(-316.667px, 0px, 0px)",
-              transitionDelay: "0ms"
-            }}
-          >
-            {/* Image */}
-            <div
-              className="swiper-slide"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="1 / 8"
-            >
-              <img
-                src="assets/images/client/03.svg"
-                className="grayscale px-sm-3 ps-0"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide swiper-slide-prev"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="2 / 8"
-            >
-              <img
-                src="assets/images/client/07.svg"
-                className="grayscale px-sm-3 ps-0"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide swiper-slide-active"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="3 / 8"
-            >
-              <img
-                src="assets/images/client/05.svg"
-                className="grayscale px-sm-3 ps-0"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide swiper-slide-next"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="4 / 8"
-            >
-              <img
-                src="assets/images/client/04.svg"
-                className="grayscale px-sm-3 ps-0"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="5 / 8"
-            >
-              <img
-                src="assets/images/client/01.svg"
-                className="grayscale px-sm-3"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="6 / 8"
-            >
-              <img
-                src="assets/images/client/02.svg"
-                className="grayscale px-sm-3"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="7 / 8"
-            >
-              <img
-                src="assets/images/client/03.svg"
-                className="grayscale px-sm-3"
-                alt="client-img"
-              />
-            </div>
-            {/* Image */}
-            <div
-              className="swiper-slide"
-              style={{ width: "128.333px", marginRight: 30 }}
-              role="group"
-              aria-label="8 / 8"
-            >
-              <img
-                src="assets/images/client/06.svg"
-                className="grayscale px-sm-3"
-                alt="client-img"
-              />
-            </div>
-          </div>
-          <span
-            className="swiper-notification"
-            aria-live="assertive"
-            aria-atomic="true"
-          />
-        </div>
-      </div>
+     
+        
+      
     </div>
     {/* Client-Slider END */}
   </div>

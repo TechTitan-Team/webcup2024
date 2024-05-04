@@ -3,78 +3,130 @@ import { Overlay } from "../Overlay/Overlay";
 
 export default function Searchbar() {
     const [overlay, setOverlay] = useState(false);
-
+    const [filter, setFilter] = useState({
+        location: "",
+        pers_min: 0,
+        pers_max: 999999
+    })
+    const [service, setService] = useState({
+        lieux: false,
+        traiteurs: false,
+        animation: false,
+        decoration: false,
+        concierge: false,
+        photographe: false
+    })
     return <>
         <div className="container mb-4 dis-header">
             <div className="fw-bold m-4">
-                Rechercher maintenant un éspaces à réservés
+                Ajouter des filtres pour les services
             </div>
             <div className="search-bar p-4">
                 <div className="row">
-                    <div className="col-md">
-                        <div className="s-l">
-                            Espace
-                        </div>
-                        <div>
-                            <input type="text" className="form-control" placeholder="Rechercher" />
-                        </div>
-                    </div>
                     <div className="col-md-5">
                         <div className="s-l">
-                            Espace
+                            Lieux approximatif
                         </div>
                         <div>
-                            <input type="text" className="form-control" placeholder="Rechercher" />
+                            <input type="text" className="form-control" placeholder="Lieux" value={filter.location} onChange={(e)=>{
+                                setFilter({...filter, location: e.target.value})
+                            }} />
                         </div>
                     </div>
-                    <div className="col-md-2">
-                        <button className="btn btn-primary w-100 h-100">
-                            <i className="bi bi-search me-2"></i>
-                            Rechercher
-                        </button>
+                    <div className="col-md">
+                        <div className="s-l">
+                            Minimum de personne
+                        </div>
+                        <div>
+                            <input type="number" min={0} className="form-control" placeholder="Minimum" onChange={(e)=>{
+                                setFilter({...filter, pers_min: e.target.value})
+                            }} />
+                        </div>
+                    </div>
+                    <div className="col-md">
+                        <div className="s-l">
+                            Maximum de personne
+                        </div>
+                        <div>
+                            <input type="number" min={0} className="form-control" placeholder="Rechercher" onChange={(e)=>{
+                                setFilter({...filter, pers_max: e.target.value})
+                            }}/>
+                        </div>
                     </div>
                 </div>
             </div>
+            <br />
             <div>
                 <div className="s-h fw-bold">
-                    Les services suggérés
+                    Veuillez choisir les services que vous voulez
                 </div>
                 <div className="m-4">
-                    Choisissez un espace
+                    Selectionnez les
                 </div>
                 <div className="d-flex justify-content-center">
                     <div className="checkbox">
                         <label className="checkbox-wrapper">
-                            <input type="checkbox" className="checkbox-input" />
+                            <input type="checkbox" className="checkbox-input" value={service.lieux} onChange={()=>{
+                                setService({...service, lieux: !service.lieux})
+                            }} />
                             <span className="checkbox-tile">
                                 <span className="checkbox-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
-                                        <rect width="256" height="256" fill="none"></rect>
-                                        <circle cx="96" cy="144.00002" r="10"></circle>
-                                        <circle cx="160" cy="144.00002" r="10"></circle>
-                                        <path d="M74.4017,80A175.32467,175.32467,0,0,1,128,72a175.32507,175.32507,0,0,1,53.59754,7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M181.59717,176.00041A175.32523,175.32523,0,0,1,128,184a175.32505,175.32505,0,0,1-53.59753-7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M155.04392,182.08789l12.02517,24.05047a7.96793,7.96793,0,0,0,8.99115,4.20919c24.53876-5.99927,45.69294-16.45908,61.10024-29.85086a8.05225,8.05225,0,0,0,2.47192-8.38971L205.65855,58.86074a8.02121,8.02121,0,0,0-4.62655-5.10908,175.85294,175.85294,0,0,0-29.66452-9.18289,8.01781,8.01781,0,0,0-9.31925,5.28642l-7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M100.95624,182.08757l-12.02532,24.0508a7.96794,7.96794,0,0,1-8.99115,4.20918c-24.53866-5.99924-45.69277-16.459-61.10006-29.85069a8.05224,8.05224,0,0,1-2.47193-8.38972L50.34158,58.8607a8.0212,8.0212,0,0,1,4.62655-5.1091,175.85349,175.85349,0,0,1,29.66439-9.18283,8.0178,8.0178,0,0,1,9.31924,5.28642l7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
+                                    <svg width="256px" height="256px" viewBox="-151.06 -151.06 1464.12 1464.12" fill="#f0f0f0" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)" stroke="#f0f0f0">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0">
+                                            <rect x="-151.06" y="-151.06" width="1464.12" height="1464.12" rx="732.06" fill="#34bc6e" strokewidth="0">
+                                            </rect>
+                                        </g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M1024.408674 676.899827l-13.213782-3.950512V206.516429a34.056139 34.056139 0 0 0-34.05614-34.056139H800.864175V34.056139a34.056139 34.056139 0 0 0-34.05614-34.056139H535.90741a34.056139 34.056139 0 0 0-34.05614 34.056139v74.514833h-124.236796a34.056139 34.056139 0 0 0-34.05614 34.05614v101.62352H184.856725a34.056139 34.056139 0 0 0-34.05614 34.056139v362.765997c0 6.538779 1.907144 12.532659 5.040309 17.709193l-41.003592 21.251031a41.003592 41.003592 0 0 0-22.068378 36.235732v52.855129H136.224558v33.919914l38.415325 15.938274V741.061594l166.057736-86.230145 185.810296 71.381668V886.82187c11.442863 0.408674 22.885726 0.817347 34.464813 0.953572l20.433684 0.272449 19.752561-0.272449c2.315817 0 4.76786-0.136225 7.083677-0.272449v-189.352135c0-16.891845-10.489291-32.148996-26.155115-38.142876l-5.312758-2.043368v-6.947453h222.046029v222.318478c27.381136-3.814288 53.672476-8.309698 78.192896-13.622456l3.541839-0.817347V718.993215l91.134229 27.517361v86.775043c15.25715-5.721431 28.607157-11.579087 39.505122-17.572968l11.987761-6.538778 2.724491-2.315818v-37.461753h27.653585v-53.263802c-0.136225-18.117866-11.987761-34.056139-29.152055-39.232673zM343.558334 366.035386h-33.511241a34.056139 34.056139 0 0 0 0 68.112279h33.511241v64.979114h-33.511241a34.056139 34.056139 0 0 0 0 68.112279h33.511241v2.588267c-8.309698-1.089796-16.755621 0.272449-24.247971 4.222961l-100.397499 52.174006V312.499135h124.64547v53.536251z m195.618465 203.24704c6.675003-6.26633 10.897965-14.984701 10.897965-24.929094a34.056139 34.056139 0 0 0-34.05614-34.056139h-1.770919a34.056139 34.056139 0 0 0-34.056139 34.056139c0 17.572968 13.486231 32.012771 30.650525 33.647466a40.594918 40.594918 0 0 0-15.802048 32.012771V626.632965l-83.36943-32.012771V176.683251h183.903153v389.73846c0 0.953572 0.272449 1.907144 0.272449 2.860715h-56.669416z m193.575097 0H663.413596c0.136225-0.953572 0.272449-1.907144 0.272449-2.860715V142.627112a34.056139 34.056139 0 0 0-34.056139-34.05614h-59.666357V68.112279h162.788347v501.170147z m210.330717 83.096981l-62.527072-18.798989v-23.430624c0-22.613277-18.254091-40.867367-40.867368-40.867368h-38.823998v-37.053079h30.922974a34.056139 34.056139 0 0 0 0-68.112279h-30.922974v-62.663297h30.922974a34.056139 34.056139 0 0 0 0-68.112278h-30.922974v-92.768924h142.218438v411.806838z m-563.288546 107.6174H321.489956c-22.613277 0-40.867367 18.254091-40.867367 40.867368v58.031661l4.631635 0.953572c35.690834 7.628575 74.787282 13.75868 116.199547 18.390315l18.935214 2.179593h0.408674v-79.555141c-0.136225-22.477052-18.390315-40.867367-41.003592-40.867368z m330.753226-59.938805h-23.2944a34.056139 34.056139 0 0 0-34.056139 34.056139v43.046961a34.056139 34.056139 0 0 0 34.056139 34.056139h23.2944a34.056139 34.056139 0 0 0 34.056139-34.056139v-43.046961c0-18.935214-15.25715-34.056139-34.056139-34.056139zM516.018624 377.342025h-1.770919a34.056139 34.056139 0 0 0 0 68.112279h1.770919a34.056139 34.056139 0 0 0 0-68.112279z m0-132.955169h-1.770919a34.056139 34.056139 0 0 0 0 68.112279h1.770919a34.056139 34.056139 0 0 0 0-68.112279zM1080.396967 823.7499c0 3.814288-3.950512 11.306638-14.984701 20.842358l53.263802 61.982173c35.827059-30.78675 43.319409-61.982174 43.319409-82.824531h-81.59851zM896.902488 952.754556l-8.582147-39.505121c-37.461753 8.037249-78.329121 14.439803-121.512306 19.207662l8.990821 81.189837c45.907676-5.040309 89.36331-11.987761 129.549554-20.569909l-0.136224-0.408673 4.631635-0.817348-12.941333-39.096448zM234.306239 903.84994c-0.136225 0-0.272449 0-0.272449-0.136224-44.272981-11.579087-82.143408-25.473992-109.115871-40.322469l-39.232672 71.654117c33.511241 18.390315 76.558201 34.464813 128.187309 47.81482l9.671943-37.325529 0.136225-0.408674-9.535719 37.870427 10.080617-39.641346 12.941333-38.823999-2.860716-0.681123zM1057.78369 900.580551l-0.817347-1.362246-19.616336-35.827058c-27.108687 14.848477-64.979114 28.879606-109.524545 40.458693l20.569908 79.146468c50.947985-13.213782 93.586271-29.152055 126.825064-47.133697h0.136224c0.408674-0.272449 0.817347-0.408674 1.226021-0.681123l-18.798989-34.601037zM99.035253 846.77185L96.583211 844.592258C85.685247 835.192763 81.734735 827.700412 81.734735 823.7499H0c0 20.706133 7.492351 51.901556 43.319409 82.824531l4.222962 3.26939 22.613276-33.783691 28.879606-29.28828zM729.346282 936.271385l-3.541839 0.136224c-40.186245 3.405614-82.007184 5.312758-123.964347 5.857656l0.953572 81.734735c44.000532-0.544898 87.728615-2.588267 129.958228-6.130105l-3.26939-39.096448v-42.502062zM273.811361 913.249435l-17.02807 79.963815c40.05002 8.582147 83.641878 15.393375 129.549555 20.569908v-0.544898l4.631635 0.681123V972.643342l4.359185-40.186245c-43.183185-4.76786-84.186777-11.306638-121.512305-19.207662zM436.463483 936.407609l-6.811228 81.462286c42.093388 3.541838 85.821471 5.585207 129.958228 6.130105l0.408674-40.867367v-5.585207l0.408673-35.282161c-42.229613-0.544898-83.914328-2.452042-123.964347-5.857656z">
+                                            </path>
+                                        </g>
                                     </svg>
                                 </span>
-                                <span className="checkbox-label">Espaces</span>
+                                <span className="checkbox-label">Location de lieux</span>
                             </span>
                         </label>
                     </div>
                     <div className="checkbox">
                         <label className="checkbox-wrapper">
-                            <input type="checkbox" className="checkbox-input" />
+                            <input type="checkbox" className="checkbox-input" value={service.traiteurs} onChange={(e)=>{
+                                setService({...service, traiteurs: !service.traiteurs})
+                            }} />
                             <span className="checkbox-tile">
                                 <span className="checkbox-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
-                                        <rect width="256" height="256" fill="none"></rect>
-                                        <circle cx="96" cy="144.00002" r="10"></circle>
-                                        <circle cx="160" cy="144.00002" r="10"></circle>
-                                        <path d="M74.4017,80A175.32467,175.32467,0,0,1,128,72a175.32507,175.32507,0,0,1,53.59754,7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M181.59717,176.00041A175.32523,175.32523,0,0,1,128,184a175.32505,175.32505,0,0,1-53.59753-7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M155.04392,182.08789l12.02517,24.05047a7.96793,7.96793,0,0,0,8.99115,4.20919c24.53876-5.99927,45.69294-16.45908,61.10024-29.85086a8.05225,8.05225,0,0,0,2.47192-8.38971L205.65855,58.86074a8.02121,8.02121,0,0,0-4.62655-5.10908,175.85294,175.85294,0,0,0-29.66452-9.18289,8.01781,8.01781,0,0,0-9.31925,5.28642l-7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M100.95624,182.08757l-12.02532,24.0508a7.96794,7.96794,0,0,1-8.99115,4.20918c-24.53866-5.99924-45.69277-16.459-61.10006-29.85069a8.05224,8.05224,0,0,1-2.47193-8.38972L50.34158,58.8607a8.0212,8.0212,0,0,1,4.62655-5.1091,175.85349,175.85349,0,0,1,29.66439-9.18283,8.0178,8.0178,0,0,1,9.31924,5.28642l7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
+                                    <svg
+                                        height="256px"
+                                        width="256px"
+                                        version="1.1"
+                                        id="_x32_"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                                        viewBox="-92.16 -92.16 696.32 696.32"
+                                        xmlSpace="preserve"
+                                        fill="#f2f2f2"
+                                        stroke="#f2f2f2"
+                                    >
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                                            <rect x="-92.16" y="-92.16" width="696.32" height="696.32" rx="348.16" fill="#34bc6e" strokeWidth="0"></rect>
+                                        </g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <path
+                                                    fill="#f2f2f2"
+                                                    d="M257.783,144.629v60.21c0,3.854-3.271,6.959-7.308,6.959h-1.948c-4.036,0-7.29-3.105-7.29-6.959V144.35 c0-9.916-7.011-12.882-13.708-12.882c-6.715,0-13.709,2.966-13.709,12.882v60.489c0,3.854-3.288,6.959-7.306,6.959h-1.948 c-4.019,0-7.307-3.105-7.307-6.959v-60.21c0-17.763-26.53-17.162-26.53,0.2c0,20.79,0,57.497,0,57.497 c-0.121,31.924,7.863,40.222,21.068,50.164c10.647,8.012,19.746,12.605,19.746,32.498v127.998h31.975V284.988 c0-19.893,9.081-24.486,19.728-32.498c13.205-9.942,21.19-18.24,21.068-50.164c0,0,0-36.708,0-57.497 C284.314,127.467,257.783,126.866,257.783,144.629z"
+                                                ></path>
+                                                <path
+                                                    fill="#f2f2f2"
+                                                    d="M344.68,150.622c-6.802,18.172-19.536,62.568-19.536,85.115c-1.775,54.235,27.452,25.165,28.183,67.639 v109.966h31.819l0.157,0.392c0,0,0-0.166,0-0.392c0-5.106,0-65.943,0-128.006c0-61.393,0-123.926,0-134.713 C385.303,128.467,355.241,122.361,344.68,150.622z"
+                                                ></path>
+                                                <path
+                                                    fill="#f2f2f2"
+                                                    d="M475.332,35.481c-4.419-10.448-11.778-19.285-21.05-25.548c-4.627-3.132-9.742-5.61-15.222-7.315 C433.579,0.913,427.768,0,421.766,0H117.111h-4.888h-21.99c-8.002,0-15.692,1.626-22.651,4.567 C57.126,9.002,48.289,16.344,42.026,25.608c-3.132,4.636-5.62,9.751-7.324,15.23c-1.705,5.463-2.609,11.282-2.609,17.258v395.807 c0,7.976,1.618,15.657,4.575,22.615c4.419,10.448,11.778,19.285,21.034,25.548c4.645,3.131,9.776,5.618,15.239,7.315 C78.42,511.087,84.231,512,90.233,512h21.99h4.888h304.655c7.985,0,15.675-1.626,22.633-4.567 c10.456-4.428,19.311-11.769,25.556-21.042c3.131-4.627,5.637-9.751,7.324-15.222c1.723-5.463,2.628-11.282,2.628-17.266V58.096 C479.907,50.129,478.272,42.439,475.332,35.481z M108.186,480.998H90.233c-3.81-0.008-7.341-0.756-10.577-2.122 c-4.837-2.053-9.012-5.506-11.952-9.847c-1.461-2.166-2.61-4.532-3.392-7.072c-0.783-2.531-1.218-5.228-1.218-8.054V58.096 c0-3.775,0.766-7.298,2.122-10.534c2.053-4.828,5.498-9.002,9.847-11.934c2.174-1.462,4.541-2.619,7.08-3.41 c2.54-0.783,5.237-1.21,8.09-1.218h17.954V480.998z M448.888,453.904c0,3.775-0.747,7.298-2.105,10.534 c-2.053,4.836-5.515,9.002-9.847,11.943c-2.174,1.462-4.558,2.61-7.08,3.401c-2.557,0.783-5.236,1.21-8.089,1.218H126.036V31.001 h295.731c3.792,0.009,7.324,0.766,10.56,2.132c4.853,2.044,9.028,5.506,11.952,9.838c1.461,2.166,2.627,4.541,3.41,7.071 c0.783,2.54,1.2,5.22,1.2,8.055V453.904z"
+                                                ></path>
+                                            </g>
+                                        </g>
                                     </svg>
                                 </span>
                                 <span className="checkbox-label">Services traiteurs</span>
@@ -83,48 +135,338 @@ export default function Searchbar() {
                     </div>
                     <div className="checkbox">
                         <label className="checkbox-wrapper">
-                            <input type="checkbox" className="checkbox-input" />
+                            <input type="checkbox" className="checkbox-input" value={service.animation} onChange={(e)=>{
+                                setService({...service, animation: !service.animation})
+                            }} />
                             <span className="checkbox-tile">
                                 <span className="checkbox-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
-                                        <rect width="256" height="256" fill="none"></rect>
-                                        <circle cx="96" cy="144.00002" r="10"></circle>
-                                        <circle cx="160" cy="144.00002" r="10"></circle>
-                                        <path d="M74.4017,80A175.32467,175.32467,0,0,1,128,72a175.32507,175.32507,0,0,1,53.59754,7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M181.59717,176.00041A175.32523,175.32523,0,0,1,128,184a175.32505,175.32505,0,0,1-53.59753-7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M155.04392,182.08789l12.02517,24.05047a7.96793,7.96793,0,0,0,8.99115,4.20919c24.53876-5.99927,45.69294-16.45908,61.10024-29.85086a8.05225,8.05225,0,0,0,2.47192-8.38971L205.65855,58.86074a8.02121,8.02121,0,0,0-4.62655-5.10908,175.85294,175.85294,0,0,0-29.66452-9.18289,8.01781,8.01781,0,0,0-9.31925,5.28642l-7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M100.95624,182.08757l-12.02532,24.0508a7.96794,7.96794,0,0,1-8.99115,4.20918c-24.53866-5.99924-45.69277-16.459-61.10006-29.85069a8.05224,8.05224,0,0,1-2.47193-8.38972L50.34158,58.8607a8.0212,8.0212,0,0,1,4.62655-5.1091,175.85349,175.85349,0,0,1,29.66439-9.18283,8.0178,8.0178,0,0,1,9.31924,5.28642l7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
+                                    <svg
+                                        width="256px"
+                                        height="256px"
+                                        viewBox="-5.12 -5.12 74.24 74.24"
+                                        enableBackground="new 0 0 64 64"
+                                        version="1.1"
+                                        xmlSpace="preserve"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                                        fill="#f2f2f2"
+                                        stroke="#f2f2f2"
+                                    >
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                                            <rect x="-5.12" y="-5.12" width="74.24" height="74.24" rx="37.12" fill="#34bc6e" strokeWidth="0"></rect>
+                                        </g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M44.146,59.309c-0.736-2.555,0.736-5.223,3.293-5.961"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M38.186,56.012c2.559-0.734,5.227,0.742,5.961,3.297"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M47.439,53.348c-2.559,0.738-5.223-0.736-5.959-3.293"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M41.48,50.055c0.217,0.76,0.242,1.527,0.102,2.252"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M57.053,13.382c-0.701,1.22-1.631,0.685-2.334,1.904c-0.701,1.22,0.229,1.755-0.475,2.976c-0.703,1.222-1.633,0.687-2.334,1.906"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M12.88,10.832c0.491,0,0.888,0.397,0.888,0.888c0,0.491-0.397,0.889-0.888,0.889s-0.888-0.397-0.888-0.889"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <line
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                                x1="11.465"
+                                                x2="8.1"
+                                                y1="46.809"
+                                                y2="44.697"
+                                            ></line>
+                                            <line
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                                x1="57.738"
+                                                x2="54.373"
+                                                y1="36.471"
+                                                y2="34.361"
+                                            ></line>
+                                            <path
+                                                d="M36.961,51.053c-1.576,0.453-3.242,0.695-4.964,0.695c-9.885,0-17.897-8.012-17.897-17.896"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M31.997,15.954c9.886,0,17.898,8.014,17.898,17.898c0,5.018-2.064,9.553-5.391,12.803"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M16.12,25.583c0.577-1.107,1.268-2.147,2.055-3.104c2.154-2.613,5.034-4.605,8.332-5.667"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <line
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                                x1="31.997"
+                                                x2="31.997"
+                                                y1="12.585"
+                                                y2="6.052"
+                                            ></line>
+                                            <path
+                                                d="M37.326,39.182c-0.707,7.281-2.826,12.566-5.33,12.566c-3.082,0-5.582-8.012-5.582-17.896c0-9.884,2.5-17.898,5.582-17.898 c3.083,0,5.582,8.014,5.582,17.898"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M19.684,42.301c-1.053-2.516-1.651-5.393-1.651-8.449c0-4.152,1.104-7.974,2.955-11.012"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M43.008,22.844c1.85,3.036,2.953,6.856,2.953,11.007c0,2.633-0.443,5.133-1.24,7.383"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M43.008,44.861c-3.037,1.852-6.859,2.953-11.011,2.953c-2.473,0-4.828-0.391-6.97-1.098"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M20.988,22.841c3.037-1.851,6.857-2.954,11.009-2.954c2.464,0,4.812,0.389,6.949,1.092"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M41.416,38.598c-1.266,0.246-2.639,0.443-4.09,0.584c-1.684,0.164-3.473,0.252-5.33,0.252c-9.884,0-17.897-2.498-17.897-5.582 c0-1.373,1.589-2.63,4.225-3.602"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <path
+                                                d="M22.933,29.038c2.658-0.487,5.757-0.768,9.063-0.768c9.884,0,17.898,2.498,17.898,5.582c0,1.371-1.586,2.627-4.217,3.598"
+                                                fill="none"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></path>
+                                            <polyline
+                                                fill="none"
+                                                points="29.663,12.585 34.33,12.585 34.33,16.114"
+                                                stroke="#f2f2f2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeMiterlimit="10"
+                                                strokeWidth="2.7"
+                                            ></polyline>
+                                        </g>
                                     </svg>
                                 </span>
                                 <span className="checkbox-label">Animations</span>
                             </span>
                         </label>
                     </div>
+
+                </div>
+                <br />
+                <div className="d-flex justify-content-center">
                     <div className="checkbox">
                         <label className="checkbox-wrapper">
-                            <input type="checkbox" className="checkbox-input" />
+                            <input type="checkbox" className="checkbox-input" value={service.decoration} onChange={(e)=>{
+                                setService({...service, decoration: !service.decoration})
+                            }} />
                             <span className="checkbox-tile">
                                 <span className="checkbox-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256">
-                                        <rect width="256" height="256" fill="none"></rect>
-                                        <circle cx="96" cy="144.00002" r="10"></circle>
-                                        <circle cx="160" cy="144.00002" r="10"></circle>
-                                        <path d="M74.4017,80A175.32467,175.32467,0,0,1,128,72a175.32507,175.32507,0,0,1,53.59754,7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M181.59717,176.00041A175.32523,175.32523,0,0,1,128,184a175.32505,175.32505,0,0,1-53.59753-7.99971" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M155.04392,182.08789l12.02517,24.05047a7.96793,7.96793,0,0,0,8.99115,4.20919c24.53876-5.99927,45.69294-16.45908,61.10024-29.85086a8.05225,8.05225,0,0,0,2.47192-8.38971L205.65855,58.86074a8.02121,8.02121,0,0,0-4.62655-5.10908,175.85294,175.85294,0,0,0-29.66452-9.18289,8.01781,8.01781,0,0,0-9.31925,5.28642l-7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
-                                        <path d="M100.95624,182.08757l-12.02532,24.0508a7.96794,7.96794,0,0,1-8.99115,4.20918c-24.53866-5.99924-45.69277-16.459-61.10006-29.85069a8.05224,8.05224,0,0,1-2.47193-8.38972L50.34158,58.8607a8.0212,8.0212,0,0,1,4.62655-5.1091,175.85349,175.85349,0,0,1,29.66439-9.18283,8.0178,8.0178,0,0,1,9.31924,5.28642l7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
+                                    <svg
+                                        fill="#f2f2f2"
+                                        height="256px"
+                                        width="256px"
+                                        version="1.1"
+                                        id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                                        viewBox="-94.95 -94.95 569.69 569.69"
+                                        xmlSpace="preserve"
+                                        stroke="#f2f2f2"
+                                    >
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                                            <rect x="-94.95" y="-94.95" width="569.69" height="569.69" rx="284.845" fill="#34bc6e" strokeWidth="0"></rect>
+                                        </g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <path
+                                                    d="M9.354,44.198l0.006-0.022c0.282,0.106,0.585,0.205,0.91,0.296c0.605,0.169,1.479,0.406,2.552,0.693 c2.115,0.566,5.012,1.328,8.134,2.136c4.581,1.185,12.896,3.306,17.032,4.186c0.654,0.15,1.051,0.37,1.199,0.555l0.139,0.584 c4.13,17.419,8.878,35.006,14.116,52.28c0.901,4.596,5.067,7.888,10.071,7.888c3.54,0,6.661-1.699,8.431-4.568 c10.788-14.257,21.232-28.987,31.044-43.783l0.24-0.397c0.104-0.159,0.48-0.674,0.997-0.674c0.065,0,0.133,0.006,0.205,0.015 c3.75,0.483,8.511,1.047,12.129,1.438c0.987,0.107,1.436,0.778,1.598,1.109c6.112,16.77,12.852,33.623,20.038,50.105 c1.295,4.041,5.111,6.726,9.632,6.726c3.984,0,7.512-2.188,9.103-5.607c8.731-14.964,17.092-30.32,24.866-45.68l0.193-0.061 l0.894-2.117c0.077-0.167,0.231-0.388,0.349-0.507c4.174,0.048,9.903,0.038,13.234,0.001c0.138,0,0.209,0.008,0.209,0.012 c0.025,0.024,0.064,0.079,0.09,0.127l0.276,0.655c8.041,15.986,16.723,31.984,25.807,47.552c1.57,3.434,5.086,5.628,9.079,5.628 c4.509,0,8.338-2.681,9.658-6.712c7.117-16.319,13.802-33.014,19.874-49.636l0.268-0.74c0.126-0.329,0.381-0.733,0.87-0.786 c4.25-0.454,9.797-1.122,12.896-1.521c0.265,0,0.837,0.442,1.127,0.801c9.873,14.897,20.376,29.713,31.22,44.04 c1.752,2.881,4.864,4.587,8.411,4.587c0.001,0,0,0,0.001,0c4.985,0,9.165-3.288,10.095-7.875 c5.128-16.917,9.787-34.131,13.852-51.179l0.144-0.601c0.003-0.015,0.007-0.028,0.01-0.043L340.35,53.1l0.002-0.008 c0.116-0.409,0.55-1.398,1.995-1.733c4.125-0.883,12.258-2.961,16.737-4.121c3.054-0.791,5.888-1.537,7.956-2.092 c1.05-0.281,1.904-0.515,2.497-0.68c0.318-0.088,0.614-0.186,0.891-0.29l0.007,0.022c3.345-0.929,6.109-3.096,7.781-6.104 c1.62-2.912,2.004-6.253,1.08-9.408c-1.534-5.233-6.593-8.889-12.302-8.889c-1.18,0-2.351,0.15-3.481,0.463 c-56.527,15.688-114.94,23.635-173.618,23.635c-0.007,0-0.011,0-0.018,0c-58.748,0-117.244-7.97-173.854-23.706 c-1.117-0.312-2.27-0.464-3.425-0.464c-5.582,0-10.56,3.685-12.104,8.957c-0.925,3.153-0.54,6.497,1.081,9.411 C3.248,41.104,6.011,43.272,9.354,44.198z"
+                                                ></path>
+                                                <path
+                                                    d="M379.297,265.985c-1.533-5.232-6.593-8.888-12.304-8.888c-1.178,0-2.348,0.158-3.479,0.472 c-56.526,15.688-114.939,23.643-173.616,23.645c-58.756,0.001-117.256-7.978-173.878-23.716c-1.115-0.311-2.266-0.467-3.42-0.467 c-5.583,0-10.562,3.682-12.107,8.956c-0.923,3.151-0.539,6.491,1.08,9.403c1.672,3.008,4.435,5.176,7.777,6.105l0.007-0.023 c0.283,0.107,0.587,0.207,0.912,0.298c0.605,0.169,1.48,0.407,2.553,0.694c2.115,0.566,5.013,1.329,8.135,2.137 c4.581,1.185,12.896,3.305,17.031,4.182c0.661,0.152,1.059,0.376,1.204,0.561l0.135,0.58c4.129,17.414,8.877,35.002,14.116,52.28 c0.902,4.597,5.068,7.889,10.072,7.889c3.54,0,6.661-1.7,8.431-4.569c10.515-13.899,20.699-28.239,30.287-42.646l0.234-0.114 l0.734-1.377c0.044-0.073,0.448-0.718,1.026-0.718c0.064,0,0.133,0.005,0.203,0.014c4.33,0.558,9.102,1.108,12.125,1.438 c1.024,0.111,1.47,0.827,1.585,1.063c6.113,16.778,12.86,33.649,20.055,50.152c1.296,4.04,5.113,6.726,9.635,6.726 c3.984,0,7.512-2.188,9.1-5.607c8.793-15.067,17.207-30.531,25.026-45.995l0.187-0.085l0.741-1.778 c0.077-0.167,0.23-0.385,0.348-0.504c4.17,0.048,9.897,0.035,13.234,0.001c0.129,0,0.188,0.023,0.208,0.012 c0.028,0.026,0.071,0.09,0.098,0.141l0.621,1.956l0.412,0.199c7.826,15.483,16.246,30.963,25.044,46.039 c1.57,3.432,5.086,5.626,9.079,5.626c4.509,0,8.338-2.681,9.657-6.712c7.14-16.37,13.838-33.102,19.914-49.745l0.268-0.74 c0.126-0.329,0.381-0.733,0.87-0.786c4.25-0.454,9.797-1.122,12.896-1.521c0.265,0,0.837,0.442,1.127,0.801 c9.862,14.88,20.366,29.697,31.222,44.043c1.753,2.881,4.864,4.587,8.412,4.588c0,0,0,0,0.001,0 c4.985,0,9.165-3.289,10.095-7.876c5.099-16.818,9.733-33.929,13.781-50.883l0.213-0.893c0.004-0.017,0.008-0.03,0.011-0.046 l-0.001-0.001l0.002-0.008c0.116-0.409,0.55-1.398,1.996-1.733c4.121-0.883,12.255-2.962,16.736-4.122 c3.054-0.791,5.887-1.538,7.955-2.092c1.049-0.281,1.904-0.514,2.496-0.679c0.318-0.089,0.615-0.186,0.893-0.29l0.007,0.022 c3.345-0.929,6.109-3.097,7.782-6.106 C379.838,272.477,380.221,269.136,379.297,265.985z"
+                                                ></path>
+                                                <path
+                                                    d="M332.659,145.479c-1.252,0-2.503,0.169-3.721,0.503c-45.291,12.433-92.072,18.736-139.043,18.736 c-47.058,0.001-93.925-6.327-139.3-18.808c-1.2-0.33-2.428-0.497-3.649-0.497c-5.521,0-10.239,3.441-11.74,8.562 c-0.887,3.022-0.533,6.196,0.996,8.938c1.646,2.951,4.572,5.189,8.03,6.14l0.011-0.037c1.85,0.634,5.194,1.474,11.721,3.111 c4.574,1.148,12.862,3.194,17.138,4.031c0.666,0.15,1.052,0.386,1.147,0.7l0.02,0.287l0.111,0.439 c4.422,17.444,9.603,35.03,15.399,52.273c1.02,4.479,5.224,7.684,10.168,7.684c3.65,0,6.824-1.757,8.57-4.723 c10.601-14.624,20.719-29.761,30.074-44.991l0.221-0.36l0.07-0.174c0.124-0.21,0.545-0.848,1.043-0.848 c0.04,0,0.08,0.003,0.125,0.007c3.774,0.345,8.57,0.728,12.221,0.976c0.999,0.068,1.485,0.97,1.593,1.201l0.383,0.937l0.009,0.01 c6.782,16.321,14.3,32.651,22.354,48.559c1.453,3.754,5.233,6.247,9.548,6.247c4.256,0,7.898-2.356,9.396-6.037 c8.342-16.001,16.141-32.442,23.185-48.876l0.137-0.202l0.211-0.663c0.077-0.221,0.243-0.514,0.377-0.681 c4.229-0.223,9.979-0.614,13.268-0.893c0.069,0.047,0.201,0.228,0.223,0.266l0.381,1.027l0.333,0.332 c9.116,15.277,18.984,30.464,29.338,45.149c1.719,3.045,5.03,4.918,8.75,4.919h0.001c4.886,0,8.957-3.039,10.047-7.441 c5.918-16.888,11.247-34.118,15.845-51.231l0.093-0.122l0.224-1.087c0.009-0.035,0.206-0.819,0.688-0.991 c3.05-0.44,13.433-2.89,19.579-4.367c10.801-2.596,15.351-3.688,17.522-4.487c3.374-0.98,6.223-3.19,7.837-6.085 c1.527-2.74,1.881-5.914,0.994-8.938C343.093,148.893,338.3,145.479,332.659,145.479z"
+                                                ></path>
+                                            </g>
+                                        </g>
                                     </svg>
                                 </span>
                                 <span className="checkbox-label">Décorations</span>
                             </span>
                         </label>
                     </div>
+                    <div className="checkbox">
+                        <label className="checkbox-wrapper">
+                            <input type="checkbox" className="checkbox-input" value={service.concierge} onChange={(e)=>{
+                                setService({...service, concierge: !service.concierge})
+                            }} />
+                            <span className="checkbox-tile">
+                                <span className="checkbox-icon">
+                                    <svg
+                                        fill="#f2f2f2"
+                                        height="256px"
+                                        width="256px"
+                                        version="1.1"
+                                        id="Layer_1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="-110.4 -110.4 700.80 700.80"
+                                        xmlSpace="preserve"
+                                        stroke="#f2f2f2"
+                                    >
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                                            <rect x="-110.4" y="-110.4" width="700.80" height="700.80" rx="350.4" fill="#34bc6e" strokeWidth="0"></rect>
+                                        </g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g id="XMLID_1095_">
+                                                <g>
+                                                    <g>
+                                                        <path d="M260,410h-40c-5.523,0-10,4.478-10,10c0,5.522,4.477,10,10,10h40c5.522,0,10-4.478,10-10 C270,414.477,265.522,410,260,410z"></path>
+                                                        <path d="M280,370h-80c-5.523,0-10,4.478-10,10c0,5.522,4.477,10,10,10h80c5.522,0,10-4.478,10-10 C290,374.478,285.522,370,280,370z"></path>
+                                                        <path d="M420,79.999H50.001V68.636L370,21.578v38.421c0,5.522,4.478,10,10,10c5.522,0,10-4.478,10-10v-50 c0-2.906-1.265-5.668-3.464-7.568c-2.198-1.899-5.112-2.746-7.991-2.325L38.695,50.085C35.187,50.75,30.001,52,30.001,60.15V470 c0,5.522,4.477,10,10,10h379.998c16.542,0,30-13.458,30-30V110C449.999,93.458,436.541,79.999,420,79.999z M429.999,450 c0,5.514-4.486,10-10,10H50V200h120v1.394c0,14.436,11.744,26.18,26.18,26.18c4.042,0,8.091-0.956,11.708-2.764l15.431-7.716 c-15.894,39.375-47.23,67.398-93.431,83.461c-5.217,1.814-7.976,7.513-6.162,12.73c1.814,5.217,7.513,7.976,12.729,6.161 c49.607-17.246,84.907-48.263,103.544-90.561c18.637,42.298,53.938,73.315,103.544,90.561c5.217,1.813,10.916-0.946,12.729-6.161 c1.814-5.217-0.945-10.917-6.161-12.73c-46.2-16.062-77.536-44.086-93.431-83.461l15.432,7.716 c3.615,1.808,7.664,2.764,11.707,2.764c14.437,0,26.181-11.744,26.181-26.18V200h119.999V450z M190,201.394v-27.64 c0-3.409,2.772-6.181,6.18-6.181c0.954,0,1.91,0.225,2.764,0.652L230,183.753v7.639l-31.055,15.529 c-0.854,0.426-1.81,0.652-2.765,0.652C192.773,207.573,190,204.8,190,201.394z M250,191.393v-7.639l31.056-15.53 c0.854-0.426,1.81-0.652,2.765-0.652c3.408,0,6.18,2.773,6.18,6.181v27.64c0,3.408-2.773,6.18-6.181,6.18 c-0.954,0-1.91-0.225-2.764-0.652L250,191.393z M430,180H310v-6.247c0-14.437-11.745-26.181-26.181-26.181 c-4.043,0-8.092,0.956-11.707,2.764L240,166.392l-32.112-16.055c-3.616-1.808-7.664-2.764-11.707-2.764 c-14.435,0-26.18,11.744-26.18,26.181V180h-120v-80h369.998c5.514,0,10,4.486,10,10H430V180z"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span>
+                                <span className="checkbox-label">Concierge</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div className="checkbox">
+                        <label className="checkbox-wrapper">
+                            <input type="checkbox" className="checkbox-input" value={service.photographe} onChange={(e)=>{
+                                setService({...service, photographe: !service.photographe})
+                            }}/>
+                            <span className="checkbox-tile">
+                                <span className="checkbox-icon">
+                                    <svg width="256px" height="256px" viewBox="-6 -6 36.00 36.00" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#f2f2f2" stroke="#f2f2f2">
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0">
+                                            <rect x="-6" y="-6" width="36.00" height="36.00" rx="18" fill="#34bc6e" strokeWidth="0" />
+                                        </g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+                                        <g id="SVGRepo_iconCarrier">
+                                            <polygon className="cls-1" points="18.68 5.32 16.77 2.46 11.04 2.46 9.14 5.32 1.5 5.32 1.5 21.55 22.5 21.55 22.5 5.32 18.68 5.32" />
+                                            <circle className="cls-1" cx="13.91" cy="12.95" r="4.77" />
+                                            <line className="cls-1" x1="4.36" y1="9.14" x2="7.23" y2="9.14" />
+                                        </g>
+                                    </svg>
+                                </span>
+                                <span className="checkbox-label">Photographe</span>
+                            </span>
+                        </label>
+                    </div>
                 </div>
             </div>
             <div className="w-100 my-4">
-                <button className="btn btn-primary w-100 fw-bold" onClick={()=>setOverlay(!overlay)}>C'est parti</button>
+                <button className="btn btn-primary w-100 fw-bold" onClick={() => setOverlay(!overlay)}>C'est parti</button>
             </div>
         </div>
-        <Overlay state={overlay} action={()=>setOverlay(!overlay)}/>
+        <Overlay filter={filter} service={service} state={overlay} action={() => setOverlay(!overlay)} />
     </>
 }

@@ -16,7 +16,7 @@ const Cible = () => {
            POUR QUI EST <span className="text-primary">Elite events </span>?
           </h1>
           <p className="mb-5 mb-xl-0">
-            Élite évents s'adresse à tous ceux qui cherchent à organiser des soirées exclusives et inoubliables, qu'il s'agisse de fêtes mondaines ou d'événements professionnels.
+            Elite Events s'adresse à tous ceux qui cherchent à organiser des soirées exclusives et inoubliables, qu'il s'agisse de fêtes mondaines ou d'événements professionnels.
           </p>
           {/* Quote and location */}
           <div className="mt-auto">
@@ -43,20 +43,6 @@ const Cible = () => {
             <p className="mb-0 mt-3 text-body-primary">
               <span className="heading-color fw-normal">Stephen Covey</span>{" "}
             </p>
-            {/* Location */}
-            <div className="row row-cols-sm-2 mt-3">
-              <div className="cols">
-                <hr className="mb-4" />
-                {/* Icon */}
-             
-               
-              </div>
-              <div className="cols">
-                <hr className="mb-4" />
-                {/* Icon */}
-            
-              </div>
-            </div>
           </div>
         </div>
       </div>

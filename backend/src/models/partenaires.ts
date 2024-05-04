@@ -13,8 +13,15 @@ const modelPartenaire = {
       },
     });
   },
+  getLimit: async (limit: number) => {
+    return prisma.partenaires.findMany({
+      take: limit,
+      orderBy: {
+        id: "desc"
+      }
+    });
+  },
   getByType: async (isValid:boolean) => {
-    console.log(isValid)
     return prisma.partenaires.findMany({
       where: {
         isValid: isValid

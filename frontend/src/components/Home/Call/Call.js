@@ -5,7 +5,7 @@ import  svg2 from "../../../assets/img/cta-vector.svg";
 import img3 from "../../../assets/img/sary.jpg";
 const Call = () => {
   return (
-    <section className=" pt-0">
+    <section className=" pt-0 pb-0">
     <div className="call p-0 container-fluid">
       <div className=" callus rounded position-relative overflow-hidden p-4 p-sm-7">
         {/* SVG decoration */}

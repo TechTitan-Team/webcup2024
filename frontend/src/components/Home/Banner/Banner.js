@@ -5,8 +5,8 @@ import AnimationWrapper from "../../../hooks/JumpInAnimation";
 import ElegantText from "../../../hooks/ElegantText";
 const Banner = () => {
   return (
-    <section id="hero" className="d-flex align-items-center">
-      <div className="container">
+    <section id="hero" className=" mt-7 d-flex align-items-center">
+      <div className="container ">
         <div className="row">
           <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
             <AnimationWrapper text="Elite Events"/>

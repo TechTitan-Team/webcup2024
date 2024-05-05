@@ -1,8 +1,13 @@
 import React from "react";
+import { useState,useEffect } from "react";
 import heroImg from "../../../assets/img/hero-img.png";
 // import heroImg from "../../../assets/photo3";
 
 const Service = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
   return (
 <section className="pb-4 section-header" >
   <div className="container">
@@ -16,7 +21,10 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          >
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -46,7 +54,7 @@ const Service = () => {
             </p>
           </div>
           {/* Card footer */}
-          <div className="card-footer mt-auto p-0 pt-2">
+          {/* <div className="card-footer mt-auto p-0 pt-2">
             <a 
               className="lien icon-link icon-link-hover stretched-link z-index-2"
               href="#"
@@ -54,14 +62,16 @@ const Service = () => {
             Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Service item */}
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -102,7 +112,7 @@ const Service = () => {
             </p>
           </div>
           {/* Card footer */}
-          <div className="card-footer mt-auto p-0 pt-2">
+          {/* <div className="card-footer mt-auto p-0 pt-2">
             <a 
               className="lien icon-link icon-link-hover stretched-link z-index-2"
               href="#"
@@ -110,14 +120,16 @@ const Service = () => {
              Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Service item */}
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -155,7 +167,7 @@ const Service = () => {
             </p>
           </div>
           {/* Card footer */}
-          <div className="card-footer mt-auto p-0 pt-2">
+          {/* <div className="card-footer mt-auto p-0 pt-2">
             <a
               className="lien icon-link icon-link-hover stretched-link z-index-2"
               href="#"
@@ -163,14 +175,16 @@ const Service = () => {
              Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Service item */}
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -208,7 +222,7 @@ const Service = () => {
             </p>
           </div>
           {/* Card footer */}
-          <div className="card-footer mt-auto p-0 pt-2">
+          {/* <div className="card-footer mt-auto p-0 pt-2">
             <a 
 className="lien icon-link icon-link-hover stretched-link z-index-2"
               href="#"
@@ -216,14 +230,16 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
               Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Service item */}
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -256,7 +272,7 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
             </p>
           </div>
           {/* Card footer */}
-          <div className="card-footer mt-auto p-0 pt-2">
+          {/* <div className="card-footer mt-auto p-0 pt-2">
             <a 
           className=" lien icon-link icon-link-hover stretched-link z-index-2"
               href="#"
@@ -264,14 +280,16 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
               Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Service item */}
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover shadow' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -304,7 +322,7 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
             </p>
           </div>
           {/* Card footer */}
-          <div className="card-footer mt-auto p-0 pt-2">
+          {/* <div className="card-footer mt-auto p-0 pt-2">
             <a 
             className=" lien icon-link icon-link-hover stretched-link z-index-2"
               href="#"
@@ -312,7 +330,7 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
               Voir plus
               <i className="bi bi-arrow-right" />{" "}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

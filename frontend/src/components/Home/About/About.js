@@ -1,10 +1,10 @@
 import React from "react";
-import aboutImg from "../../../assets/img/demarche-eco.jpg"
-import aboutImg2 from "../../../assets/img/about-2.jpg"
+import aboutImg from "../../../assets/img/about-2.jpg"
+import aboutImg2 from "../../../assets/img/demarche-eco.jpg"
 
 const About = () => {
   return (
-    <section id="about" className="about pt-7">
+    <section id="about" className="about pt-5">
       <div className="container">
         <div className="section-header">
           <h2>Notre engagement envers l'environnement</h2>
@@ -14,18 +14,21 @@ const About = () => {
         </div>
         <div className="row gy-4">
           <div className="col-lg-6">
-            <h4>Engagement écologique, mesuré par <span className="text-primary">ecoIndex</span></h4>
+            <h4>Engagement écologique, mesuré par <span className="text-primary mb-4">EcoIndex</span></h4>
             <img
               src={aboutImg}
-              className="img-fluid rounded-4 mb-10"
+              className="img-fluid rounded-4 mb-10 mt-5"
              
               alt=""
             />
             <p style = {{marginTop: "1.5rem"}}>
-            Nous sommes fiers de notre engagement écologique, mesuré par EcoIndex. EcoIndex évalue la performance écologique de notre application web, et nous sommes ravis d'avoir obtenu une excellente note. Cela signifie que notre plateforme respecte des normes environnementales élevées, contribuant ainsi à préserver notre planète.
+            Ensemble, faisons la différence pour un avenir plus vert et plus durable. Rejoignez-nous chez Élite évents pour créer des événements exceptionnels tout en préservant notre planète pour les générations futures.
             </p>
-            <a href="#" className="btn btn-primary mb-6">
+            <a href="#" className="btn btn-primary " style = {{marginRight:"1rem"}}>
               Devenir partenaire
+            </a>
+            <a href="#" className="btn btn-primary ">
+              Consulter nos services
             </a>
             {/* <p>
               Temporibus nihil enim deserunt sed ea. Provident sit expedita aut
@@ -56,7 +59,8 @@ const About = () => {
                 </li>  
               </ul>
               <p>
-              Ensemble, faisons la différence pour un avenir plus vert et plus durable. Rejoignez-nous chez Élite évents pour créer des événements exceptionnels tout en préservant notre planète pour les générations futures.
+              
+              Nous sommes fiers de notre engagement écologique, mesuré par EcoIndex. EcoIndex évalue la performance écologique de notre application web, et nous sommes ravis d'avoir obtenu une excellente note. Cela signifie que notre plateforme respecte des normes environnementales élevées, contribuant ainsi à préserver notre planète.
               </p>
               <div className="position-relative mt-4">
                 <img

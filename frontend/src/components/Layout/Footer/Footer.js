@@ -78,11 +78,11 @@ const Footer = () => {
 
           <div className="col-lg-3">
           <a className="navbar-brand ppd" href="/">
-            <img src={"/rect12.png"} alt="Edenia" className="img-fluid" style={{
+            <img src={"/rect2.png"} alt="Edenia" className="img-fluid" style={{
               height: "80px"
             }} />
             <span style={{
-              color: "rgb(211, 141, 95)",
+              color: "#ffd700",
               fontSize: "32px",
               verticaAlign: "middle",
               marginInlineStart: "10px"

@@ -9,7 +9,7 @@ const Service = () => {
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   return (
-<section className="pb-4 section-header" >
+<section className="pb-4 section-header" id="service">
   <div className="container">
     {/* Title */}
     <div className="inner-container text-center mb-4 mb-sm-6">

@@ -16,7 +16,7 @@ const Banner = () => {
             <ElegantText text="Bienvenue sur Elite Events, votre destination ultime pour des soirées mémorables et impeccables. Que ce soit pour une fête mondaine ou un événement professionnel, notre plateforme vous permet de réserver facilement des services sur mesure qui correspondent à vos besoins et à vos exigences." title={false}/>
             </p>
             <div className="d-flex">
-              <a href="#about" className="btn-get-started scrollto">
+              <a href="#service" className="btn-get-started scrollto">
                 Decouvrez nos services
               </a> 
             </div>

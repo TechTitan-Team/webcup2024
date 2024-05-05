@@ -6,7 +6,7 @@ import img3 from "../../../assets/img/sary.jpg";
 import { Link } from "react-router-dom";
 const Call = () => {
   return (
-    <section className=" pt-0">
+    <section className=" pt-0 pb-0">
     <div className="call p-0 container-fluid">
       <div className=" callus rounded position-relative overflow-hidden p-4 p-sm-7">
         {/* SVG decoration */}
@@ -61,9 +61,9 @@ const Call = () => {
             Rejoignez-nous pour offrir des expériences exceptionnelles à nos clients et faire partie d'une plateforme qui valorise l'excellence !
             </p>
             {/* Button */}
-            <a href={"/become-partner"} className="btn btn-primary mb-6">
+            <Link to={"/become-partner"} className="btn btn-primary mb-6">
               Devenir partenaire
-            </a>          
+            </Link>          
             {/* Client-Slider START */}
            
             {/* Client-Slider END */}

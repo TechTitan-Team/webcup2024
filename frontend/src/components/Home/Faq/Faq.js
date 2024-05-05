@@ -11,7 +11,7 @@ const Faq = () => {
                 Les questions frequentes
               </h3>
               <p>
-                On nous pose toujours des questions à propos de notre services.
+                Voici quelques questions fréquemment posées à propos de nous
               </p>
             </div>
           </div>
@@ -29,7 +29,7 @@ const Faq = () => {
                     data-bs-target="#faq-content-1"
                   >
                     <span className="num">1.</span>
-                    Qui est Elite Events?
+                    Quels types de services proposez-vous sur Elite events ?
                   </button>
                 </h3>
                 <div
@@ -38,7 +38,7 @@ const Faq = () => {
                   data-bs-parent="#faqlist"
                 >
                   <div className="accordion-body">
-                    Elite Events est un service.
+                  Elite events propose une gamme complète de services pour répondre à tous vos besoins en matière d'événements. Cela inclut la location de lieux, les services traiteur, les animations, les services de conciergerie et bien plus encore.
                   </div>
                 </div>
               </div>
@@ -52,8 +52,7 @@ const Faq = () => {
                     data-bs-target="#faq-content-2"
                   >
                     <span className="num">2.</span>
-                    Feugiat scelerisque varius morbi enim nunc faucibus a
-                    pellentesque?
+                    Comment fonctionne le processus de réservation sur votre plateforme ?
                   </button>
                 </h3>
                 <div
@@ -62,11 +61,7 @@ const Faq = () => {
                   data-bs-parent="#faqlist"
                 >
                   <div className="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque
-                    habitant morbi. Id interdum velit laoreet id donec ultrices.
-                    Fringilla phasellus faucibus scelerisque eleifend donec
-                    pretium. Est pellentesque elit ullamcorper dignissim. Mauris
-                    ultrices eros in cursus turpis massa tincidunt dui.
+                  Le processus de réservation sur Elite events est simple et intuitif. Les clients peuvent parcourir les différents services disponibles, sélectionner ceux qui correspondent à leurs besoins, et effectuer leur réservation en quelques clics seulement.
                   </div>
                 </div>
               </div>
@@ -80,8 +75,7 @@ const Faq = () => {
                     data-bs-target="#faq-content-3"
                   >
                     <span className="num">3.</span>
-                    Dolor sit amet consectetur adipiscing elit pellentesque
-                    habitant morbi?
+                    Quels sont les critères pour devenir partenaire sur Elite events ?
                   </button>
                 </h3>
                 <div
@@ -90,12 +84,7 @@ const Faq = () => {
                   data-bs-parent="#faqlist"
                 >
                   <div className="accordion-body">
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices
-                    sagittis orci. Faucibus pulvinar elementum integer enim. Sem
-                    nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
-                    pellentesque eu tincidunt. Lectus urna duis convallis
-                    convallis tellus. Urna molestie at elementum eu facilisis
-                    sed odio morbi quis
+                  Les partenaires sur Elite events doivent répondre à des critères stricts de qualité et d'excellence. Nous sélectionnons soigneusement nos partenaires en fonction de leur expérience, de leur professionnalisme et de leur capacité à offrir des services de haute qualité.
                   </div>
                 </div>
               </div>
@@ -109,7 +98,7 @@ const Faq = () => {
                     data-bs-target="#faq-content-4"
                   >
                     <span className="num">4.</span>
-                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+                    Comment garantissez-vous la qualité des prestataires de services sur votre plateforme ?
                   </button>
                 </h3>
                 <div
@@ -118,11 +107,7 @@ const Faq = () => {
                   data-bs-parent="#faqlist"
                 >
                   <div className="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque
-                    habitant morbi. Id interdum velit laoreet id donec ultrices.
-                    Fringilla phasellus faucibus scelerisque eleifend donec
-                    pretium. Est pellentesque elit ullamcorper dignissim. Mauris
-                    ultrices eros in cursus turpis massa tincidunt dui.
+                  Nous garantissons la qualité des prestataires de services sur Elite events en effectuant un processus de sélection rigoureux. Nous vérifions leurs antécédents, examinons leurs références et recueillons des avis clients pour nous assurer qu'ils répondent à nos normes élevées de qualité.
                   </div>
                 </div>
               </div>
@@ -136,8 +121,7 @@ const Faq = () => {
                     data-bs-target="#faq-content-5"
                   >
                     <span className="num">5.</span>
-                    Tempus quam pellentesque nec nam aliquam sem et tortor
-                    consequat?
+                    Avez-vous des options de personnalisation pour les événements sur Elite events ?
                   </button>
                 </h3>
                 <div
@@ -146,10 +130,8 @@ const Faq = () => {
                   data-bs-parent="#faqlist"
                 >
                   <div className="accordion-body">
-                    Molestie a iaculis at erat pellentesque adipiscing commodo.
-                    Dignissim suspendisse in est ante in. Nunc vel risus commodo
-                    viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
-                    bibendum est. Purus gravida quis blandit turpis cursus in
+                  Oui, chez Elite events, nous comprenons que chaque événement est unique. C'est pourquoi nous offrons des options de personnalisation pour répondre aux besoins spécifiques de chaque client. Que vous recherchiez une décoration sur mesure, un menu personnalisé ou des divertissements uniques, nous sommes là pour vous aider à créer l'événement parfait.
+
                   </div>
                 </div>
               </div>

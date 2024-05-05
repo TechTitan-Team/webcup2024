@@ -1,8 +1,13 @@
 import React from "react";
+import { useState,useEffect } from "react";
 import heroImg from "../../../assets/img/hero-img.png";
 // import heroImg from "../../../assets/photo3";
 
 const Service = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
   return (
 <section className="pb-4 section-header" >
   <div className="container">
@@ -16,7 +21,10 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          >
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -51,7 +59,9 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -97,7 +107,9 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -140,7 +152,9 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -183,7 +197,9 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg
@@ -221,7 +237,9 @@ const Service = () => {
       <div className="col">
         <div className="card card-hover-shadow border h-100 p-4">
           {/* Card body */}
-          <div className="card-body p-0">
+          <div className={`card-body p-0 ${isHovered ? 'zoom-on-hover shadow' : ''} animated2`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
             {/* Icon */}
             <figure className="text-primary mb-4">
               <svg

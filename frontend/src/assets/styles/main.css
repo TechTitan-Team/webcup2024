@@ -353,6 +353,7 @@ a:hover {
 
 .navbar-mobile .dropdown ul li {
   min-width: 200px;
+  color:"white"
 }
 
 .navbar-mobile .dropdown ul a {
@@ -882,6 +883,45 @@ section {
 section {
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Add a slight upward movement from off-screen */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8); /* Start slightly smaller */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* Animate to normal size */
+  }
+}
+
+.animated2 {
+  animation: fadeInUp 1s ease-in-out; /* Adjust animation duration and timing as needed */
+}
+.zoom {
+animation: zoomIn 0.5s ease-in-out;
+}
+
+.zoom-on-hover {
+  transition: transform 0.5s ease-in-out; /* Adjust transition duration and timing as needed */
+}
+
+.zoom-on-hover:hover {
+  transform: scale(1.05); /* Zoom in slightly on hover */
+}
+.shadow {
+  box-shadow: 0px 2px 5px rgba(252, 242, 242, 0.842); /* Adjust shadow properties as needed */
 }
 
 /* cible */

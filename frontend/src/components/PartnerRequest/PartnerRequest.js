@@ -32,6 +32,25 @@ const PartnerRequest = () => {
 
   return (
     <Layout>
+<<<<<<< HEAD
+      <section class="pt-7 pt-md-8">
+        <div class="container pt-4 pt-md-0">
+          <div class="row justify-content-between">
+            <div class="col-lg-6 mb-6 mb-lg-0">
+              <div class="d-flex flex-column h-100">
+                <h1 class="mb-3">Les avantages et règlement des partenaires</h1>
+                <p class="mb-0">
+                  Vous pouvez nous contacter à tous temps via notre email <a href="#">eliteevents@gmail.com</a>.
+                </p>
+                <p class="mb-0">
+                En devenant partenaire d'Élite évents, vous bénéficiez d'une multitude d'avantages, notamment une visibilité accrue auprès de notre clientèle sélecte à la recherche de services haut de gamme pour leurs événements, une opportunité de développer votre réseau professionnel en collaborant avec d'autres prestataires de qualité, ainsi qu'un accès exclusif à des opportunités de marketing et de promotion. En échange, nous demandons à nos partenaires de respecter nos normes élevées de qualité et d'excellence, de fournir des services fiables et professionnels à nos clients, et de contribuer à maintenir la réputation d'Élite évents en tant que plateforme de choix pour des événements mémorables et réussis.
+                </p>
+
+                <div class="d-sm-flex gap-3 align-items-center my-5">
+                  <h6 class="mb-3 mb-sm-0">Suivez-nous sur:</h6>
+                  <ul class="list-inline flex-wrap mb-0">
+                    <li class="list-inline-item">
+=======
       <section className="pt-7 pt-md-8">
         <div className="container pt-4 pt-md-0">
           <div className="row justify-content-between">
@@ -56,6 +75,7 @@ const PartnerRequest = () => {
                   <h6 className="mb-3 mb-sm-0">Follow us on:</h6>
                   <ul className="list-inline flex-wrap mb-0">
                     <li className="list-inline-item">
+>>>>>>> 0ea6fd4b44e28e813fe1ecbe54274a52fa78e613
                       <a
                         href="#"
                         className="btn btn-icon btn-light text-facebook rounded-circle"

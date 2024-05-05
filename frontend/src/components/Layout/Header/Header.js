@@ -47,6 +47,14 @@ const Header = () => {
               </a>
             </li>
             <li>
+              <a className="" href={"/login"}>
+                Se connecter
+              </a>
+            </li>
+            <li>
+              <a className="" href={"/login"}>
+                S'inscrire
+              </a>
               <Link className="getstarted " to="/become-partner">
                 Devenir parternaire
               </Link>

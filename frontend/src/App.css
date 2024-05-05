@@ -183,8 +183,8 @@
 }
 
 .checkbox-icon svg {
-	width: 2rem;
-	height: 2rem;
+	width: 4rem;
+	height: 4rem;
 }
 
 .checkbox-label {
@@ -254,10 +254,11 @@
 	margin-inline: 1rem;
 	cursor: pointer;
 	max-width: 20rem;
+	min-width: 20rem;
 	transition: all 0.2s ease-in-out;
 	user-select: none;
 	overflow: hidden;
-	filter: grayscale();
+	position:relative;
 }
 
 .crd-txt {
@@ -277,4 +278,38 @@
 	max-height: 100px;
 	z-index: -10;
 	border-radius: 10px;
+}
+
+/** Card styles - END **/
+
+/** Radio buttons - START **/
+
+.radio-input{
+	clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.radio-input+h4{
+	opacity: 0;
+	transition:all 0.2s ease;
+	top:50px;
+	z-index: 9;
+	position: relative;
+	left: 30px;
+}
+
+.radio-input:checked+h4{
+	opacity:1;
+}
+
+.overflow-control{
+	justify-items: safe center;
+	overflow-x: scroll;
+	scroll-snap-type: mandatory;
+	scroll-snap-align: inherit;
 }

@@ -66,7 +66,7 @@ const AdminLogin = () => {
                         Administrateur
                       </h5>
                       <p className="text-center small">
-                        Seule l'administrateur a l'accès à cette partie
+                        Seul l'administrateur a accès à cette partie.
                       </p>
                     </div>
                     <form

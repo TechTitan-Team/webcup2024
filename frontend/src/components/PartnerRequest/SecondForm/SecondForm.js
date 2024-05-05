@@ -124,7 +124,7 @@ const SecondForm = ({ onChange, setStep, data }) => {
 
       {success && (
         <Alert variant="success">
-          Votre demande à été envoyer, on vous recontactera pour la suite
+          Votre demande à été envoyée, on vous recontactera pour la suite
         </Alert>
       )}
 

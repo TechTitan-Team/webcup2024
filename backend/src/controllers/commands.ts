@@ -45,6 +45,18 @@ const controllerCommands = {
                             id_command: data.id,
                             id_partenaire: items.id
                         }
+                    }).then(async(it)=>{
+                        await prisma.partenaires.update({
+                            where: { id: items.id },
+                            data: {
+                                number: {
+                                    decrement: 1
+                                }
+                            }
+                        });
+                    }).catch((err)=>{
+                        console.log(err);
+                        
                     })
                 })
                 res.status(200).send(data)

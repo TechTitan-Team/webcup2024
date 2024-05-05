@@ -13,6 +13,7 @@ const PartnerLogin = () => {
   const [data, setData] = useState({
     pers_min: 20,
     pers_max: 20,
+    type: "lieux"
   });
   const nav = useNavigate();
   const { setToken } = useToken();

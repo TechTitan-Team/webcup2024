@@ -8,6 +8,7 @@ export function Overlay(props) {
     const nav = useNavigate();
     const { http } = useHttps()
     const {token} = useToken()
+    const [error, setError] = useState(false)
     const [services, setServices] = useState({
         lieux: [],
         traiteurs: [],
@@ -25,22 +26,28 @@ export function Overlay(props) {
         })
     }
     const onValid = async()=>{
-        const data = Object.values(idPartenaires)
-        console.log(data);
-        data.map((items)=>{
-            priceTotal += items.price
-        })
-        await http.post("/commands/create",{
-            beginDate: props.filter.date,
-            totalPrice: priceTotal,
-            id_user: token.user.id,
-            id_partenaire: data
-        }).then((res)=>{
-            console.log(res.data);
-            nav("/");
-        }).catch((err)=>{
-            console.log(err);
-        })
+        if(!token){
+            nav("/login")
+        }
+        else{
+            const data = Object.values(idPartenaires)
+            console.log(data);
+            data.map((items)=>{
+                priceTotal += items.price
+            })
+            await http.post("/commands/create",{
+                beginDate: props.filter.date,
+                totalPrice: priceTotal,
+                id_user: token.user.id,
+                id_partenaire: data
+            }).then((res)=>{
+                console.log(res.data);
+                nav("/");
+            }).catch((err)=>{
+                setError(true)
+            })
+        }
+        
     }
     const getService = async(service, pers, location) => {
         await props.change(true)
@@ -80,34 +87,37 @@ export function Overlay(props) {
             getService("lieux", props.filter.pers, props.filter.location)
         else
             setServices({...services, lieux: []})
-        if (props.service.traiteurs && props.filter.pers)
+        if (props.service.traiteurs)
             getService("traiteur", props.filter.pers )
-            else
-            setServices({...services, lieux: []})
+        else
+            setServices({...services, traiteurs: []})
         if (props.service.animation && props.filter.pers)
             getService("divertissements", props.filter.pers)
             else
-            setServices({...services, lieux: []})
+            setServices({...services, divertissement: []})
         if (props.service.decoration && props.filter.pers)
             getService("decoration", props.filter.pers)
             else
-            setServices({...services, lieux: []})
+            setServices({...services, decoration: []})
         if (props.service.concierge && props.filter.pers)
             getService("conciergerie", props.filter.pers)
             else
-            setServices({...services, lieux: []})
+            setServices({...services, conciergerie: []})
         if (props.service.photographe && props.filter.pers)
             getService("photographie", props.filter.pers)
             else
-            setServices({...services, lieux: []})
-    }, [props.filter, props.service])
+            setServices({...services, photographie: []})
+    }, [props.filter, props.service, props.state])
 
     return <>
         <div className={`overlay ${props.state ? "" : "overlay-d"}`}>
             <div className="container py-4">
                 <button className="btn-overlay" onClick={props.action}>Fermer</button>
                 {
-                    services.lieux.length !== 0 && <div>
+                    error && <div className="alert alert-danger" role="alert">Veuillez modifiez la date, une de ces services n'est plus disponible à cette date</div>
+                }
+                {
+                    services.lieux.length !== 0 && props.service.lieux && <div>
 
                         <h2 className="my-4 fw-bold">
                             Selectionner l'espace à louer
@@ -115,7 +125,7 @@ export function Overlay(props) {
                         <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.lieux.map((res, index) => {
-                                    return (<>
+                                    return (<span key={index}>
                                         <label htmlFor={res.id}>
                                             <input type="radio" id={res.id} name="lieux" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
@@ -134,7 +144,7 @@ export function Overlay(props) {
                                                 </div>
                                             </div>
                                         </label>
-                                    </>
+                                    </span>
 
                                     )
                                 })
@@ -143,7 +153,7 @@ export function Overlay(props) {
                     </div>
                 }
                 {
-                    services.lieux.length !== 0 && services.traiteurs.length !== 0 && <div>
+                    services.traiteurs.length !== 0 && props.service.traiteurs && <div>
 
                         <h2 className="my-4 fw-bold">
                             Selectionner le traiteur
@@ -151,7 +161,7 @@ export function Overlay(props) {
                         <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.traiteurs.map((res, index) => {
-                                    return (<>
+                                    return (<span key={index}>
                                         <label htmlFor={res.id}>
                                             <input type="radio" id={res.id} name="traiteur" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
@@ -170,7 +180,7 @@ export function Overlay(props) {
                                                 </div>
                                             </div>
                                         </label>
-                                    </>
+                                    </span>
 
                                     )
                                 })
@@ -179,7 +189,7 @@ export function Overlay(props) {
                     </div>
                 }
                 {
-                    services.divertissement.length !== 0 && <div>
+                    services.divertissement.length !== 0 && props.service.animation && <div>
 
                         <h2 className="my-4 fw-bold">
                             Selectionner le service divertissement et animation
@@ -216,7 +226,7 @@ export function Overlay(props) {
                     </div>
                 }
                 {
-                    services.conciergerie.length !== 0 && <div>
+                    services.conciergerie.length !== 0 && props.service.concierge && <div>
 
                         <h2 className="my-4 fw-bold">
                             Selectionner le service de concierge
@@ -251,7 +261,7 @@ export function Overlay(props) {
                     </div>
                 }
                 {
-                    services.decoration.length !== 0 && <div>
+                    services.decoration.length !== 0 && props.service.decoration && <div>
 
                         <h2 className="my-4 fw-bold">
                             Selectionner le décorateur de votre choix
@@ -287,7 +297,7 @@ export function Overlay(props) {
                     </div>
                 }
                 {
-                    services.photographie.length !== 0 && <div>
+                    services.photographie.length !== 0 && props.service.photographe && <div>
 
                         <h2 className="my-4 fw-bold">
                             Selectionner le service de photographe

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AdminLayout from "../AdminLayout/AdminLayout";
 import { Link, useParams } from "react-router-dom";
 import useHttps, { imgUrl } from "../../../hooks/useHttps";
+import getService from "../../../utils/getService";
 
 const PartnerProfile = () => {
   const { id } = useParams();
@@ -107,7 +108,7 @@ const PartnerProfile = () => {
                         </div>
                         <div className="row">
                           <div className="col-lg-3 col-md-4 label">Service</div>
-                          <div className="col-lg-9 col-md-8">{data.type}</div>
+                          <div className="col-lg-9 col-md-8">{getService(data.type)}</div>
                         </div>
                         <div className="row">
                           <div className="col-lg-3 col-md-4 label">Prix</div>

@@ -3,6 +3,7 @@ import  svg1 from "../../../assets/img/service.svg";
 import  svg2 from "../../../assets/img/cta-vector.svg";
 // import heroImg from "../../../assets/photo3";
 import img3 from "../../../assets/img/sary.jpg";
+import { Link } from "react-router-dom";
 const Call = () => {
   return (
     <section className=" pt-0">
@@ -62,8 +63,7 @@ const Call = () => {
             {/* Button */}
             <a href={"/become-partner"} className="btn btn-primary mb-6">
               Devenir partenaire
-            </a>
-          
+            </a>          
             {/* Client-Slider START */}
            
             {/* Client-Slider END */}

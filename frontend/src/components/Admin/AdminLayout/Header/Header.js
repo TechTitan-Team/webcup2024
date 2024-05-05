@@ -64,17 +64,18 @@ const Header = () => {
                 <hr className="dropdown-divider" />
               </li>
               {token && token.user.type == "admin" ? null : (
-                <li>
-                  <span className="dropdown-item d-flex align-items-center">
-                    <i className="bi bi-person" />
-                    <span>Mon Profile</span>
-                  </span>
-                </li>
+                <>
+                  <li>
+                    <span className="dropdown-item d-flex align-items-center">
+                      <i className="bi bi-person" />
+                      <span>Mon Profile</span>
+                    </span>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                </>
               )}
-
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
               <li>
                 <span
                   onClick={deconnect}

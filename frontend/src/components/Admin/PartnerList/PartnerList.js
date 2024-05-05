@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AdminLayout from "../AdminLayout/AdminLayout";
 import { Link } from "react-router-dom";
 import useHttps from "../../../hooks/useHttps";
+import getService from "../../../utils/getService";
 
 const PartnerList = () => {
   const [data, setData] = useState();
@@ -99,7 +100,7 @@ const PartnerList = () => {
                             </td>
                             <td>{partner.location}</td>
                             <td>
-                              <Link to={`/admin/partner/${partner.id}`}>{partner.type}</Link>
+                              <Link to={`/admin/partner/${partner.id}`}>{getService(partner.type)}</Link>
                             </td>
                             <td>
                               <span className="badge bg-success">Approuvé</span>

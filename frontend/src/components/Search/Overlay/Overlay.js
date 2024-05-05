@@ -11,8 +11,9 @@ export function Overlay(props) {
         conciergerie: [],
         photographie: []
     })
-    const getService = (service, pers_min, pers_max, location) => {
-        http.get(`/partenaires/filter/${service}/${pers_max}/${pers_min}/${location}`)
+    const getService = (service, pers, location) => {
+        const route = service === "lieux" && location !== "" ? `/partenaires/filter/${service}/${pers}?location=${location}` : `/partenaires/filter/${service}/${pers}`
+        http.get(route)
             .then((res) => {
                 if (service === "lieux") {
                     console.log(res.data);
@@ -41,18 +42,18 @@ export function Overlay(props) {
             }).catch((err) => console.log(err))
     }
     useEffect(() => {
-        if (props.service.lieux)
-            getService("lieux", props.filter.pers_min, props.filter.pers_max, props.filter.location)
-        if (props.service.traiteurs)
-            getService("traiteur", props.filter.pers_min, props.filter.pers_max)
-        if (props.service.animation)
-            getService("divertissements", props.filter.pers_min, props.filter.pers_max)
-        if (props.service.decoration)
-            getService("decoration", props.filter.pers_min, props.filter.pers_max)
-        if (props.service.concierge)
-            getService("conciergerie", props.filter.pers_min, props.filter.pers_max)
-        if (props.service.photographe)
-            getService("photographie", props.filter.pers_min, props.filter.pers_max)
+        if (props.service.lieux && props.filter.pers)
+            getService("lieux", props.filter.pers, props.filter.location)
+        if (props.service.traiteurs && props.filter.pers)
+            getService("traiteur", props.filter.pers )
+        if (props.service.animation && props.filter.pers)
+            getService("divertissements", props.filter.pers)
+        if (props.service.decoration && props.filter.pers)
+            getService("decoration", props.filter.pers)
+        if (props.service.concierge && props.filter.pers)
+            getService("conciergerie", props.filter.pers)
+        if (props.service.photographe && props.filter.pers)
+            getService("photographie", props.filter.pers)
     }, [props.filter, props.service])
 
     return <>

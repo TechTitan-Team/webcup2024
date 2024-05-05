@@ -124,19 +124,21 @@ const modelPartenaire = {
       where: { email: String(email) },
     });
   },
-    filter: (service: string, pers_min: number | undefined, pers_max: number | undefined, location: string | undefined) => {
+    filter: (service: string, pers: number, location: string | undefined) => {
         let whereCondition: Prisma.partenairesWhereInput = {
             type: service,
-            pers_min: 
-                {
-                    gt: pers_min,
-                }
-            ,
-            pers_max: 
-                {
-                    lt: pers_max
-                }
-            
+            AND:[
+              {
+                pers_min: {
+                  lte: pers
+              }
+              },
+            {
+              pers_max: {
+                gte: pers
+            }
+            }
+            ]
         };
     
         if (location !== 'undefined') {

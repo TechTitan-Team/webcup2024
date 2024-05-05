@@ -5,8 +5,7 @@ export default function Searchbar() {
     const [overlay, setOverlay] = useState(false);
     const [filter, setFilter] = useState({
         location: "",
-        pers_min: 0,
-        pers_max: 999999
+        pers: 999999
     })
     const [service, setService] = useState({
         lieux: false,
@@ -23,7 +22,7 @@ export default function Searchbar() {
             </div>
             <div className="search-bar p-4">
                 <div className="row">
-                    <div className="col-md-5">
+                    <div className="col-md">
                         <div className="s-l">
                             Lieux approximatif
                         </div>
@@ -33,27 +32,17 @@ export default function Searchbar() {
                             }} />
                         </div>
                     </div>
-                    <div className="col-md">
+                    <div className="col-md-4">
                         <div className="s-l">
-                            Minimum de personne
+                            Nombre de personne approximatif
                         </div>
                         <div>
                             <input type="number" min={0} className="form-control" placeholder="Minimum" onChange={(e) => {
-                                setFilter({ ...filter, pers_min: e.target.value })
+                                setFilter({ ...filter, pers: e.target.value })
                             }} />
                         </div>
                     </div>
-                    <div className="col-md">
-                        <div className="s-l">
-                            Maximum de personne
-                        </div>
-                        <div>
-                            <input type="number" min={0} className="form-control" placeholder="Rechercher" onChange={(e) => {
-                                setFilter({ ...filter, pers_max: e.target.value })
-                            }} />
-                        </div>
-                    </div>
-                    <br />
+                    <hr />
                     <div>
                         <div className="s-h fw-bold">
                             Veuillez choisir les services que vous voulez

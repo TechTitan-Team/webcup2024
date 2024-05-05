@@ -60,7 +60,7 @@ const Call = () => {
             Rejoignez-nous pour offrir des expériences exceptionnelles à nos clients et faire partie d'une plateforme qui valorise l'excellence !
             </p>
             {/* Button */}
-            <a href="#" className="btn btn-primary mb-6">
+            <a href={"/become-partner"} className="btn btn-primary mb-6">
               Devenir partenaire
             </a>
           

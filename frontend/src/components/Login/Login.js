@@ -7,6 +7,7 @@ import FaceDetectorModal from "./FaceDetectorModal/FaceDetectorModal";
 import Alert from "react-bootstrap/Alert";
 import useToken from "../../hooks/useToken";
 import useHttps from "../../hooks/useHttps";
+import AnimationWrapper from "../../hooks/JumpInAnimation";
 
 const Login = () => {
   const nav = useNavigate();
@@ -60,29 +61,24 @@ const Login = () => {
       <div className="col-sm-10 col-lg-5 d-flex m-auto vh-100">
         <div className="row w-100 m-auto vh-100">
           <div className="col-sm-10 my-5 m-auto">
-            <a href="index.html">
-              <img src={logo} width={300} className="h-50px mb-4" alt="logo" />
+            <a href={"/"}>
+            <AnimationWrapper text="Elite Events"/>
             </a>
             <h2 className="mb-0">Ravi de vous revoir</h2>
             <p className="mb-0">Bienvenue, veuillez entrer vos coordonées</p>
             {/* Social buttons */}
             <div className="row mt-5">
               {/* Social btn */}
-              <div className="col-xxl-6 d-grid">
+              <div className="d-grid">
                 <div
                   onClick={() => setFaceDetector(true)}
-                  className="btn border mb-2 mb-xxl-0"
+                  className="btn btn-dark mb-0"
                 >
                   <i class="bi bi-person-bounding-box"></i> Reconnaissance
                   faciale
                 </div>
               </div>
-              {/* Social btn */}
-              <div className="col-xxl-6 d-grid">
-                <a href="#" className="btn border mb-0">
-                  <i class="bi bi-mic"></i> Reconnaissance vocale
-                </a>
-              </div>
+              
               {/* Divider with text */}
               <div className="position-relative my-5">
                 <hr />

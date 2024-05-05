@@ -61,13 +61,10 @@ export default function Searchbar() {
                   }}
                 />
               </div>
-                    <hr />
+                    <hr className="mt-3"/>
                     <div>
                         <div className="s-h fw-bold">
-                            Veuillez choisir les services que vous voulez
-                        </div>
-                        <div className="m-4">
-                            Selectionnez les
+                            Veuillez choisir les services que vous voulez : 
                         </div>
                         <div className="d-flex flex-man">
                             <div className="checkbox">

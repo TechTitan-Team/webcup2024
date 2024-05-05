@@ -18,6 +18,19 @@ const controllerCommands = {
             res.status(500).send(error.message)
         }
     },
+    getPartner: async(req: Request, res: Response) =>{
+        let { id } = req.params
+        try{
+            let data = await modelCommands.getPartner(parseInt(id))
+            if(data)
+                res.status(200).send(data)
+            else
+                res.status(200).send([])
+        }catch(error: any){
+            console.log(error);
+            res.status(500).send(error.message)
+        }
+    }, 
     getOne: async(req: Request, res: Response)=>{
         try{
             let id = req.params.id
@@ -65,7 +78,19 @@ const controllerCommands = {
             console.log(error);
             res.status(500).send(error.message)
         }
-    }
+    },
+    delete: async (req: Request, res: Response) => {
+        let id = parseInt(req.params.id)
+
+        try { 
+            let data = await modelCommands.delete(id)
+            res.status(200).send(data)
+        }
+        catch (error: any) {
+            console.log(error)
+            res.status(500).send(error.message)
+        }
+    },
 }
 
 export default controllerCommands;

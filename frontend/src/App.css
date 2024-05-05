@@ -319,10 +319,6 @@
 	color:#fff;
 }
 
-.form-floating > .form-control:not(:placeholder-shown) ~ label::after{
-	background-color: transparent;
-
-}
 
 .bg-s{
 	background-color: #232323;
@@ -335,4 +331,20 @@
 
 .btn-prim:hover{
 	background-color: #175cc3;
+}
+
+.pfp{
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	overflow: hidden;
+}
+
+.img-h{
+	height: 100%;
+}
+
+.ffl{
+	color:#232323;
+	background-color: white;
 }

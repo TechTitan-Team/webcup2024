@@ -17,6 +17,7 @@ import IsAdmin from "../pageGuard/IsAdmin";
 import PartnerProfile from "../components/Admin/PartnerProfile/PartnerProfile";
 import PartnerLogin from "../components/PartnerLogin/PartnerLogin";
 import Partners from "../components/Partners/Partners";
+import CommandDetail from "../components/Admin/CommandDetail/CommandDetail";
 import Profile from "../components/Profile/Profile";
 
 const Router = () => {
@@ -85,6 +86,14 @@ const Router = () => {
         <Route path="/signup" element={<Register />}></Route>
         <Route path="/partner-login" element={<PartnerLogin />}></Route>
         <Route path="/all-partners" element={<Partners />}></Route>
+        <Route
+          path="/admin/command/:id"
+          element={
+            <IsAdmin>
+              <CommandDetail />
+            </IsAdmin>
+          }
+        ></Route>
         <Route path="/profile" element={<Profile />}></Route>
       </Routes>
     </BrowserRouter>

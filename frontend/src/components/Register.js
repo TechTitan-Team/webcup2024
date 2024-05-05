@@ -148,7 +148,7 @@ const Register = () => {
               <div className="input-floating-label form-floating mb-4">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control ffl"
                   id="floatingInput"
                   name="name"
                   required
@@ -161,7 +161,7 @@ const Register = () => {
               <div className="input-floating-label form-floating mb-4">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control ffl"
                   id="floatingInput"
                   name="last_name"
                   required
@@ -176,7 +176,7 @@ const Register = () => {
               <div className="input-floating-label form-floating mb-4">
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control ffl"
                   id="floatingInput"
                   name="email"
                   required
@@ -200,7 +200,7 @@ const Register = () => {
                 <input
                   required
                   type="file"
-                  className="form-control "
+                  className="form-control ffl"
                   id="floatingInput"
                   name="imageFile"
                   onChange={handleFileInputChange}
@@ -211,7 +211,7 @@ const Register = () => {
               <div className="input-floating-label form-floating mb-4 mt-3 position-relative">
                 <input
                   type="password"
-                  className="form-control fakepassword pe-6"
+                  className="form-control fakepassword pe-6 ffl"
                   id="psw-input"
                   name="password"
                   value={user.password}

@@ -7,17 +7,17 @@ const Footer = () => {
         {/* CTA */}
         <div className="row g-3 g-md-4 align-items-center">
           <div className="col-md-6">
-            <h2 className="mb-0 lh-base">
-              Alors, decouvrez notre produit et savoir faire avec Edenia
-            </h2>
+            <h4 className="mb-0 lh-base" style ={{color:"white"}}>
+            Alors, explorez Elite events : Votre partenaire pour des événements inoubliables et des expériences exceptionnelles.
+            </h4>
           </div>
           {/* Button */}
           <div className="col-md-5 text-md-end ms-auto ppd">
             <a
-              className="btn btn-lg btn-primary-soft icon-link icon-link-hover mb-0"
-              href="#"
+              className="btn btn-primary  icon-link icon-link-hover mb-0"
+              href="/login"
             >
-              Decouvrez ici
+              Se connecter
               <i className="bi bi-arrow-right" />{" "}
             </a>
           </div>
@@ -34,25 +34,25 @@ const Footer = () => {
                 <h6 className="mb-2 mb-md-4">Liens utiles</h6>
                 <ul className="nav flex-column">
                   <li className="nav-item">
-                    <a className="nav-link pt-0" href="about-v1.html">
-                      À propos 
+                    <a className="nav-link pt-0" href="\Home">
+                       Accueil
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="contact-v1.html">
-                      Contact
+                    <a className="nav-link" href="/espace">
+                      Reservation
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="career.html">
-                      Carrière
+                    <a className="nav-link" href="/all-partners">
+                      Partenariat
                     </a>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a className="nav-link" href="contact-v1.html">
                       Devenir un partenaire
                     </a>
-                  </li>
+                  </li> */}
 
                 </ul>
               </div>
@@ -61,23 +61,15 @@ const Footer = () => {
               <div className="col-md-6">
                 <h6 className="mb-2 mb-md-4">Notre coordonnées</h6>
                 <ul className="list-group list-group-borderless">
+        
                   <li className="d-flex mb-3">
-                    <i className="me-2 text-primary bi bi-geo-alt" />
-                    Lot II A 105bis Nanisana Antananarivo, 101
-                  </li>
-                  <li className="d-flex mb-3">
-                    <i className="me-2 text-primary bi bi-phone" /> 034 54 659 24
+                    <i className="me-2 text-primary bi bi-phone" /> +261 34 54 659 24
                   </li>
                   <li className="d-flex mb-3">
                     <i className="me-2 text-primary bi bi-envelope" />{" "}
-                    chocolaterieedenia@gmail.com
+                    eliteevents@gmail.com
                   </li>
-                  <li className="d-flex mb-3">
-                    <i className="me-2 text-primary bi bi-clock" />
-                    <p className="mb-0">
-                      Ouvert du lundi au vendredi de <strong>08:30 à 16:00</strong>
-                    </p>
-                  </li>
+                 
                 </ul>
               </div>
             </div>
@@ -85,15 +77,17 @@ const Footer = () => {
 
 
           <div className="col-lg-3">
-            <h6 className="mb-2 mb-md-4">Suivez-nous</h6>
-            <ul className="list-inline mb-0 mt-3">
-              <li className="list-inline-item">
-                {" "}
-                <a className="btn btn-xs btn-icon bg-facebook" href="https://www.facebook.com/p/Edenia-Chocolaterie-100063834920816/">
-                  <i className="fab fa-fw fa-facebook-f lh-base" />
-                </a>{" "}
-              </li>
-            </ul>
+          <a className="navbar-brand ppd" href="/">
+            <img src={"/rect2.png"} alt="Edenia" className="img-fluid" style={{
+              height: "80px"
+            }} />
+            <span style={{
+              color: "#ffd700",
+              fontSize: "32px",
+              verticaAlign: "middle",
+              marginInlineStart: "10px"
+            }}>Elite events</span>
+          </a>
           </div>
           {/* Widget 2 END */}
         </div>
@@ -101,22 +95,9 @@ const Footer = () => {
         <hr className="mt-4 mb-3" />
         {/* Bottom footer */}
         <div className="d-md-flex justify-content-between align-items-center text-center text-lg-start py-3">
-          {/* Logo */}
-          <a className="navbar-brand ppd" href="/">
-            <img src={"/rect12.png"} alt="Edenia" className="img-fluid" style={{
-              height: "80px"
-            }} />
-            <span style={{
-              color: "rgb(211, 141, 95)",
-              fontSize: "32px",
-              verticaAlign: "middle",
-              marginInlineStart: "10px"
-            }}>Edenia Chocolaterie</span>
-          </a>
-          {/* Copyright link*/}
           <div className="text-body mt-3 mt-md-0">
             {" "}
-            Copyrights ©2024 Edenia. Créer par {" "}
+            Copyrights ©2024 Elite events. Créer par {" "}
             <a
               href="https://www.webestica.com/"
               className="text-body text-primary-hover"

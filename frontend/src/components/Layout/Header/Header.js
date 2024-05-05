@@ -31,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <header id="header" className={`fixed-top ${isScroll ? "header-scrolled" : ""}`}>
+    <header id="header" className={`fixed-top ${isScroll||toggle ? "header-scrolled" : ""}`}>
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
           <img src="/rect2.png" alt="logo" className="mx-2" />

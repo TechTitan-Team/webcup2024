@@ -11,14 +11,14 @@ const Header = () => {
       header.classList.add("header-scrolled");
     }
   };
-  const [toggle,setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", headerScroll);
   }, []);
 
   return (
-    <header id="header" className= {`fixed-top ${toggle?"header-scrolled":""}`}>
+    <header id="header" className={`fixed-top ${toggle ? "header-scrolled" : ""}`}>
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
           <img src="/rect2.png" alt="logo" className="mx-2" />
@@ -52,7 +52,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <button className={`mobile-nav-toggle ${toggle?"viewed":""}`}  onClick={()=>setToggle(!toggle)}>
+          <button className={`mobile-nav-toggle ${toggle ? "viewed" : ""}`} onClick={() => setToggle(!toggle)}>
             <i className="bi bi-list" />
           </button>
         </nav>

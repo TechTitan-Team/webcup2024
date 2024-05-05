@@ -231,6 +231,13 @@ const register = (e)=>{
               <span>
                 Tu as déjà un compte?
               </span>
+              <a
+                  href={"/login"}
+                  className="link-underline-primary"
+                >
+                  {" "}
+                  Se connecter
+                </a>
             </div>
           </div>
         </div>

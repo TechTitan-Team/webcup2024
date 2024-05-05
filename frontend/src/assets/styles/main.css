@@ -18,13 +18,18 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Poppins";
-  color: #e9e9e9;
+  color: #e9e9e9; 
   background-color: #232323;
+  /* background-image: linear-gradient(to right,  #232323, rgb(188, 188, 197));; */
+  /* background-image: linear-gradient(135deg, #232323, #3a3a3a, #2c2c2c); */
 }
 
 a {
-  color: #fecb00;
+  color: #ffd700;
   text-decoration: none;
+}
+.lien{
+  color: #4169e1;
 }
 
 a:hover {
@@ -42,7 +47,7 @@ a:hover {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #fecb00;
+  background: #ffd700;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -151,7 +156,7 @@ a:hover {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 .navbar .getstarted,
@@ -168,9 +173,9 @@ a:hover {
 
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
-  background: #206bfb;
+  background: #4169e1;
   color: #fff;
-  border-color: #206bfb;
+  border-color: #4169e1;
 }
 
 .navbar .dropdown ul {
@@ -207,7 +212,7 @@ a:hover {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 .navbar .dropdown:hover>ul {
@@ -325,7 +330,7 @@ a:hover {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 .navbar-mobile .getstarted,
@@ -361,7 +366,7 @@ a:hover {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -382,12 +387,12 @@ a:hover {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #fecb00;
+  color: #ffd700;
 }
 
 #hero h2 {
   color: #ffd737;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 10px 0;
   font-size: 24px;
 }
 
@@ -427,7 +432,7 @@ a:hover {
 }
 
 #hero .btn-watch-video:hover i {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 #hero .animated {
@@ -524,7 +529,7 @@ section {
   width: 100px;
   height: 5px;
   border-radius: 3px;
-  background: #fecb00;
+  background: #ffd700;
   left: 0;
   right: 0;
   bottom: 0;
@@ -558,7 +563,7 @@ section {
 }
 
 .featured-services .icon i {
-  color: #fecb00;
+  color: #ffd700;
   font-size: 36px;
 }
 
@@ -578,7 +583,7 @@ section {
 }
 
 .featured-services .icon-box:hover .title a {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 .featured-services .description {
@@ -589,6 +594,7 @@ section {
 /*--------------------------------------------------------------
 # About Us Section
 --------------------------------------------------------------*/
+
 .about h3 {
   font-weight: 700;
   font-size: 28px;
@@ -773,7 +779,7 @@ section {
   padding-right: 10px;
   font-size: 20px;
   line-height: 0;
-  color: #fecb00;
+  color: #ffd700;
 }
 
 .faq .accordion-button:not(.collapsed) {
@@ -798,7 +804,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: #fecb00;
+  background: #ffd700;
   background-size: cover;
   padding: 60px 0;
   color: #232323;
@@ -826,8 +832,8 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #206bfb;
-  border-color: #206bfb;
+  background: #4169e1;
+  border-color: #4169e1;
 }
 
 /* login */
@@ -935,13 +941,13 @@ h1,
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #fecb00;
+  background-color: #ffd700;
   border-radius: 30px;
   color: #232323;
 }
 
 .accordion-button:not(.collapsed)::after {
-  color: #fecb00;
+  color: #ffd700;
 }
 
 /* cible */
@@ -1016,6 +1022,9 @@ h1,
     animation-duration: 5s;
     animation-iteration-count: infinite; /* Rotate once and return to original position */
   }
+  
+
+
 
 .h-100 {
   height: 100% !important;
@@ -1043,5 +1052,19 @@ h1,
   font-family: "Instrument Sans", sans-serif;
   font-weight: 700;
   line-height: 1.25;
-  color: #fecb00;
+  color: #ffd700;
+}
+
+.call {
+  background-image: url("../img/photo3.jpg");
+  /* backdrop-filter: blur(5px); */
+  /* filter: blur(15px); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.callus{
+  background-color : rgb(35,35,35,0.5)
+}
+img{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }

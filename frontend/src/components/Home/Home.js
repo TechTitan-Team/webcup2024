@@ -29,9 +29,9 @@ const Home = () => {
       <Service />
       <Cible />
       {/* <Featured /> */}
-      <Call />
       <About />
-      <Cta />
+      <Call />
+      {/* <Cta /> */}
       <Faq />
     </Layout>
   );

@@ -4,11 +4,11 @@ import useToken from "../../../hooks/useToken";
 
 const Header = () => {
   const location = useLocation();
-  const { token } = useToken();
+  const { token, clearToken } = useToken();
 
-  const checkActive = (url) => {  
+  const checkActive = (url) => {
     return location.pathname == url ? "active" : null;
-  }
+  };
 
   const headerScroll = () => {
     let header = document.getElementById("header");
@@ -23,6 +23,11 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", headerScroll);
   }, []);
+
+  const deconnect = () => {
+    clearToken();
+    window.location.reload();
+  };
 
   return (
     <header
@@ -44,7 +49,10 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className={`nav-link ${checkActive("/espace")}`} to={"/espace"}>
+              <Link
+                className={`nav-link ${checkActive("/espace")}`}
+                to={"/espace"}
+              >
                 Réservation
               </Link>
             </li>
@@ -66,11 +74,22 @@ const Header = () => {
                 />
               </a>
             </li>
-            <li>
-              <Link className="getstarted " to="/become-partner">
-                Devenir parternaire
-              </Link>
-            </li>
+            {!token ? (
+              <li>
+                <Link className="getstarted " to="/become-partner">
+                  Devenir parternaire
+                </Link>
+              </li>
+            ) : (
+              <li className="d-flex" style={{alignItems: "center"}}>
+                <span className="ml-2" style={{marginLeft: 5}}>
+                  {token.user.name+" "+token.user.last_name}
+                </span>
+                <span onClick={deconnect} className="getstarted cursor-pointer">
+                  Deconnexion
+                </span>
+              </li>
+            )}
           </ul>
           <button
             className={`mobile-nav-toggle ${toggle ? "viewed" : ""}`}

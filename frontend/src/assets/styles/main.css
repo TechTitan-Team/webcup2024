@@ -1118,6 +1118,7 @@ img{
   background-color: #232323;
 }
 
+<<<<<<< HEAD
 /* footer */
 .btn-primary-soft {
   color: #ffd700;
@@ -1144,4 +1145,9 @@ img{
 
 .nav.flex-column:not(.nav-pills) .nav-link {
   cursor: pointer;
+=======
+.admin-container .form-control, .admin-container .register .form-control{
+  background-color: #fff !important;
+  color: #232323 !important; 
+>>>>>>> 0ea6fd4b44e28e813fe1ecbe54274a52fa78e613
 }

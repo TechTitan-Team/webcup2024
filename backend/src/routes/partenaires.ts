@@ -10,7 +10,7 @@ routerPartenaire.get("/filter/:service/:pers", controllerPartenaire.filter)
 routerPartenaire.post("/create", controllerPartenaire.create)
 routerPartenaire.post("/login", controllerPartenaire.getLogin)
 routerPartenaire.put("/", controllerPartenaire.update)
-routerPartenaire.delete("/", controllerPartenaire.delete)
+routerPartenaire.delete("/:id", controllerPartenaire.delete)
 
 routerPartenaire.post("/by-type", controllerPartenaire.getByType)
 routerPartenaire.post("/approve", controllerPartenaire.approve)

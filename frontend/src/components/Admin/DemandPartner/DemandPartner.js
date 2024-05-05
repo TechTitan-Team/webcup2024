@@ -63,9 +63,9 @@ const DemandPartner = () => {
         </div>
         {/* End Page Title */}
         <section className="section dashboard">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card">
                 <div className="card-body pt-3">
                   <table className="table table-borderless datatable">
                     <thead>

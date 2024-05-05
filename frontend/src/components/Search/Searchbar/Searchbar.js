@@ -61,13 +61,10 @@ export default function Searchbar() {
                   }}
                 />
               </div>
-                    <hr />
+                    <hr className="mt-3"/>
                     <div>
                         <div className="s-h fw-bold">
-                            Veuillez choisir les services que vous voulez
-                        </div>
-                        <div className="m-4">
-                            Selectionnez les
+                            Veuillez choisir les services que vous voulez : 
                         </div>
                         <div className="d-flex flex-man">
                             <div className="checkbox">
@@ -77,7 +74,7 @@ export default function Searchbar() {
                                     }} />
                                     <span className="checkbox-tile">
                                         <span className="checkbox-icon">
-                                            <svg width="256px" height="256px" viewBox="-151.06 -151.06 1464.12 1464.12" fill="#f0f0f0" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)" stroke="#f0f0f0">
+                                            <svg width="256px" height="256px" viewBox="-151.06 -151.06 1464.12 1464.12" fill="#f0f0f0" className="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)" stroke="#f0f0f0">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0">
                                                     <rect x="-151.06" y="-151.06" width="1464.12" height="1464.12" rx="732.06" fill="#34bc6e" strokewidth="0">
                                                     </rect>

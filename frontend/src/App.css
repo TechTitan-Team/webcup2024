@@ -313,3 +313,33 @@
 	scroll-snap-type: mandatory;
 	scroll-snap-align: inherit;
 }
+
+.form-control, .form-control:focus, .form-control:focus-within, .form-control+label::after{
+	background-color: transparent;
+	color:#fff;
+}
+
+
+.bg-s{
+	background-color: #232323;
+}
+
+.btn-prim{
+	color:#fff;
+	background-color: #0d6efd;
+}
+
+.btn-prim:hover{
+	background-color: #175cc3;
+}
+
+.pfp{
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	overflow: hidden;
+}
+
+.img-h{
+	height: 100%;
+}

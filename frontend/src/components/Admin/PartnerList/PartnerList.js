@@ -30,20 +30,14 @@ const PartnerList = () => {
     getData();
   }, []);
 
-  const approved = async (id) => {
+  const deletePartner = async (id) => {
     try {
-      let response = await http.post("/partenaires/approve", {
-        id,
-      });
+      let response = await http.delete(`/partenaires/${id}`);
       if (response) {
-        console.log(response.data);
         getData();
       }
     } catch (error) {
-      console.log(error.response.data);
-      setError(error.response.data);
-    } finally {
-      setLoading(false);
+      console.log(error);
     }
   };
 
@@ -63,9 +57,9 @@ const PartnerList = () => {
         </div>
         {/* End Page Title */}
         <section className="section dashboard">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card">
                 <div className="card-body pt-3">
                   <table className="table table-borderless datatable">
                     <thead>
@@ -90,20 +84,35 @@ const PartnerList = () => {
                         data.map((partner, idx) => (
                           <tr key={idx}>
                             <th scope="row">
-                              <Link to={`/admin/partner/${partner.id}`}>{partner.name}</Link>
+                              <Link to={`/admin/partner/${partner.id}`}>
+                                {partner.name}
+                              </Link>
                             </th>
                             <td>{partner.email}</td>
                             <td>
-                              <Link to={`/admin/partner/${partner.id}`} className="text-primary">
+                              <Link
+                                to={`/admin/partner/${partner.id}`}
+                                className="text-primary"
+                              >
                                 {partner.number}
                               </Link>
                             </td>
                             <td>{partner.location}</td>
                             <td>
-                              <Link to={`/admin/partner/${partner.id}`}>{getService(partner.type)}</Link>
+                              <Link to={`/admin/partner/${partner.id}`}>
+                                {getService(partner.type)}
+                              </Link>
                             </td>
                             <td>
                               <span className="badge bg-success">Approuvé</span>
+                            </td>
+                            <td>
+                              <span
+                                onClick={() => deletePartner(partner.id)}
+                                className="badge cursor-pointer bg-danger color-white"
+                              >
+                                Supprimer
+                              </span>
                             </td>
                           </tr>
                         ))}

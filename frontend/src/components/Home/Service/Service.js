@@ -13,7 +13,7 @@ const Service = () => {
   <div className="container">
     {/* Title */}
     <div className="inner-container text-center mb-4 mb-sm-6">
-      <h2 className="mb-0">Nos services</h2>
+      <h2 className="mb-8">Nos services</h2>
     </div>
     {/* Service list START */}
     <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
@@ -111,16 +111,7 @@ const Service = () => {
             Régaliez vos invités avec une cuisine raffinée préparée par nos chefs talentueux, offrant une gamme de menus personnalisables pour satisfaire tous les palais.
             </p>
           </div>
-          {/* Card footer */}
-          {/* <div className="card-footer mt-auto p-0 pt-2">
-            <a 
-              className="lien icon-link icon-link-hover stretched-link z-index-2"
-              href="#"
-            >
-             Voir plus
-              <i className="bi bi-arrow-right" />{" "}
-            </a>
-          </div> */}
+          
         </div>
       </div>
       {/* Service item */}
@@ -166,16 +157,7 @@ const Service = () => {
             Ajoutez une touche de magie à votre soirée avec notre sélection d'animations captivantes, des artistes de renom aux spectacles de cirque en passant par les DJ réputés pour mettre l'ambiance.
             </p>
           </div>
-          {/* Card footer */}
-          {/* <div className="card-footer mt-auto p-0 pt-2">
-            <a
-              className="lien icon-link icon-link-hover stretched-link z-index-2"
-              href="#"
-            >
-             Voir plus
-              <i className="bi bi-arrow-right" />{" "}
-            </a>
-          </div> */}
+         
         </div>
       </div>
       {/* Service item */}
@@ -221,16 +203,7 @@ const Service = () => {
                 Laissez-nous nous occuper de tous les détails de votre événement, de la gestion des invitations à la coordination des fournisseurs, pour que vous puissiez vous détendre et profiter de chaque instant.
             </p>
           </div>
-          {/* Card footer */}
-          {/* <div className="card-footer mt-auto p-0 pt-2">
-            <a 
-className="lien icon-link icon-link-hover stretched-link z-index-2"
-              href="#"
-            >
-              Voir plus
-              <i className="bi bi-arrow-right" />{" "}
-            </a>
-          </div> */}
+      
         </div>
       </div>
       {/* Service item */}
@@ -271,16 +244,7 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
             Créez une ambiance spectaculaire avec notre équipe de designers d'intérieur et de décorateurs experts, qui peuvent transformer n'importe quel espace en un décor de rêve pour votre soirée.
             </p>
           </div>
-          {/* Card footer */}
-          {/* <div className="card-footer mt-auto p-0 pt-2">
-            <a 
-          className=" lien icon-link icon-link-hover stretched-link z-index-2"
-              href="#"
-            >
-              Voir plus
-              <i className="bi bi-arrow-right" />{" "}
-            </a>
-          </div> */}
+         
         </div>
       </div>
       {/* Service item */}
@@ -321,16 +285,7 @@ className="lien icon-link icon-link-hover stretched-link z-index-2"
             Capturez chaque moment spécial de votre événement avec nos professionnels de la photographie et de la vidéographie, qui sauront immortaliser vos souvenirs pour les années à venir.
             </p>
           </div>
-          {/* Card footer */}
-          {/* <div className="card-footer mt-auto p-0 pt-2">
-            <a 
-            className=" lien icon-link icon-link-hover stretched-link z-index-2"
-              href="#"
-            >
-              Voir plus
-              <i className="bi bi-arrow-right" />{" "}
-            </a>
-          </div> */}
+        
         </div>
       </div>
     </div>

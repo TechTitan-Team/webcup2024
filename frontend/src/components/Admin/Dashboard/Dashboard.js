@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import AdminLayout from "../AdminLayout/AdminLayout";
 import useHttps from "../../../hooks/useHttps";
 import { Link } from "react-router-dom";
+import useToken from "../../../hooks/useToken";
 
 const Dashboard = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { http } = useHttps();
+  const { token } = useToken();
 
   const getData = async () => {
     try {
@@ -38,7 +40,7 @@ const Dashboard = () => {
       {data && (
         <main id="main" className="main">
           <div className="pagetitle">
-            <h1>Dashboard</h1>
+            <h1>Dashboard {token && token.user.type != "admin" && "partenaire"}</h1>
           </div>
           {/* End Page Title */}
           <section className="section dashboard">
@@ -133,7 +135,10 @@ const Dashboard = () => {
                                   </th>
                                   <td>{partner.name}</td>
                                   <td>
-                                    <Link to={`/admin/partner/${partner.id}`} className="text-primary">
+                                    <Link
+                                      to={`/admin/partner/${partner.id}`}
+                                      className="text-primary"
+                                    >
                                       {partner.email}
                                     </Link>
                                   </td>

@@ -91,10 +91,8 @@ const FaceDetectorModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
+        <p style={{color: 'black'}}>
+        Découvrez notre authentification par reconnaissance faciale, une méthode sécurisée et pratique pour accéder à votre compte. Il vous suffit de télécharger une photo de profil lors de votre inscription, puis utilisez votre visage pour vous connecter en toute simplicité. Une sécurité renforcée avec une expérience d'utilisation fluide et sécurisée.
         </p>
         <Webcam
           audio={false}

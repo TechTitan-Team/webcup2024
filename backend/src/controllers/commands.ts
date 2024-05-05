@@ -39,17 +39,16 @@ const controllerCommands = {
                 parseFloat(totalPrice),
                 parseInt(id_user),
             ).then(async(data)=>{
-                // id_partenaire.map(async(items: any)=>{
-                //     await prisma.relation.create({
-                //         data:{
-                            
-                //         }
-                //     })
-                // })
-                
+                id_partenaire.map(async(items: any)=>{
+                    await prisma.relation.create({
+                        data:{
+                            id_command: data.id,
+                            id_partenaire: items.id
+                        }
+                    })
+                })
                 res.status(200).send(data)
             })
-
         }catch(error: any){
             console.log(error);
             res.status(500).send(error.message)

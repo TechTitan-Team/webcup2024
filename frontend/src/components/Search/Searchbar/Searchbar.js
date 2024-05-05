@@ -3,9 +3,14 @@ import { Overlay } from "../Overlay/Overlay";
 
 export default function Searchbar() {
     const [overlay, setOverlay] = useState(false);
+    const [state, setState] = useState(false)
+    const changeState = (load)=>{
+        setState(load)
+    }
     const [filter, setFilter] = useState({
         location: "",
-        pers: 999999
+        pers: 999999,
+        date: null
     })
     const [service, setService] = useState({
         lieux: false,
@@ -42,6 +47,20 @@ export default function Searchbar() {
                             }} />
                         </div>
                     </div>
+                    <div className="col-md-4">
+                    <div className="s-l">
+                    Date de commande
+                        </div>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="floatingInput"
+                  name="date_of_birth"
+                  onChange={(e)=>{
+                    setFilter({...filter, date: e.target.value})
+                  }}
+                />
+              </div>
                     <hr />
                     <div>
                         <div className="s-h fw-bold">
@@ -451,11 +470,11 @@ export default function Searchbar() {
                         </div>
                     </div>
                     <div className="w-100 my-4">
-                        <button className="btn btn-primary w-100 fw-bold" onClick={() => setOverlay(!overlay)}>C'est parti</button>
+                        <button className="btn btn-primary w-100 fw-bold" onClick={() => setOverlay(!overlay)} disabled={state}>{state ? "Attendez un peu..." : "C'est parti"}</button>
                     </div>
                 </div>
                 </div>
                 </div>
-                <Overlay filter={filter} service={service} state={overlay} action={() => setOverlay(!overlay)} />
+                <Overlay change={changeState} filter={filter} service={service} state={overlay} action={() => setOverlay(!overlay)} />
             </>
 }

@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react"
 import jega from "../../../assets/img/04.jpg"
 import useHttps from "../../../hooks/useHttps"
+import useToken from "../../../hooks/useToken"
+import { Link, useNavigate } from "react-router-dom";
+
 export function Overlay(props) {
+    const nav = useNavigate();
     const { http } = useHttps()
+    const {token} = useToken()
     const [services, setServices] = useState({
         lieux: [],
         traiteurs: [],
@@ -11,11 +16,36 @@ export function Overlay(props) {
         conciergerie: [],
         photographie: []
     })
-
-    
-    const getService = (service, pers, location) => {
+    const [idPartenaires, setIdPartenaires] = useState([])
+    let priceTotal = 0
+    const onClickRadio = (e)=>{
+        setIdPartenaires({
+            ...idPartenaires,
+            [e.target.name] : {id:parseInt(e.target.id), price: parseFloat(e.target.value)}
+        })
+    }
+    const onValid = async()=>{
+        const data = Object.values(idPartenaires)
+        console.log(data);
+        data.map((items)=>{
+            priceTotal += items.price
+        })
+        await http.post("/commands/create",{
+            beginDate: props.filter.date,
+            totalPrice: priceTotal,
+            id_user: token.user.id,
+            id_partenaire: data
+        }).then((res)=>{
+            console.log(res.data);
+            nav("/");
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+    const getService = async(service, pers, location) => {
+        await props.change(true)
         const route = service === "lieux" && location !== "" ? `/partenaires/filter/${service}/${pers}?location=${location}` : `/partenaires/filter/${service}/${pers}`
-        http.get(route)
+        await http.get(route)
             .then((res) => {
                 if (service === "lieux") {
                     console.log(res.data);
@@ -41,22 +71,35 @@ export function Overlay(props) {
                     console.log(res.data);
                     setServices({ ...services, photographie: res.data })
                 }
+                props.change(false)
             }).catch((err) => console.log(err))
     }
 
     useEffect(() => {
-        if (props.service.lieux && props.filter.pers)
+        if (props.service.lieux)
             getService("lieux", props.filter.pers, props.filter.location)
+        else
+            setServices({...services, lieux: []})
         if (props.service.traiteurs && props.filter.pers)
             getService("traiteur", props.filter.pers )
+            else
+            setServices({...services, lieux: []})
         if (props.service.animation && props.filter.pers)
             getService("divertissements", props.filter.pers)
+            else
+            setServices({...services, lieux: []})
         if (props.service.decoration && props.filter.pers)
             getService("decoration", props.filter.pers)
+            else
+            setServices({...services, lieux: []})
         if (props.service.concierge && props.filter.pers)
             getService("conciergerie", props.filter.pers)
+            else
+            setServices({...services, lieux: []})
         if (props.service.photographe && props.filter.pers)
             getService("photographie", props.filter.pers)
+            else
+            setServices({...services, lieux: []})
     }, [props.filter, props.service])
 
     return <>
@@ -73,8 +116,8 @@ export function Overlay(props) {
                             {
                                 services.lieux.map((res, index) => {
                                     return (<>
-                                        <label for={res.id}>
-                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                        <label htmlFor={res.id}>
+                                            <input type="radio" id={res.id} name="lieux" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
                                             <div className="crd" key={index}>
                                                 <div className="crd-img">
@@ -109,8 +152,8 @@ export function Overlay(props) {
                             {
                                 services.traiteurs.map((res, index) => {
                                     return (<>
-                                        <label for={res.id}>
-                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                        <label htmlFor={res.id}>
+                                            <input type="radio" id={res.id} name="traiteur" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
                                             <div className="crd" key={index}>
                                                 <div className="crd-img">
@@ -145,8 +188,8 @@ export function Overlay(props) {
                             {
                                 services.divertissement.map((res, index) => {
                                     return (<>
-                                        <label for={res.id}>
-                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                        <label htmlFor={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
                                             <div className="crd" key={index}>
                                                 <div className="crd-img">
@@ -182,8 +225,8 @@ export function Overlay(props) {
                             {
                                 services.conciergerie.map((res, index) => {
                                     return (<>
-                                        <label for={res.id}>
-                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                        <label htmlFor={res.id}>
+                                            <input type="radio" id={res.id} name="concierge" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
                                             <div className="crd" key={index}>
                                                 <div className="crd-img">
@@ -217,8 +260,8 @@ export function Overlay(props) {
                             {
                                 services.decoration.map((res, index) => {
                                     return (<>
-                                        <label for={res.id}>
-                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                        <label htmlFor={res.id}>
+                                            <input type="radio" id={res.id} name="decorateur" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
                                             <div className="crd" key={index}>
                                                 <div className="crd-img">
@@ -253,8 +296,8 @@ export function Overlay(props) {
                             {
                                 services.photographie.map((res, index) => {
                                     return (<>
-                                        <label for={res.id}>
-                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                        <label htmlFor={res.id}>
+                                            <input type="radio" id={res.id} name="photographe" value={res.price} className="radio-input" onClick={onClickRadio}/>
                                             <h4><span className="badge bg-success">Selectionné</span></h4>
                                             <div className="crd" key={index}>
                                                 <div className="crd-img">
@@ -277,8 +320,13 @@ export function Overlay(props) {
                                 })
                             }
                         </div>
+                        
                     </div>
+                    
                 }
+                <div className="w-25 my-4 float-right">
+                        <button className="float-right btn btn-primary w-100 fw-bold" onClick={onValid }>Valider ma reservation</button>
+                    </div>
             </div>
         </div>
     </>

@@ -89,7 +89,7 @@ const Commandes = () => {
                         <th scope="col">Prix total</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
-                        {token && token.user && token.user.type && (
+                        {token && token.user && token.user.type != "admin" && (
                           <th scope="col">Action</th>
                         )}
                       </tr>
@@ -102,7 +102,57 @@ const Commandes = () => {
                           </td>
                         </tr>
                       )}
-                      {data &&
+                      {token &&
+                        token.user.type == "partner" &&
+                        data &&
+                        data.map((reservation, idx) => (
+                          <tr key={idx}>
+                            <th scope="row">
+                              <Link to={`/admin/command/${reservation.commands.id}`}>
+                                {reservation.commands.user.id}
+                              </Link>
+                            </th>
+                            <td>{reservation.commands.user.email}</td>
+                            <td>
+                              <Link
+                                to={`/admin/command/${reservation.commands.id}`}
+                                className="text-primary"
+                              >
+                                {reservation.commands.totalPrice}
+                              </Link>
+                            </td>
+                            <td>
+                              {generateDate(reservation.commands.beginDate)}
+                            </td>
+                            <td>
+                              {isDateEqualToToday(
+                                new Date(reservation.commands.beginDate)
+                              ) ? (
+                                <span className="badge bg-success">
+                                  Aujourdhui
+                                </span>
+                              ) : (
+                                <span className="badge bg-warning">Validé</span>
+                              )}
+                            </td>
+                            {token && token.user && token.user.type && (
+                              <td>
+                                <span
+                                  onClick={() =>
+                                    deleteCommande(reservation.commands.id)
+                                  }
+                                  className="badge cursor-pointer bg-danger color-white"
+                                >
+                                  Effectué
+                                </span>
+                              </td>
+                            )}
+                          </tr>
+                        ))}
+
+                      {token &&
+                        token.user.type == "admin" &&
+                        data &&
                         data.map((reservation, idx) => (
                           <tr key={idx}>
                             <th scope="row">
@@ -131,16 +181,6 @@ const Commandes = () => {
                                 <span className="badge bg-warning">Validé</span>
                               )}
                             </td>
-                            {token && token.user && token.user.type && (
-                              <td>
-                                <span
-                                  onClick={() => deleteCommande(reservation.id)}
-                                  className="badge cursor-pointer bg-danger color-white"
-                                >
-                                  Effectué
-                                </span>
-                              </td>
-                            )}
                           </tr>
                         ))}
                     </tbody>

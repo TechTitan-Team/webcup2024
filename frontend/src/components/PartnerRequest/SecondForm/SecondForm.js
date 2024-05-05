@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useHttps from "../../../hooks/useHttps";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
+import { Link } from "react-router-dom";
 
 const SecondForm = ({ onChange, setStep, data }) => {
   const [loading, setLoading] = useState(false);
@@ -83,7 +84,9 @@ const SecondForm = ({ onChange, setStep, data }) => {
         </div>
       </div>
       <div className="col-md-12">
-        <label className="form-label heading-color">Prix de votre service</label>
+        <label className="form-label heading-color">
+          Prix de votre service
+        </label>
         <input
           type="number"
           className="form-control"
@@ -125,7 +128,9 @@ const SecondForm = ({ onChange, setStep, data }) => {
         </Alert>
       )}
 
-      <button type="submit" className="btn btn-primary mb-0">
+      <Link to={"/partner-login"}>Je suis déjà partenaire</Link>
+
+      <button disabled={success} type="submit" className="btn btn-primary mb-0">
         {loading ? "Chargement..." : "Enregister"}
       </button>
     </form>

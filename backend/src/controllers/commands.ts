@@ -20,6 +20,7 @@ const controllerCommands = {
     },
     getPartner: async(req: Request, res: Response) =>{
         let { id } = req.params
+        console.log(id)
         try{
             let data = await modelCommands.getPartner(parseInt(id))
             if(data)

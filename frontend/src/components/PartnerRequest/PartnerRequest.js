@@ -9,7 +9,8 @@ import SecondForm from "./SecondForm/SecondForm";
 const PartnerRequest = () => {
   const [data, setData] = useState({
     pers_min: 5,
-    pers_max: 20
+    pers_max: 20,
+    type: "lieux"
   });
   const [step, setStep] = useState(0);
 

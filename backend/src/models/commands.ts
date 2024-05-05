@@ -19,17 +19,17 @@ const modelCommands = {
     });
   },
   getPartner:  async (id: number) => {
-    return prisma.commands.findMany({
+    return prisma.relation.findMany({
+      where: {
+        id_partenaire: id
+      },
       include: {
-        user: true,
-        relation: {
-          where: {
-            id_partenaire: id
-          },
+        commands: {
           include: {
-            partenaire: true
+            user: true
           }
-        }
+        },
+      
       },
       orderBy: {
         id: "desc"

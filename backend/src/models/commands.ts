@@ -7,8 +7,15 @@ const modelCommands = {
     return prisma.commands.findMany({
       include: {
         user: true,
-        relation: true
+        relation: {
+          include: {
+            partenaire: true
+          }
+        }
       },
+      orderBy: {
+        id: "desc"
+      }
     });
   },
   getOne: async (id: number) => {
@@ -16,7 +23,11 @@ const modelCommands = {
       where: { id: id },
       include: {
         user: true,
-        relation: true,
+        relation: {
+          include: {
+            partenaire: true
+          }
+        }
       },
     });
   },

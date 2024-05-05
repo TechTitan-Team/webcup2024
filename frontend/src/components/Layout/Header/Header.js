@@ -54,7 +54,7 @@ const Header = () => {
                 Réservation
               </Link>
             </li>
-            {!token ? (
+            {!token || token.user.type != "user" ? (
               <li>
                 <Link className="" to={"/login"}>
                   Se connecter
@@ -72,7 +72,7 @@ const Header = () => {
                 />
               </a>
             </li>
-            {!token ? (
+            {!token || token.user.type != "user" ? (
               <li>
                 <Link className="getstarted " to="/become-partner">
                   Devenir parternaire

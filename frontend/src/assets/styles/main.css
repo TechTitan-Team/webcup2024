@@ -1117,3 +1117,8 @@ img{
   box-shadow: none !important;
   background-color: #232323;
 }
+
+.admin-container .form-control, .admin-container .register .form-control{
+  background-color: #fff !important;
+  color: #232323 !important; 
+}

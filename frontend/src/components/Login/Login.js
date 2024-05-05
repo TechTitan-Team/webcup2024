@@ -37,7 +37,6 @@ const Login = () => {
           setError(null);
           setLoading(false);
           setToken(response.data);
-          console.log(response.data);
           if (response.data.user.type == "admin") nav("/admin");
           else nav("/");
         }

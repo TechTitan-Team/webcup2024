@@ -4,6 +4,7 @@ import logo from "../assets/img/logo-horizontal.png";
 import LoginCarousel from "./Login/LoginCarousel";
 import useHttps from "../hooks/useHttps";
 import { Link, useNavigate } from "react-router-dom";
+import useToken from "../hooks/useToken";
 // import FaceDetectorModal from "./FaceDetectorModal/FaceDetectorModal";
 // import useHttps from "../../hooks/useHttps";
 // import useToken from "../../hooks/useToken";
@@ -14,6 +15,7 @@ const Register = () => {
   //   const [faceDetector, setFaceDetector] = useState(false);
   //   const [voiceDetector, setVoiceDetector] = useState(false);
   //   const [data, setData] = useState(null);
+  const { setToken } = useToken();
   const [registerLoad, setRegisterLoad] = useState(false);
   const [user, setUser] = useState({
     name: "",
@@ -106,6 +108,7 @@ const Register = () => {
           .then((res) => {
             console.log(res);
             setRegisterLoad(false);
+            setToken(res.data);
             nav("/");
           })
           .catch((err) => {

@@ -54,13 +54,7 @@ const Header = () => {
                   Se connecter
                 </Link>
               </li>
-            ) : (
-              <li>
-                <Link className={`nav-link ${checkActive("/profile")}`} to={"/profile"}>
-                  Profile
-                </Link>
-              </li>
-            )}
+            ) : null}
             <li>
               <a
                 href="https://bff.ecoindex.fr/redirect/?url=https://techtitan.madagascar.webcup.hodi.host"

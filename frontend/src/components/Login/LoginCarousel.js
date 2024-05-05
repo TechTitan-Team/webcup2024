@@ -1,5 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
-import carouselImg from "../../assets/img/sary.jpg";
+import carouselImg from "../../assets/img/photo3.jpg";
 
 
 function LoginCarousel() {
@@ -14,45 +14,30 @@ function LoginCarousel() {
       <Carousel.Item className="vh-100">
         <div className="bg-overlay bg-dark opacity-5"></div>
         <img className="img-fluid" src={carouselImg} alt="First slide" />
+        <img className="img-fluid" src={carouselImg} alt="First slide" />
         <Carousel.Caption >
-        <div style = {{backgroundColor: "#0003",padding:"10px"}}>
+        <div style = {{backgroundColor: "#000",padding:"10px"}}>
           <h4>
-            " Through collaboration and strategic direction, they steer the
-            agency towards its goals, navigating the ever-evolving landscape
-            with agility and grace."
+            Elite Events offre une expérience unique dans la planification d'événements, mettant à votre disposition une sélection exclusive de services haut de gamme pour des soirées mémorables.
           </h4>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Osez le meilleur </p>
           </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className="vh-100">
         <div className="bg-overlay bg-dark opacity-5"></div>
         <img className="img-fluid" src={carouselImg} alt="Second slide" />
+        <img className="img-fluid" src={carouselImg} alt="First slide" />
         <Carousel.Caption>
         <div style = {{backgroundColor: "#0003",padding:"10px"}}>
           <h4>
-            " Through collaboration and strategic direction, they steer the
-            agency towards its goals, navigating the ever-evolving landscape
-            with agility and grace."
+            Avec Elite events, chaque détail compte. Notre plateforme vous offre un accès facile et sécurisé à une gamme complète de services personnalisés pour vos événements sociaux ou professionnels.
           </h4>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Osez le meilleur</p>
           </div >
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item className="vh-100">
-        <div className="bg-overlay bg-dark opacity-5"></div>
-        <img className="img-fluid" src={carouselImg} alt="Third slide" />
-        <Carousel.Caption>
-        <div style = {{backgroundColor: "#0003",padding:"10px"}}>
-          <h4>
-            " Through collaboration and strategic direction, they steer the
-            agency towards its goals, navigating the ever-evolving landscape
-            with agility and grace."
-          </h4>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </div>
-        </Carousel.Caption>
-      </Carousel.Item>
+      
     </Carousel>
   );
 }

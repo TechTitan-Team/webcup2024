@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 
 const Header = () => {
+  const [isScroll, setIsScroll] = useState(false)
   const headerScroll = () => {
     let header = document.getElementById("header");
     if (window.pageYOffset <= 50) {
-      header.classList.remove("header-scrolled");
+      setIsScroll(false)
     } else {
-      header.classList.add("header-scrolled");
+      setIsScroll(true)
     }
   };
   const [toggle, setToggle] = useState(false);
@@ -18,7 +19,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header id="header" className={`fixed-top ${toggle ? "header-scrolled" : ""}`}>
+    <header id="header" className={`fixed-top ${isScroll ? "header-scrolled" : ""}`}>
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
           <img src="/rect2.png" alt="logo" className="mx-2" />

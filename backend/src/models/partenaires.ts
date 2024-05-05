@@ -139,9 +139,7 @@ const modelPartenaire = {
             }
             },
             {
-              number: {
-                lte: 0
-              }
+              isValid: true
             }
             ]
         };

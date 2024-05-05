@@ -90,7 +90,7 @@ const Login = () => {
               <div className="input-floating-label form-floating mb-4">
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control ffl"
                   id="floatingInput"
                   placeholder="name@example.com"
                   name="email"
@@ -102,7 +102,7 @@ const Login = () => {
               <div className="input-floating-label form-floating mb-4 position-relative">
                 <input
                   type="password"
-                  className="form-control fakepassword pe-6"
+                  className="form-control fakepassword pe-6 ffl"
                   id="psw-input"
                   placeholder="Enter your password"
                   name="password"

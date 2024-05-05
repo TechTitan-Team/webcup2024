@@ -79,10 +79,11 @@ const Header = () => {
                 </Link>
               </li>
             ) : (
-              <li className="d-flex" style={{alignItems: "center"}}>
-                <span className="ml-2" style={{marginLeft: 5}}>
-                  {token.user.name+" "+token.user.last_name}
-                </span>
+
+              <li className="d-flex" style={{ alignItems: "center" }}>
+                <Link to="/profile">
+                  Mon profil : {token.user.name + " " + token.user.last_name}
+                </Link>
                 <span onClick={deconnect} className="getstarted cursor-pointer">
                   Deconnexion
                 </span>

@@ -13,11 +13,11 @@ export default function Detail() {
                 <h1 className="fw-bold">Title</h1>
                 <div className="location-desc my-2">
                     <span>
-                        <i class="bi bi-geo-alt-fill me-2"></i>
+                        <i className="bi bi-geo-alt-fill me-2"></i>
                         Analakely, Antananarivo 101
                     </span>
-                    <span class="badge bg-success mx-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill me-1" viewBox="0 0 16 16">
+                    <span className="badge bg-success mx-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill me-1" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                         </svg>
                         Disponible
@@ -35,7 +35,7 @@ export default function Detail() {
                     <div className="col-md-12">
                         <button className="btn btn-success w-100">Réserver l'éspace</button>
                         <button className="btn btn-warning my-2 w-100">
-                            <i class="bi bi-heart-fill"></i>
+                            <i className="bi bi-heart-fill"></i>
                             Ajouter aux favoris
                         </button>
                     </div>

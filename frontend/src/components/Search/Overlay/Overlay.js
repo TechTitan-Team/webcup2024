@@ -83,11 +83,11 @@ export function Overlay(props) {
     }
 
     useEffect(() => {
-        if (props.service.lieux)
+        if (props.service.lieux && props.filter.pers)
             getService("lieux", props.filter.pers, props.filter.location)
         else
             setServices({...services, lieux: []})
-        if (props.service.traiteurs)
+        if (props.service.traiteurs && props.filter.pers)
             getService("traiteur", props.filter.pers )
         else
             setServices({...services, traiteurs: []})
@@ -335,7 +335,7 @@ export function Overlay(props) {
                     
                 }
                 <div className="w-25 my-4 float-right">
-                        <button className="float-right btn btn-primary w-100 fw-bold" onClick={onValid }>Valider ma reservation</button>
+                        <button className="float-right btn btn-primary w-100 fw-bold" onClick={onValid } disabled={idPartenaires.length == 0}>Valider ma reservation</button>
                     </div>
             </div>
         </div>

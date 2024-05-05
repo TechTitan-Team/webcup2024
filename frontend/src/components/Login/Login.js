@@ -55,7 +55,7 @@ const Login = () => {
         <LoginCarousel />
       </div>
       {/* Right */}
-      <div className="col-sm-10 col-lg-5 d-flex m-auto vh-100">
+      <div className="col-sm-10 col-lg-5 d-flex m-auto vh-100 align-items-center">
         <div className="row w-100 m-auto vh-100">
           <div className="col-sm-10 my-5 m-auto">
             <a href={"/"}>
@@ -71,7 +71,7 @@ const Login = () => {
                   onClick={() => setFaceDetector(true)}
                   className="btn btn-dark mb-0"
                 >
-                  <i class="bi bi-person-bounding-box"></i> Reconnaissance
+                  <i className="bi bi-person-bounding-box"></i> Reconnaissance
                   faciale
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Login = () => {
               {/* Button */}
               <div className="align-items-center mt-0">
                 <div className="d-grid">
-                  <button type="submit" className="btn btn-dark mb-0">
+                  <button type="submit" className="btn btn-prim mb-0">
                     {loading ? "Chargement..." : "Se connecter"}
                   </button>
                 </div>

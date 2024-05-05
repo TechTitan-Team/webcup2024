@@ -31,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <header id="header" className={`fixed-top ${isScroll ? "header-scrolled" : ""}`}>
+    <header id="header" className={`fixed-top ${isScroll||toggle ? "header-scrolled" : ""}`}>
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
           <img src="/rect2.png" alt="logo" className="mx-2" />
@@ -79,10 +79,11 @@ const Header = () => {
                 </Link>
               </li>
             ) : (
-              <li className="d-flex" style={{alignItems: "center"}}>
-                <span className="ml-2" style={{marginLeft: 5}}>
-                  {token.user.name+" "+token.user.last_name}
-                </span>
+
+              <li className="d-flex" style={{ alignItems: "center" }}>
+                <Link to="/profile">
+                  Mon profil : {token.user.name + " " + token.user.last_name}
+                </Link>
                 <span onClick={deconnect} className="getstarted cursor-pointer">
                   Deconnexion
                 </span>

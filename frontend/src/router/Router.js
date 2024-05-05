@@ -18,6 +18,7 @@ import PartnerProfile from "../components/Admin/PartnerProfile/PartnerProfile";
 import PartnerLogin from "../components/PartnerLogin/PartnerLogin";
 import Partners from "../components/Partners/Partners";
 import CommandDetail from "../components/Admin/CommandDetail/CommandDetail";
+import Profile from "../components/Profile/Profile";
 
 const Router = () => {
   return (
@@ -93,6 +94,7 @@ const Router = () => {
             </IsAdmin>
           }
         ></Route>
+        <Route path="/profile" element={<Profile />}></Route>
       </Routes>
     </BrowserRouter>
   );

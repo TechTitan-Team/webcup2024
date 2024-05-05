@@ -715,6 +715,109 @@
   color: #e60000;
 }
 
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#custom-hero {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  background: url("../../assets/img/istockphoto-1795654536-612x612.jpg") no-repeat;
+  background-size: cover;
+  padding: 0;
+}
+
+#custom-hero .custom-hero-content {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#custom-hero .custom-hero-content h2 {
+  color: #0c2e8a;
+  margin-bottom: 30px;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+#custom-hero .custom-hero-content h2 span {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  #hero .hero-content h2 {
+    font-size: 34px;
+  }
+}
+
+#custom-hero .custom-hero-content .btn-get-started,
+#custom-hero .custom-hero-content .btn-projects {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+}
+
+#custom-hero .custom-hero-content .btn-get-started {
+  background: #0c2e8a;
+  border: 2px solid #0c2e8a;
+}
+
+#custom-hero .custom-hero-content .btn-get-started:hover {
+  background: none;
+  color: #0c2e8a;
+}
+
+#custom-hero .custom-hero-content .btn-projects {
+  background: #50d8af;
+  border: 2px solid #50d8af;
+}
+
+#custom-hero .custom-hero-content .btn-projects:hover {
+  background: none;
+  color: #50d8af;
+}
+
+#custom-hero .custom-hero-slider {
+  z-index: 8;
+  height: 60vh;
+}
+
+#custom-hero .custom-hero-slider::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 7;
+}
+
+#custom-hero .custom-hero-slider .swiper-slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition-property: opacity;
+}
+
 .admin-container .login p,
 .admin-container .login label {
   color: #444444 !important;

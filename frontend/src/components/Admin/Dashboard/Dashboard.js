@@ -3,6 +3,7 @@ import AdminLayout from "../AdminLayout/AdminLayout";
 import useHttps from "../../../hooks/useHttps";
 import { Link } from "react-router-dom";
 import useToken from "../../../hooks/useToken";
+import getService from "../../../utils/getService";
 
 const Dashboard = () => {
   const [data, setData] = useState();
@@ -142,7 +143,7 @@ const Dashboard = () => {
                                       {partner.email}
                                     </Link>
                                   </td>
-                                  <td>{partner.type}</td>
+                                  <td>{getService(partner.type)}</td>
                                   <td>
                                     {partner.isValid ? (
                                       <span className="badge bg-success">

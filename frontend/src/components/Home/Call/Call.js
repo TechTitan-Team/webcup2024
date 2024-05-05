@@ -3,6 +3,7 @@ import  svg1 from "../../../assets/img/service.svg";
 import  svg2 from "../../../assets/img/cta-vector.svg";
 // import heroImg from "../../../assets/photo3";
 import img3 from "../../../assets/img/sary.jpg";
+import { Link } from "react-router-dom";
 const Call = () => {
   return (
     <section className=" pt-0">
@@ -60,9 +61,9 @@ const Call = () => {
             Rejoignez-nous pour offrir des expériences exceptionnelles à nos clients et faire partie d'une plateforme qui valorise l'excellence !
             </p>
             {/* Button */}
-            <a href="#" className="btn btn-primary mb-6">
+            <Link to="/become-partner" className="btn btn-primary mb-6">
               Devenir partenaire
-            </a>
+            </Link>
           
             {/* Client-Slider START */}
            

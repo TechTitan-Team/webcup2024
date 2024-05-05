@@ -46,7 +46,7 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a className="getstarted " href="#about">
+              <a className="getstarted " href={"/become-partner"}>
                 Devenir un parternaire
               </a>
             </li>

@@ -1068,3 +1068,11 @@ h1,
 img{
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
+.login .form-control, .register .form-control{
+  background-color: #232323;
+  color: #fff !important; 
+}
+.login .form-control:focus, .login .form-control:active, .register .form-control:focus, .register .form-control:active{
+  color: #fff !important; 
+  box-shadow: none !important;
+}

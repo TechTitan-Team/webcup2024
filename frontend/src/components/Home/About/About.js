@@ -1,71 +1,68 @@
 import React from "react";
-import aboutImg from "../../../assets/img/about.jpg"
+import aboutImg from "../../../assets/img/demarche-eco.jpg"
 import aboutImg2 from "../../../assets/img/about-2.jpg"
 
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about pt-7">
       <div className="container">
         <div className="section-header">
-          <h2>About Us</h2>
+          <h2>Notre engagement envers l'environnement</h2>
           <p>
-            Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro
-            incidunt dolores placeat sunt id nobis omnis tiledo stran delop
+          Chez Elite Events, nous nous engageons à protéger l'environnement.
           </p>
         </div>
         <div className="row gy-4">
           <div className="col-lg-6">
-            <h3>Voluptatem dignissimos provident quasi corporis</h3>
+            <h4>Engagement écologique, mesuré par <span className="text-primary">ecoIndex</span></h4>
             <img
               src={aboutImg}
-              className="img-fluid rounded-4 mb-4"
+              className="img-fluid rounded-4 mb-10"
+             
               alt=""
             />
-            <p>
-              Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis
-              quod nisi et. Placeat debitis quia recusandae odit et consequatur
-              voluptatem. Dignissimos pariatur consectetur fugiat voluptas ea.
+            <p style = {{marginTop: "1.5rem"}}>
+            Nous sommes fiers de notre engagement écologique, mesuré par EcoIndex. EcoIndex évalue la performance écologique de notre application web, et nous sommes ravis d'avoir obtenu une excellente note. Cela signifie que notre plateforme respecte des normes environnementales élevées, contribuant ainsi à préserver notre planète.
             </p>
-            <p>
+            <a href="#" className="btn btn-primary mb-6">
+              Devenir partenaire
+            </a>
+            {/* <p>
               Temporibus nihil enim deserunt sed ea. Provident sit expedita aut
               cupiditate nihil vitae quo officia vel. Blanditiis eligendi
               possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut
               repellendus nobis tempore doloribus debitis explicabo similique
               sit. Accusantium sed ut omnis beatae neque deleniti repellendus.
-            </p>
+            </p> */}
           </div>
           <div className="col-lg-6">
             <div className="content ps-0 ps-lg-5">
               <p className="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               Voici les avantanges pour vous de choisir une plateforme éco-consciente comme Elite Events :
               </p>
               <ul>
                 <li>
-                  <i className="bi bi-check-circle-fill" /> Ullamco laboris nisi
-                  ut aliquip ex ea commodo consequat.
+                  <i className="bi bi-check-circle-fill" /> Réduction de l'empreinte carbone
+                  {/* <p>En choisissant des fournisseurs et des services éco-conscients pour leur événement, les clients peuvent contribuer à réduire l'empreinte carbone de celui-ci. Par exemple, en optant pour des traiteurs proposant des menus à base de produits locaux et de saison, les clients réduisent l'empreinte carbone associée au transport des aliments.</p> */}
                 </li>
                 <li>
-                  <i className="bi bi-check-circle-fill" /> Duis aute irure
-                  dolor in reprehenderit in voluptate velit.
+                  <i className="bi bi-check-circle-fill" /> Conservation des ressources naturelles
                 </li>
                 <li>
-                  <i className="bi bi-check-circle-fill" /> Ullamco laboris nisi
-                  ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                  reprehenderit in voluptate trideta storacalaperda mastiro
-                  dolore eu fugiat nulla pariatur.
+                  <i className="bi bi-check-circle-fill" /> Soutien à des initiatives positives
                 </li>
+                <li>
+                  <i className="bi bi-check-circle-fill" /> Image de marque responsable 
+                </li>  
               </ul>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident
+              Ensemble, faisons la différence pour un avenir plus vert et plus durable. Rejoignez-nous chez Élite évents pour créer des événements exceptionnels tout en préservant notre planète pour les générations futures.
               </p>
               <div className="position-relative mt-4">
                 <img
                   src={aboutImg2}
                   className="img-fluid rounded-4"
+                  width="120%"
                   alt=""
                 />
               </div>

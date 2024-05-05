@@ -18,14 +18,13 @@ const Banner = () => {
             <div className="d-flex">
               <a href="#about" className="btn-get-started scrollto">
                 Decouvrez nos services
-              </a>
-             
+              </a> 
             </div>
           </div>
           <div className="col-lg-6 order-1 order-lg-2 hero-img">
             <img
               src={img}
-              className="img-fluid animated"
+              className="img-fluid animated rounded-4"
               alt=""
             />
           </div>

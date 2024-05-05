@@ -254,6 +254,9 @@ a:hover {
   display: none;
   line-height: 0;
   transition: 0.5s;
+  border: #fecb00 solid 1px;
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 .mobile-nav-toggle.bi-x {
@@ -265,8 +268,23 @@ a:hover {
     display: block;
   }
 
+  .mobile-nav-toggle.viewed {
+    margin-top:10px;
+    width: 100%;
+  }
+
   .navbar ul {
     display: none;
+    border-inline-start: #fecb00 1px solid;
+  }
+
+  header .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header .mobile-nav-toggle {
+    display: block;
   }
 }
 

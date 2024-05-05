@@ -2,6 +2,8 @@ import { Response, Request } from "express"
 import { generateToken, uploadFile } from '../services/services'
 import bcrypt from "bcrypt"
 import model from "../models/users"
+import partnerModel from "../models/partenaires"
+import commandModel from "../models/commands"
 
 const controller = {
     getAll: async (req: Request, res: Response) => {
@@ -178,6 +180,26 @@ const controller = {
 
         try { 
             let data = await model.delete(id)
+            res.status(200).send(data)
+        }
+        catch (error: any) {
+            console.log(error)
+            res.status(500).send(error.message)
+        }
+    },
+    dashboard: async (req: Request, res: Response) => {
+        try { 
+            let allUsers = await model.getAll()
+            let allPartner = await partnerModel.getByType(true)
+            let allDemand = await partnerModel.getByType(false)
+            let recentPartner = await partnerModel.getLimit(6)
+
+            let data = {
+                users: allUsers.length,
+                partner: allPartner.length,
+                demand: allDemand.length,
+                recentPartner: recentPartner
+            }
             res.status(200).send(data)
         }
         catch (error: any) {

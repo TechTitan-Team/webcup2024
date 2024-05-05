@@ -9,46 +9,46 @@ import useToken from "../../hooks/useToken";
 import useHttps from "../../hooks/useHttps";
 
 const Login = () => {
-//   const nav = useNavigate();
+  const nav = useNavigate();
   const [faceDetector, setFaceDetector] = useState(false);
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState(null);
-//   const { http } = useHttps();
-//   const { setToken } = useToken();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { http } = useHttps();
+  const { setToken } = useToken();
 
-//   const onChange = (name, value) => {
-//     setData({
-//       ...data,
-//       [name]: value,
-//     });
-//   };
+  const onChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (data && data.email.trim()) {
-//       try {
-//         setLoading(true);
-//         let toSend = data;
-//         toSend.email = data.email.trim();
-//         let response = await http.post("/users/login", toSend);
-//         if (response) {
-//           setError(null);
-//           setLoading(false);
-//           setToken(response.data);
-//           console.log(response.data)
-//           if(response.data.user.type == "admin")
-//             nav("/admin");
-//           else
-//             nav("/");
-//         }
-//       } catch (error) {
-//         setError(error.response.data);
-//         setLoading(false);
-//         console.log(error);
-//       }
-//     }
-//   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (data && data.email.trim()) {
+      try {
+        setLoading(true);
+        let toSend = data;
+        toSend.email = data.email.trim();
+        let response = await http.post("/users/login", toSend);
+        if (response) {
+          setError(null);
+          setLoading(false);
+          setToken(response.data);
+          console.log(response.data)
+          if(response.data.user.type == "admin")
+            nav("/admin");
+          else
+            nav("/");
+        }
+      } catch (error) {
+        setError(error.response.data);
+        setLoading(false);
+        console.log(error);
+      }
+    }
+  };
   return (
     <div className="row g-0">
       {/* left */}
@@ -92,7 +92,7 @@ const Login = () => {
               </div>
             </div>
             {/* Form START */}
-            <form >
+            <form onSubmit={handleSubmit}>
               {/* Email */}
               <div className="input-floating-label form-floating mb-4">
                 <input
@@ -101,7 +101,7 @@ const Login = () => {
                   id="floatingInput"
                   placeholder="name@example.com"
                   name="email"
-                  
+                  onChange={onChange}
                 />
                 <label htmlFor="floatingInput">Adresse email</label>
               </div>
@@ -113,7 +113,7 @@ const Login = () => {
                   id="psw-input"
                   placeholder="Enter your password"
                   name="password"
-                 
+                 onChange={onChange}
                 />
                 <label htmlFor="floatingInput">Mot de passe</label>
                 <span className="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
@@ -144,7 +144,7 @@ const Login = () => {
               <div className="align-items-center mt-0">
                 <div className="d-grid">
                   <button type="submit" className="btn btn-dark mb-0">
-                    Se connecter
+                    {loading ? "Chargement..." : "Se connecter"}
                   </button>
                 </div>
               </div>
@@ -156,6 +156,13 @@ const Login = () => {
             <div className="mt-4 text-center">
               <span>
                 Pas encore inscrit ?
+                <a
+                  href={"/signup"}
+                  className="link-underline-primary"
+                >
+                  {" "}
+                  S'inscrire
+                </a>
                 {/* <Link >S'inscrire</Link> */}
               </span>
             </div>

@@ -288,6 +288,7 @@
   margin-top: 60px;
   padding: 20px 30px;
   transition: all 0.3s;
+  min-height: 95vh;
 }
 
 @media (min-width: 1200px) {
@@ -365,7 +366,8 @@
   color: #899bbd;
 }
 
-.admin-container .sidebar-nav .nav-link:hover, .admin-container .sidebar-nav .nav-link.active {
+.admin-container .sidebar-nav .nav-link:hover,
+.admin-container .sidebar-nav .nav-link.active {
   color: #4154f1;
   background: #f6f9ff;
 }
@@ -631,6 +633,7 @@
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
 }
 
 .admin-container .card-header,
@@ -684,8 +687,12 @@
   margin-bottom: 10px;
 }
 
-.admin-container .section.dashboard {
-    padding: 0;
+.admin-container .section.dashboard, .admin-container .section {
+  padding: 0;
+}
+
+.admin-container p, .admin-container div {
+  color: #444444 !important;
 }
 
 .text-facebook {
@@ -706,4 +713,13 @@
 
 .text-youtube {
   color: #e60000;
+}
+
+.admin-container .login p,
+.admin-container .login label {
+  color: #444444 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

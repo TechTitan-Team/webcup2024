@@ -189,7 +189,7 @@ const controllerPartenaire = {
     },
     delete : async(req: Request, res: Response)=>{
         try{
-            let id = req.body;
+            let { id } = req.params;
             let data = await modelPartenaire.delete(parseInt(id))
             if(data)
                 res.status(200).send(data)

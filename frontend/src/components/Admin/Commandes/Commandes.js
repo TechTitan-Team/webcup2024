@@ -3,8 +3,10 @@ import AdminLayout from "../AdminLayout/AdminLayout";
 import { Link } from "react-router-dom";
 import useHttps from "../../../hooks/useHttps";
 import generateDate from "../../../utils/generateDate";
+import useToken from "../../../hooks/useToken";
 
 const Commandes = () => {
+  const { token } = useToken();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -12,7 +14,14 @@ const Commandes = () => {
 
   const getData = async () => {
     try {
-      let response = await http.get("/commands");
+      let url = "/commands";
+      if (token)
+        url =
+          token.user.type == "partner"
+            ? `/commands/partner/${token.user.id}`
+            : "/commands";
+      console.log(url);
+      let response = await http.get(url);
       if (response) {
         console.log(response.data);
         setData(response.data);
@@ -22,6 +31,17 @@ const Commandes = () => {
       setError(error.response.data);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const deleteCommande = async (id) => {
+    try {
+      let response = await http.delete(`/commands/${id}`);
+      if (response) {
+        getData();
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -69,6 +89,9 @@ const Commandes = () => {
                         <th scope="col">Prix total</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
+                        {token && token.user && token.user.type && (
+                          <th scope="col">Action</th>
+                        )}
                       </tr>
                     </thead>
                     <tbody>
@@ -83,11 +106,16 @@ const Commandes = () => {
                         data.map((reservation, idx) => (
                           <tr key={idx}>
                             <th scope="row">
-                              <Link to={`/admin/command/${reservation.id}`}>{reservation.user.id}</Link>
+                              <Link to={`/admin/command/${reservation.id}`}>
+                                {reservation.user.id}
+                              </Link>
                             </th>
                             <td>{reservation.user.email}</td>
                             <td>
-                              <Link to={`/admin/command/${reservation.id}`} className="text-primary">
+                              <Link
+                                to={`/admin/command/${reservation.id}`}
+                                className="text-primary"
+                              >
                                 {reservation.totalPrice}
                               </Link>
                             </td>
@@ -103,6 +131,16 @@ const Commandes = () => {
                                 <span className="badge bg-warning">Validé</span>
                               )}
                             </td>
+                            {token && token.user && token.user.type && (
+                              <td>
+                                <span
+                                  onClick={() => deleteCommande(reservation.id)}
+                                  className="badge cursor-pointer bg-danger color-white"
+                                >
+                                  Effectué
+                                </span>
+                              </td>
+                            )}
                           </tr>
                         ))}
                     </tbody>

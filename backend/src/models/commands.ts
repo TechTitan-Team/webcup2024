@@ -18,6 +18,24 @@ const modelCommands = {
       }
     });
   },
+  getPartner:  async (id: number) => {
+    return prisma.commands.findMany({
+      include: {
+        user: true,
+        relation: {
+          where: {
+            id_partenaire: id
+          },
+          include: {
+            partenaire: true
+          }
+        }
+      },
+      orderBy: {
+        id: "desc"
+      }
+    });
+  },
   getOne: async (id: number) => {
     return prisma.commands.findUnique({
       where: { id: id },
@@ -52,6 +70,13 @@ const modelCommands = {
     });
     return res;
   },
+  delete: async (id : number) => {
+    let result = await prisma.commands.delete({
+        where: { id: Number(id) },
+    })
+
+    return result
+},
 };
 
 export default modelCommands;

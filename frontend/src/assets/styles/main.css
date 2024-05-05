@@ -1115,4 +1115,5 @@ img{
 .login .form-control:focus, .login .form-control:active, .register .form-control:focus, .register .form-control:active{
   color: #fff !important; 
   box-shadow: none !important;
+  background-color: #232323;
 }

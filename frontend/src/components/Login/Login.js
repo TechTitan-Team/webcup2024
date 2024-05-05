@@ -37,7 +37,6 @@ const Login = () => {
           setError(null);
           setLoading(false);
           setToken(response.data);
-          console.log(response.data);
           if (response.data.user.type == "admin") nav("/admin");
           else nav("/");
         }
@@ -80,7 +79,7 @@ const Login = () => {
               {/* Divider with text */}
               <div className="position-relative my-5">
                 <hr />
-                <p className="small position-absolute top-50 start-50 translate-middle bg-body px-4">
+                <p className="small position-absolute top-50 start-50 translate-middle px-4" style={{background: "#232323"}}>
                   Ou
                 </p>
               </div>

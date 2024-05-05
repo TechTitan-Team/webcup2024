@@ -195,7 +195,7 @@ const Register = () => {
                 />
                 <label htmlFor="floatingInput">Date de naissance</label>
               </div> */}
-              <div class=" mb-4">
+              <div className=" mb-4">
                 <label htmlFor="floatingInput">Photo de profil</label>
                 <input
                   required

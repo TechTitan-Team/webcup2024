@@ -19,12 +19,12 @@ const InvalidOrder = () => {
         </div>
         {/* End Page Title */}
         <section className="section dashboard">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Tout les reservations passé</h5>
-                  <table class="table">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Tout les reservations passé</h5>
+                  <table className="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>

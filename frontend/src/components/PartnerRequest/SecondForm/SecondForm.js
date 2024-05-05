@@ -34,34 +34,34 @@ const SecondForm = ({ onChange, setStep, data }) => {
     }
   };
   return (
-    <form class="row g-4" onSubmit={validate}>
+    <form className="row g-4" onSubmit={validate}>
       <span style={{ fontWeight: "bold", margin: 0 }}>Étape 2/2</span>
-      <div class="col-md-12">
-        <label class="form-label heading-color">
+      <div className="col-md-12">
+        <label className="form-label heading-color">
           Mot de passe de connexon
         </label>
         <input
           type="password"
-          class="form-control"
+          className="form-control"
           required
           name="password"
           onChange={onChange}
         />
       </div>
 
-      <div class="col-md-12">
-        <label class="form-label heading-color">Photo</label>
+      <div className="col-md-12">
+        <label className="form-label heading-color">Photo</label>
         <input
           type="file"
-          class="form-control"
+          className="form-control"
           required
           name="number"
           onChange={(e) => setImage(e.target.files[0])}
         />
       </div>
 
-      <div class="col-12">
-        <label class="form-label heading-color">Vos Services</label>
+      <div className="col-12">
+        <label className="form-label heading-color">Vos Services</label>
         <div className="form-group">
           <select
             className="form-control"
@@ -82,21 +82,21 @@ const SecondForm = ({ onChange, setStep, data }) => {
           </select>
         </div>
       </div>
-      <div class="col-md-12">
-        <label class="form-label heading-color">Prix de votre service</label>
+      <div className="col-md-12">
+        <label className="form-label heading-color">Prix de votre service</label>
         <input
           type="number"
-          class="form-control"
+          className="form-control"
           required
           name="price"
           onChange={onChange}
         />
       </div>
-      <div class="col-md-6">
-        <label class="form-label heading-color">Personne minimum</label>
+      <div className="col-md-6">
+        <label className="form-label heading-color">Personne minimum</label>
         <input
           type="number"
-          class="form-control"
+          className="form-control"
           required
           name="pers_min"
           defaultValue={5}
@@ -104,11 +104,11 @@ const SecondForm = ({ onChange, setStep, data }) => {
         />
       </div>
 
-      <div class="col-md-6">
-        <label class="form-label heading-color">Personne maxinimum</label>
+      <div className="col-md-6">
+        <label className="form-label heading-color">Personne maxinimum</label>
         <input
           type="number"
-          class="form-control"
+          className="form-control"
           required
           id="floatingInput"
           name="pers_max"
@@ -125,7 +125,7 @@ const SecondForm = ({ onChange, setStep, data }) => {
         </Alert>
       )}
 
-      <button type="submit" class="btn btn-primary mb-0">
+      <button type="submit" className="btn btn-primary mb-0">
         {loading ? "Chargement..." : "Enregister"}
       </button>
     </form>

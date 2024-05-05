@@ -5,7 +5,7 @@ const Partners = () => {
   return (
     <Layout>
       <section id="custom-hero">
-        <div class="custom-hero-content">
+        <div className="custom-hero-content">
           <h2>
             Listes de nos <span>partenaires</span>
           </h2>

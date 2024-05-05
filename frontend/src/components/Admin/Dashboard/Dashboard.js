@@ -76,7 +76,7 @@ const Dashboard = () => {
                         <h5 className="card-title">Partenaires</h5>
                         <div className="d-flex align-items-center">
                           <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i class="bi bi-card-checklist"></i>
+                            <i className="bi bi-card-checklist"></i>
                           </div>
                           <div className="ps-3">
                             <h6>{data.partner}</h6>
@@ -96,7 +96,7 @@ const Dashboard = () => {
                         <h5 className="card-title">En attente</h5>
                         <div className="d-flex align-items-center">
                           <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i class="bi bi-card-list"></i>
+                            <i className="bi bi-card-list"></i>
                           </div>
                           <div className="ps-3">
                             <h6>{data.demand}</h6>

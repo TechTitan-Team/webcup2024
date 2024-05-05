@@ -7,24 +7,24 @@ const FirstForm = ({ onChange, setStep }) => {
     setStep(1);
   };
   return (
-    <form class="row g-4" onSubmit={validate}>
+    <form className="row g-4" onSubmit={validate}>
       <span style={{ fontWeight: "bold", margin: 0 }}>Étape 1/2</span>
-      <div class="col-md-6">
-        <label class="form-label heading-color">Nom de l'organisation</label>
+      <div className="col-md-6">
+        <label className="form-label heading-color">Nom de l'organisation</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           required
           name="name"
           onChange={onChange}
         />
       </div>
 
-      <div class="col-md-6">
-        <label class="form-label heading-color">Adresse email</label>
+      <div className="col-md-6">
+        <label className="form-label heading-color">Adresse email</label>
         <input
           type="email"
-          class="form-control"
+          className="form-control"
           required
           id="floatingInput"
           name="email"
@@ -32,32 +32,32 @@ const FirstForm = ({ onChange, setStep }) => {
         />
       </div>
 
-      <div class="col-md-6">
-        <label class="form-label heading-color">Téléphone</label>
+      <div className="col-md-6">
+        <label className="form-label heading-color">Téléphone</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           required
           name="number"
           onChange={onChange}
         />
       </div>
 
-      <div class="col-md-6">
-        <label class="form-label heading-color">Adresse</label>
+      <div className="col-md-6">
+        <label className="form-label heading-color">Adresse</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           required
           name="location"
           onChange={onChange}
         />
       </div>
 
-      <div class="col-12">
-        <label class="form-label heading-color">Description</label>
+      <div className="col-12">
+        <label className="form-label heading-color">Description</label>
         <textarea
-          class="form-control"
+          className="form-control"
           required
           id="floatingTextarea2"
           style={{ height: "150px" }}
@@ -68,7 +68,7 @@ const FirstForm = ({ onChange, setStep }) => {
 
       <Link to={"/partner-login"}>Je suis déjà partenaire</Link>
 
-      <button type="submit" class="btn btn-primary mb-0">
+      <button type="submit" className="btn btn-primary mb-0">
         Suivant
       </button>
     </form>

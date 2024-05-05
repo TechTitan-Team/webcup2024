@@ -71,7 +71,7 @@ const Login = () => {
                   onClick={() => setFaceDetector(true)}
                   className="btn btn-dark mb-0"
                 >
-                  <i class="bi bi-person-bounding-box"></i> Reconnaissance
+                  <i className="bi bi-person-bounding-box"></i> Reconnaissance
                   faciale
                 </div>
               </div>

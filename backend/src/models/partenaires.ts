@@ -137,6 +137,11 @@ const modelPartenaire = {
               pers_max: {
                 gte: pers
             }
+            },
+            {
+              number: {
+                lte: 0
+              }
             }
             ]
         };

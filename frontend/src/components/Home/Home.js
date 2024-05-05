@@ -8,6 +8,7 @@ import Cta from "./Cta/Cta";
 import Service from "./Service/Service";
 import Cible from "./Cible/Cible";
 import Call from "./Call/Call";
+import Footer from "../Layout/Footer/Footer";
 const Home = () => {
   return (
     <Layout>

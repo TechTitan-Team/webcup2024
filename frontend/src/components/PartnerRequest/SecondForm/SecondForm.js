@@ -99,7 +99,7 @@ const SecondForm = ({ onChange, setStep, data }) => {
           class="form-control"
           required
           name="pers_min"
-          defaultValue={20}
+          defaultValue={5}
           onChange={onChange}
         />
       </div>

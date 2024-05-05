@@ -8,7 +8,7 @@ import SecondForm from "./SecondForm/SecondForm";
 
 const PartnerRequest = () => {
   const [data, setData] = useState({
-    pers_min: 20,
+    pers_min: 5,
     pers_max: 20
   });
   const [step, setStep] = useState(0);
@@ -98,7 +98,7 @@ const PartnerRequest = () => {
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-xl-5">
+            <div class="login col-lg-6 col-xl-5">
               <div class="card card-body shadow border p-sm-5">
                 <figure class="position-absolute top-100 start-0 translate-middle mt-n5">
                   <img src={flesheImg} width={200} />

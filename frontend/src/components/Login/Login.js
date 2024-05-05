@@ -37,11 +37,8 @@ const Login = () => {
           setError(null);
           setLoading(false);
           setToken(response.data);
-          console.log(response.data)
-          if (response.data.user.type == "admin")
-            nav("/admin");
-          else
-            nav("/");
+          if (response.data.user.type == "admin") nav("/admin");
+          else nav("/");
         }
       } catch (error) {
         setError(error.response.data);
@@ -51,7 +48,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="row g-0">
+    <div className="login row g-0">
       {/* left */}
       <div className="col-lg-7 vh-100 d-none d-lg-block e">
         {/* Slider START */}
@@ -82,7 +79,7 @@ const Login = () => {
               {/* Divider with text */}
               <div className="position-relative my-5">
                 <hr />
-                <p className="small position-absolute top-50 start-50 translate-middle bg-s px-4">
+                <p className="small position-absolute top-50 start-50 translate-middle px-4" style={{background: "#232323"}}>
                   Ou
                 </p>
               </div>
@@ -136,6 +133,11 @@ const Login = () => {
                   Mot de passe oublié ?
                 </a>
               </div>
+              {error ? (
+                <div className="col-12">
+                  <Alert variant="danger">{error}</Alert>
+                </div>
+              ) : null}
               {/* Button */}
               <div className="align-items-center mt-0">
                 <div className="d-grid">
@@ -147,18 +149,14 @@ const Login = () => {
             </form>
             {/* Form END */}
 
-
             {/* Sign up link */}
             <div className="mt-4 text-center">
               <span>
                 Pas encore inscrit ?
-                <a
-                  href={"/signup"}
-                  className="link-underline-primary"
-                >
+                <Link to={"/signup"} className="link-underline-primary">
                   {" "}
                   S'inscrire
-                </a>
+                </Link>
                 {/* <Link >S'inscrire</Link> */}
               </span>
             </div>

@@ -137,6 +137,9 @@ const modelPartenaire = {
               pers_max: {
                 gte: pers
             }
+            },
+            {
+              isValid: true
             }
             ]
         };

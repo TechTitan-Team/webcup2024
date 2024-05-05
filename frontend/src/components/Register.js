@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Alert from "react-bootstrap/Alert";
-import logo from "../assets/img/logo-horizontal.png";
 import LoginCarousel from "./Login/LoginCarousel";
 import useHttps from "../hooks/useHttps";
 import { Link, useNavigate } from "react-router-dom";
@@ -127,7 +126,7 @@ const register = (e)=>{
         <div className="row w-100 m-auto">
           <div className="col-sm-10 my-5 m-auto">
             <a href="index.html">
-              <img src={logo} width={150} className="h-25px mb-4" alt="logo" />
+              <img src={"/rect2.png"} width={100} className="h-25px mb-4" alt="logo" />
             </a>
             <h2 className="mb-0">Créer un compte </h2>
             <p className="mb-0">Bienvenue, veuillez vous inscrire</p>
@@ -214,7 +213,7 @@ const register = (e)=>{
               {/* Button */}
               <div className="align-items-center mt-0">
                 <div className="d-grid">
-                  <button type="submit" className="btn btn-dark mb-0">
+                  <button type="submit" className="btn btn-prim mb-0">
                     {registerLoad ? "Chargement..." : "S'inscrire"}
                   </button>
                 </div>

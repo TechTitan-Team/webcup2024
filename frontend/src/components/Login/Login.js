@@ -38,7 +38,7 @@ const Login = () => {
           setLoading(false);
           setToken(response.data);
           console.log(response.data)
-          if(response.data.user.type == "admin")
+          if (response.data.user.type == "admin")
             nav("/admin");
           else
             nav("/");
@@ -58,11 +58,11 @@ const Login = () => {
         <LoginCarousel />
       </div>
       {/* Right */}
-      <div className="col-sm-10 col-lg-5 d-flex m-auto vh-100">
+      <div className="col-sm-10 col-lg-5 d-flex m-auto vh-100 align-items-center">
         <div className="row w-100 m-auto vh-100">
           <div className="col-sm-10 my-5 m-auto">
             <a href={"/"}>
-            <AnimationWrapper text="Elite Events"/>
+              <AnimationWrapper text="Elite Events" />
             </a>
             <h2 className="mb-0">Ravi de vous revoir</h2>
             <p className="mb-0">Bienvenue, veuillez entrer vos coordonées</p>
@@ -78,11 +78,11 @@ const Login = () => {
                   faciale
                 </div>
               </div>
-              
+
               {/* Divider with text */}
               <div className="position-relative my-5">
                 <hr />
-                <p className="small position-absolute top-50 start-50 translate-middle bg-body px-4">
+                <p className="small position-absolute top-50 start-50 translate-middle bg-s px-4">
                   Ou
                 </p>
               </div>
@@ -109,7 +109,7 @@ const Login = () => {
                   id="psw-input"
                   placeholder="Enter your password"
                   name="password"
-                 onChange={onChange}
+                  onChange={onChange}
                 />
                 <label htmlFor="floatingInput">Mot de passe</label>
                 <span className="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
@@ -139,15 +139,15 @@ const Login = () => {
               {/* Button */}
               <div className="align-items-center mt-0">
                 <div className="d-grid">
-                  <button type="submit" className="btn btn-dark mb-0">
+                  <button type="submit" className="btn btn-prim mb-0">
                     {loading ? "Chargement..." : "Se connecter"}
                   </button>
                 </div>
               </div>
             </form>
             {/* Form END */}
-           
-            
+
+
             {/* Sign up link */}
             <div className="mt-4 text-center">
               <span>

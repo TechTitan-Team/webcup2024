@@ -7,9 +7,16 @@ const IsAdmin = ({ children }) => {
   const nav = useNavigate();
 
   useEffect(() => {
-    if (!token || !token.token == "admin") nav("/admin/login");
+    if (!token || !token.user.type == "admin" || !token.user.type == "partner")
+      nav("/admin/login");
   }, [token]);
-  return <>{!token || !token.token == "admin" ? null : children}</>;
+  return (
+    <>
+      {!token || !token.user.type == "admin" || !token.user.type == "partner"
+        ? null
+        : children}
+    </>
+  );
 };
 
 export default IsAdmin;

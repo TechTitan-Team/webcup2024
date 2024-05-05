@@ -34,7 +34,7 @@ model partenaires {
   pers_min    Int?
   pers_max    Int?
   isValid     Boolean?  @default(false)
-  command     commands[]
+  relation    relation[]
 }
 
 model commands {
@@ -45,6 +45,15 @@ model commands {
   totalPrice  Float
   user        users  @relation(fields: [id_user], references: [id], onDelete: Cascade, onUpdate: Cascade)
   id_user     Int
+  
+  relation    relation[]
+}
+
+model relation {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  commands    commands @relation(fields: [id_command], references: [id],  onDelete: Cascade, onUpdate: Cascade)
+  id_command  Int
   partenaire  partenaires @relation(fields: [id_partenaire], references: [id],  onDelete: Cascade, onUpdate: Cascade)
   id_partenaire Int
 }

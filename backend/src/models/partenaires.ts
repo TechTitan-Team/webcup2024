@@ -5,9 +5,9 @@ const modelPartenaire = {
   getAll: async () => {
     return prisma.partenaires.findMany({
       include: {
-        command: {
+        relation: {
           include: {
-            user: true,
+            commands: true,
           },
         },
       },
@@ -32,9 +32,9 @@ const modelPartenaire = {
     return prisma.partenaires.findUnique({
       where: { id: id },
       include: {
-        command: {
+        relation: {
           include: {
-            user: true,
+            commands: true,
           },
         },
       },
@@ -124,19 +124,21 @@ const modelPartenaire = {
       where: { email: String(email) },
     });
   },
-    filter: (service: string, pers_min: number | undefined, pers_max: number | undefined, location: string | undefined) => {
+    filter: (service: string, pers: number, location: string | undefined) => {
         let whereCondition: Prisma.partenairesWhereInput = {
             type: service,
-            pers_min: 
-                {
-                    gt: pers_min,
-                }
-            ,
-            pers_max: 
-                {
-                    lt: pers_max
-                }
-            
+            AND:[
+              {
+                pers_min: {
+                  lte: pers
+              }
+              },
+            {
+              pers_max: {
+                gte: pers
+            }
+            }
+            ]
         };
     
         if (location !== 'undefined') {
@@ -151,9 +153,9 @@ const modelPartenaire = {
         return prisma.partenaires.findMany({
             where: whereCondition,
             include: {
-                command: {
+                relation: {
                     include: {
-                        user: true
+                        commands: true
                     }
                 }
             }

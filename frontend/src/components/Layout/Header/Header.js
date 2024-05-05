@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const Header = () => {
@@ -22,38 +22,34 @@ const Header = () => {
       <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo">
           <img src="/rect2.png" alt="logo" className="mx-2" />
-          <a href={"/"} style={{ verticalAlign: "middle" }}>Elite Events</a>
+          <Link to={"/"} style={{ verticalAlign: "middle" }}>Elite Events</Link>
         </h1>
         <nav id="navbar" className="navbar">
-          <ul className={`${toggle ? "d-block" : ""}`}>
-          <li>
-  <NavLink to={"/"} activeClassName="active" className="nav-link">Accueil</NavLink>
-</li>
-<li>
-  <NavLink to={"/espace"} activeClassName="active" className="nav-link">Services</NavLink>
-</li>
-<li>
-  <NavLink to={"#contact"} className="nav-link">Contact</NavLink>
-</li>
-<li>
-  <a href="https://bff.ecoindex.fr/redirect/?url=https://techtitan.madagascar.webcup.hodi.host" target="_blank">
-    <img src="https://bff.ecoindex.fr/badge/?theme=dark&url=https://techtitan.madagascar.webcup.hodi.host" alt="Ecoindex Badge" />
-  </a>
-</li>
-<li>
-  <NavLink to={"/become-partner"} activeClassName="active" className="getstarted">Devenir un partenaire</NavLink>
-</li>
-
+          <ul className={`${toggle?"d-block":""}`}>
             <li>
-
-              <a className="" href={"/login"}>
+              <Link className="nav-link  active" to={"/"}>
+                Accueil
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link " to={"/espace"}>
+                Réservation
+              </Link>
+            </li>
+            <li>
+              <Link className="" to={"/login"}>
                 Se connecter
+              </Link>
+            </li>
+            <li>
+              <a href="https://bff.ecoindex.fr/redirect/?url=https://techtitan.madagascar.webcup.hodi.host" target="_blank">
+                <img src="https://bff.ecoindex.fr/badge/?theme=dark&url=https://techtitan.madagascar.webcup.hodi.host" alt="Ecoindex Badge" />
               </a>
             </li>
             <li>
-              <a className="" href={"/signup"}>
-                S'inscrire
-              </a>
+              <Link className="getstarted " to="/become-partner">
+                Devenir parternaire
+              </Link>
             </li>
           </ul>
           <button className={`mobile-nav-toggle ${toggle ? "viewed" : ""}`} onClick={() => setToggle(!toggle)}>

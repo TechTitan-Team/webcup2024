@@ -15,6 +15,8 @@ import PartnerRequest from "../components/PartnerRequest/PartnerRequest";
 import AdminLogin from "../components/Admin/AdminLogin/AdminLogin";
 import IsAdmin from "../pageGuard/IsAdmin";
 import PartnerProfile from "../components/Admin/PartnerProfile/PartnerProfile";
+import PartnerLogin from "../components/PartnerLogin/PartnerLogin";
+import Partners from "../components/Partners/Partners";
 
 const Router = () => {
   return (
@@ -80,8 +82,8 @@ const Router = () => {
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Register />}></Route>
-        {/* <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Register />}></Route> */}
+        <Route path="/partner-login" element={<PartnerLogin />}></Route>
+        <Route path="/all-partners" element={<Partners />}></Route>
       </Routes>
     </BrowserRouter>
   );

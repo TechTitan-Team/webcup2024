@@ -7,9 +7,9 @@ const Header = () => {
   const nav = useNavigate();
 
   const deconnect = () => {
-    clearToken()
-    nav("/admin/login")
-  }
+    clearToken();
+    nav("/admin/login");
+  };
 
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
@@ -41,32 +41,46 @@ const Header = () => {
                 alt="Profile"
                 className="rounded-circle"
               /> */}
-              <span className="d-none d-md-block dropdown-toggle ps-2">
-                {token && token.user.name + " " + token.user.last_name}
-              </span>
+              {token.user.type == "admin" ? (
+                <span className="d-none d-md-block dropdown-toggle ps-2">
+                  {token && token.user.name + " " + token.user.last_name}
+                </span>
+              ) : (
+                <span className="d-none d-md-block dropdown-toggle ps-2">
+                  {token && token.user.name}
+                </span>
+              )}
             </a>
             {/* End Profile Iamge Icon */}
             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li className="dropdown-header">
-                <h6>{token && token.user.name + " " + token.user.last_name}</h6>
+                <h6>
+                  {token && token.user.name + " "}{" "}
+                  {token.user.last_name && token.user.last_name}
+                </h6>
                 <span>{token && token.user.email}</span>
               </li>
               <li>
                 <hr className="dropdown-divider" />
               </li>
+              {token && token.user.type == "admin" ? null : (
+                <>
+                  <li>
+                    <span className="dropdown-item d-flex align-items-center">
+                      <i className="bi bi-person" />
+                      <span>Mon Profile</span>
+                    </span>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                </>
+              )}
               <li>
                 <span
+                  onClick={deconnect}
                   className="dropdown-item d-flex align-items-center"
                 >
-                  <i className="bi bi-person" />
-                  <span>Mon Profil</span>
-                </span>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <span onClick={deconnect} className="dropdown-item d-flex align-items-center">
                   <i className="bi bi-box-arrow-right" />
                   <span>Se déconnecter</span>
                 </span>

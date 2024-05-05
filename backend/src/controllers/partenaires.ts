@@ -202,11 +202,10 @@ const controllerPartenaire = {
     },
     filter: async(req: Request, res: Response)=>{
         try{
-            let {service, pers_min, pers_max, location} = req.params
+            let {service, pers, location} = req.params
             let data = await modelPartenaire.filter(
                 service,
-                parseInt(pers_min),
-                parseInt(pers_max),
+                parseInt(pers),
                 location
             )
             if(data)

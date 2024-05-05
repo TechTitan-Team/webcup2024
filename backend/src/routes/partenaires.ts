@@ -6,9 +6,9 @@ const routerPartenaire = express.Router();
 
 routerPartenaire.get("/", controllerPartenaire.getAll)
 routerPartenaire.get("/:id", controllerPartenaire.getOne)
-routerPartenaire.get("/filter/:service/:pers_max/:pers_min/:location", controllerPartenaire.filter)
+routerPartenaire.get("/filter/:service/:pers", controllerPartenaire.filter)
 routerPartenaire.post("/create", controllerPartenaire.create)
-routerPartenaire.post("/", controllerPartenaire.getLogin)
+routerPartenaire.post("/login", controllerPartenaire.getLogin)
 routerPartenaire.put("/", controllerPartenaire.update)
 routerPartenaire.delete("/", controllerPartenaire.delete)
 

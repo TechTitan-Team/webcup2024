@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const FirstForm = ({ onChange, setStep }) => {
   const validate = (e) => {
@@ -64,6 +65,8 @@ const FirstForm = ({ onChange, setStep }) => {
           onChange={onChange}
         ></textarea>
       </div>
+
+      <Link to={"/partner-login"}>Je suis déjà partenaire</Link>
 
       <button type="submit" class="btn btn-primary mb-0">
         Suivant

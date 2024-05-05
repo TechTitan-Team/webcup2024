@@ -2,6 +2,8 @@ import { Response, Request } from "express"
 import { generateToken } from '../services/services'
 import bcrypt from "bcrypt"
 import modelCommands from "../models/commands";
+import { Prisma, PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient();
 
 const controllerCommands = {
     getAll: async(req: Request, res: Response) =>{
@@ -32,17 +34,21 @@ const controllerCommands = {
     create: async(req: Request, res: Response)=>{
         try{
             let {beginDate, totalPrice, id_user, id_partenaire} = req.body;
-            let data = await modelCommands.create(
+            await modelCommands.create(
                 beginDate,
                 parseFloat(totalPrice),
                 parseInt(id_user),
-                parseInt(id_partenaire)
-            )
-            if(data) {
+            ).then(async(data)=>{
+                id_partenaire.map(async(items: any)=>{
+                    await prisma.relation.create({
+                        data:{
+                            id_command: data.id,
+                            id_partenaire: items.id
+                        }
+                    })
+                })
                 res.status(200).send(data)
-            }
-            else
-                res.status(404).send([])
+            })
         }catch(error: any){
             console.log(error);
             res.status(500).send(error.message)

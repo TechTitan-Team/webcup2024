@@ -7,8 +7,33 @@ const modelCommands = {
     return prisma.commands.findMany({
       include: {
         user: true,
-        relation: true
+        relation: {
+          include: {
+            partenaire: true
+          }
+        }
       },
+      orderBy: {
+        id: "desc"
+      }
+    });
+  },
+  getPartner:  async (id: number) => {
+    return prisma.commands.findMany({
+      include: {
+        user: true,
+        relation: {
+          where: {
+            id_partenaire: id
+          },
+          include: {
+            partenaire: true
+          }
+        }
+      },
+      orderBy: {
+        id: "desc"
+      }
     });
   },
   getOne: async (id: number) => {
@@ -16,7 +41,11 @@ const modelCommands = {
       where: { id: id },
       include: {
         user: true,
-        relation: true,
+        relation: {
+          include: {
+            partenaire: true
+          }
+        }
       },
     });
   },
@@ -41,6 +70,13 @@ const modelCommands = {
     });
     return res;
   },
+  delete: async (id : number) => {
+    let result = await prisma.commands.delete({
+        where: { id: Number(id) },
+    })
+
+    return result
+},
 };
 
 export default modelCommands;

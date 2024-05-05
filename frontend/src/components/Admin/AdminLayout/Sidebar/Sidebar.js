@@ -41,17 +41,6 @@ const Sidebar = () => {
             <span>Reservations</span>
           </Link>
         </li>
-        <li className="nav-item">
-          <Link
-            className={`nav-link collapsed ${checkActive(
-              "/admin/orders-inactive"
-            )}`}
-            to="/admin/orders-inactive"
-          >
-            <i className="bi bi-question-circle" />
-            <span>Historiques</span>
-          </Link>
-        </li>
         {token && token.user.type == "admin" && (
           <>
             <li className="nav-heading">Gestion Partennaires</li>

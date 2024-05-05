@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import Layout from "../Layout/Layout";
 import flesheImg from "../../assets/img/fleche.png";
-import FirstForm from "./FirstForm/FirstForm";
-import SecondForm from "./SecondForm/SecondForm";
-// import sitemarkImg from "../../images/sitemark.svg";
-// import importImg from "../../images/import.svg";
+import useHttps from "../../hooks/useHttps";
+import { Link, useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
+import useToken from "../../hooks/useToken";
 
-const PartnerRequest = () => {
+const PartnerLogin = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const { http } = useHttps();
   const [data, setData] = useState({
     pers_min: 20,
-    pers_max: 20
+    pers_max: 20,
   });
-  const [step, setStep] = useState(0);
+  const nav = useNavigate();
+  const { setToken } = useToken();
 
   const onChange = (e) => {
     setData({
@@ -20,12 +24,36 @@ const PartnerRequest = () => {
     });
   };
 
-  const renderStep = () => {
-    switch (step) {
-      case 1:
-        return <SecondForm onChange={onChange} setStep={setStep} data={data} />;
-      default:
-        return <FirstForm onChange={onChange} setStep={setStep} />;
+  const validate = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      let response = await http.post("/partenaires/login", data);
+      if (response) {
+        if(response.data.partenaire.isValid == true) {
+            let res = response.data
+            let user = {
+                id: res.partenaire.id,
+                name: res.partenaire.name,
+                email: res.partenaire.email,
+                type: "partner"
+            }
+            setToken({
+                user,
+                token: res.token
+            })
+            nav("/admin");
+            setError(false)
+        }
+        else {
+            setError("Votre compte n'est pas encore validé")
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setError(error.response.data);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -103,8 +131,38 @@ const PartnerRequest = () => {
                 <figure class="position-absolute top-100 start-0 translate-middle mt-n5">
                   <img src={flesheImg} width={200} />
                 </figure>
+                <form class="row g-4" onSubmit={validate}>
+                  <div class="col-md-12">
+                    <label class="form-label heading-color">
+                      Adresse email
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      required
+                      id="floatingInput"
+                      name="email"
+                      onChange={onChange}
+                    />
+                  </div>
 
-                {renderStep()}
+                  <div class="col-md-12">
+                    <label class="form-label heading-color">Mot de passe</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      required
+                      name="password"
+                      onChange={onChange}
+                    />
+                  </div>
+                  {error ? <Alert variant="danger">{error}</Alert> : null}
+                  <Link to={"/become-partner"}>Devenir partenaire</Link>
+
+                  <button type="submit" class="btn btn-primary mb-0">
+                    Se connecter
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -114,4 +172,4 @@ const PartnerRequest = () => {
   );
 };
 
-export default PartnerRequest;
+export default PartnerLogin;

@@ -6,14 +6,14 @@ import img3 from "../../../assets/img/sary.jpg";
 
 const Cible = () => {
   return (
-    <section className="pt-7 pt-md-8 pt-xl-9">
+    <section className="pt-7 pb-5 pt-md-8 pt-xl-9 mb-0">
   <div className="container pt-5 pt-md-0">
     <div className="row">
       {/* Hero left START */}
       <div className="col-lg-6 col-xl-5 mb-6 mb-lg-0">
         <div className="d-flex flex-column h-100">
           <h1 className="mb-4">
-           POUR QUI EST <span className="text-primary">Elite events </span>?
+           A qui s'adresse <span className="text-primary">Elite events </span>?
           </h1>
           <p className="mb-5 mb-xl-0">
             Elite Events s'adresse à tous ceux qui cherchent à organiser des soirées exclusives et inoubliables, qu'il s'agisse de fêtes mondaines ou d'événements professionnels.
@@ -37,7 +37,7 @@ const Cible = () => {
                 <i className="bi bi-star-half text-warning" />
               </li>
             </ul>
-            <q className="h6 fw-semibold mb-0">
+            <q className="h6 fw-semibold mb-0" style={{color:"#fff"}}>
             Le professionnalisme est la compétence ou la pratique qui distingue les experts d'amateurs.
             </q>
             <p className="mb-0 mt-3 text-body-primary">

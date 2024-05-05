@@ -20,7 +20,6 @@ const Home = () => {
       <Call />
       {/* <Cta /> */}
       <Faq />
-      <Footer/>
     </Layout>
   );
 };

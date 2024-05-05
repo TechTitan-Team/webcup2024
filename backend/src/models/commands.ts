@@ -7,7 +7,7 @@ const modelCommands = {
     return prisma.commands.findMany({
       include: {
         user: true,
-        partenaire: true,
+        relation: true
       },
     });
   },
@@ -16,7 +16,7 @@ const modelCommands = {
       where: { id: id },
       include: {
         user: true,
-        partenaire: true,
+        relation: true,
       },
     });
   },
@@ -24,7 +24,6 @@ const modelCommands = {
     date: string,
     totalPrice: number,
     id_user: number,
-    id_partenaire: number
   ) => {
     console.log(date);
     const beginDate = new Date(date);
@@ -37,12 +36,7 @@ const modelCommands = {
           connect: {
             id: id_user,
           },
-        },
-        partenaire: {
-          connect: {
-            id: id_partenaire,
-          },
-        },
+        }
       },
     });
     return res;

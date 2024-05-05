@@ -5,9 +5,9 @@ const modelPartenaire = {
   getAll: async () => {
     return prisma.partenaires.findMany({
       include: {
-        command: {
+        relation: {
           include: {
-            user: true,
+            commands: true,
           },
         },
       },
@@ -32,9 +32,9 @@ const modelPartenaire = {
     return prisma.partenaires.findUnique({
       where: { id: id },
       include: {
-        command: {
+        relation: {
           include: {
-            user: true,
+            commands: true,
           },
         },
       },
@@ -153,9 +153,9 @@ const modelPartenaire = {
         return prisma.partenaires.findMany({
             where: whereCondition,
             include: {
-                command: {
+                relation: {
                     include: {
-                        user: true
+                        commands: true
                     }
                 }
             }

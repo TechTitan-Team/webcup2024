@@ -16,6 +16,7 @@ const Register = () => {
   //   const [data, setData] = useState(null);
   const { setToken } = useToken();
   const [registerLoad, setRegisterLoad] = useState(false);
+  const [error, setError] = useState(false);
   const [user, setUser] = useState({
     name: "",
     lastName: "",
@@ -105,6 +106,7 @@ const Register = () => {
         fileHttp
           .post("/users", data)
           .then((res) => {
+            setError(false);
             console.log(res);
             setRegisterLoad(false);
             setToken(res.data);
@@ -112,11 +114,13 @@ const Register = () => {
           })
           .catch((err) => {
             console.log(err);
+            setError(true);
             setRegisterLoad(false);
           });
       })
       .catch((err) => {
         console.log(err.message);
+        setError(true);
         setRegisterLoad(false);
       });
   };
@@ -129,7 +133,12 @@ const Register = () => {
         <div className="row w-100 m-auto">
           <div className="col-sm-10 my-5 m-auto">
             <a href="index.html">
-              <img src={"/rect2.png"} width={100} className="h-25px mb-4" alt="logo" />
+              <img
+                src={"/rect2.png"}
+                width={100}
+                className="h-25px mb-4"
+                alt="logo"
+              />
             </a>
             <h2 className="mb-0">Créer un compte </h2>
             <p className="mb-0">Bienvenue, veuillez vous inscrire</p>
@@ -241,6 +250,11 @@ const Register = () => {
               </Alert>
             )} */}
             {/* Sign up link */}
+            {error ? (
+              <div className="col-12">
+                <Alert variant="danger">Veuillez changer l'image</Alert>
+              </div>
+            ) : null}
             <div className="mt-4 text-center">
               <span>Tu as déjà un compte?</span>
               <Link to={"/login"} className="link-underline-primary">

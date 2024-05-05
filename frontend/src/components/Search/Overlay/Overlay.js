@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import jega from "../../../assets/img/04.jpg"
-import useHttps, { imgUrl } from "../../../hooks/useHttps"
+import useHttps from "../../../hooks/useHttps"
 export function Overlay(props) {
     const { http } = useHttps()
     const [services, setServices] = useState({
@@ -11,6 +11,8 @@ export function Overlay(props) {
         conciergerie: [],
         photographie: []
     })
+
+    
     const getService = (service, pers, location) => {
         const route = service === "lieux" && location !== "" ? `/partenaires/filter/${service}/${pers}?location=${location}` : `/partenaires/filter/${service}/${pers}`
         http.get(route)
@@ -41,6 +43,7 @@ export function Overlay(props) {
                 }
             }).catch((err) => console.log(err))
     }
+
     useEffect(() => {
         if (props.service.lieux && props.filter.pers)
             getService("lieux", props.filter.pers, props.filter.location)
@@ -63,30 +66,33 @@ export function Overlay(props) {
                 {
                     services.lieux.length !== 0 && <div>
 
-                        <h1 className="my-4 fw-bold">
+                        <h2 className="my-4 fw-bold">
                             Selectionner l'espace à louer
-                        </h1>
-                        <p>
-                            Vous pouvez choisir un espace à louer en cliquant l'un des cartes en dessous.
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center m-5">
+                        </h2>
+                        <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.lieux.map((res, index) => {
-                                    return (
-                                        <div className="crd" key={index}>
-                                            <div className="crd-img">
-                                                <img src={`${imgUrl+res.image}`} alt="logo" className="img-fluid" />
-                                            </div>
-                                            <div className="crd-txt">
-                                                <h2 className="fw-bold">{res.name}</h2>
-                                                <div className="location-desc">
-                                                    <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                    return (<>
+                                        <label for={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                            <h4><span className="badge bg-success">Selectionné</span></h4>
+                                            <div className="crd" key={index}>
+                                                <div className="crd-img">
+                                                    <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
                                                 </div>
-                                                <div className="fw-bold">
-                                                    <i className="bi bi-cash "></i> Prix: {res.price}
+                                                <div className="crd-txt">
+                                                    <h2 className="fw-bold">{res.name}</h2>
+                                                    <div className="location-desc">
+                                                        <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                                    </div>
+                                                    <div className="fw-bold">
+                                                        <i className="bi bi-cash "></i> Prix: {res.price}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
+                                    </>
+
                                     )
                                 })
                             }
@@ -96,30 +102,33 @@ export function Overlay(props) {
                 {
                     services.lieux.length !== 0 && services.traiteurs.length !== 0 && <div>
 
-                        <h1 className="my-4 fw-bold">
+                        <h2 className="my-4 fw-bold">
                             Selectionner le traiteur
-                        </h1>
-                        <p>
-                            Vous pouvez choisir un espace à louer en cliquant l'un des cartes en dessous.
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center m-5">
+                        </h2>
+                        <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.traiteurs.map((res, index) => {
-                                    return (
-                                        <div className="crd" key={index}>
-                                            <div className="crd-img">
-                                                <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
-                                            </div>
-                                            <div className="crd-txt">
-                                                <h2 className="fw-bold">{res.name}</h2>
-                                                <div className="location-desc">
-                                                    <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                    return (<>
+                                        <label for={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                            <h4><span className="badge bg-success">Selectionné</span></h4>
+                                            <div className="crd" key={index}>
+                                                <div className="crd-img">
+                                                    <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
                                                 </div>
-                                                <div className="fw-bold">
-                                                    <i className="bi bi-cash "></i> Prix: {res.price}
+                                                <div className="crd-txt">
+                                                    <h2 className="fw-bold">{res.name}</h2>
+                                                    <div className="location-desc">
+                                                        <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                                    </div>
+                                                    <div className="fw-bold">
+                                                        <i className="bi bi-cash "></i> Prix: {res.price}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
+                                    </>
+
                                     )
                                 })
                             }
@@ -129,30 +138,34 @@ export function Overlay(props) {
                 {
                     services.divertissement.length !== 0 && <div>
 
-                        <h1 className="my-4 fw-bold">
+                        <h2 className="my-4 fw-bold">
                             Selectionner le service divertissement et animation
-                        </h1>
-                        <p>
-                            Vous pouvez choisir un espace à louer en cliquant l'un des cartes en dessous.
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center m-5">
+                        </h2>
+                        <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.divertissement.map((res, index) => {
-                                    return (
-                                        <div className="crd" key={index}>
-                                            <div className="crd-img">
-                                                <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
-                                            </div>
-                                            <div className="crd-txt">
-                                                <h2 className="fw-bold">{res.name}</h2>
-                                                <div className="location-desc">
-                                                    <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                    return (<>
+                                        <label for={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                            <h4><span className="badge bg-success">Selectionné</span></h4>
+                                            <div className="crd" key={index}>
+                                                <div className="crd-img">
+                                                    <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
                                                 </div>
-                                                <div className="fw-bold">
-                                                    <i className="bi bi-cash "></i> Prix: {res.price}
+                                                <div className="crd-txt">
+                                                    <h2 className="fw-bold">{res.name}</h2>
+                                                    <div className="location-desc">
+                                                        <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                                    </div>
+                                                    <div className="fw-bold">
+                                                        <i className="bi bi-cash "></i> Prix: {res.price}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
+
+                                    </>
+
                                     )
                                 })
                             }
@@ -162,30 +175,32 @@ export function Overlay(props) {
                 {
                     services.conciergerie.length !== 0 && <div>
 
-                        <h1 className="my-4 fw-bold">
+                        <h2 className="my-4 fw-bold">
                             Selectionner le service de concierge
-                        </h1>
-                        <p>
-                            Vous pouvez choisir un espace à louer en cliquant l'un des cartes en dessous.
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center m-5">
+                        </h2>
+                        <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.conciergerie.map((res, index) => {
-                                    return (
-                                        <div className="crd" key={index}>
-                                            <div className="crd-img">
-                                                <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
-                                            </div>
-                                            <div className="crd-txt">
-                                                <h2 className="fw-bold">{res.name}</h2>
-                                                <div className="location-desc">
-                                                    <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                    return (<>
+                                        <label for={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                            <h4><span className="badge bg-success">Selectionné</span></h4>
+                                            <div className="crd" key={index}>
+                                                <div className="crd-img">
+                                                    <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
                                                 </div>
-                                                <div className="fw-bold">
-                                                    <i className="bi bi-cash "></i> Prix: {res.price}
+                                                <div className="crd-txt">
+                                                    <h2 className="fw-bold">{res.name}</h2>
+                                                    <div className="location-desc">
+                                                        <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                                    </div>
+                                                    <div className="fw-bold">
+                                                        <i className="bi bi-cash "></i> Prix: {res.price}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
+                                    </>
                                     )
                                 })
                             }
@@ -195,30 +210,33 @@ export function Overlay(props) {
                 {
                     services.decoration.length !== 0 && <div>
 
-                        <h1 className="my-4 fw-bold">
-                            Selectionner l'espace à louer
-                        </h1>
-                        <p>
-                            Vous pouvez choisir un espace à louer en cliquant l'un des cartes en dessous.
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center m-5">
+                        <h2 className="my-4 fw-bold">
+                            Selectionner le décorateur de votre choix
+                        </h2>
+                        <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.decoration.map((res, index) => {
-                                    return (
-                                        <div className="crd" key={index}>
-                                            <div className="crd-img">
-                                                <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
-                                            </div>
-                                            <div className="crd-txt">
-                                                <h2 className="fw-bold">{res.name}</h2>
-                                                <div className="location-desc">
-                                                    <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                    return (<>
+                                        <label for={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                            <h4><span className="badge bg-success">Selectionné</span></h4>
+                                            <div className="crd" key={index}>
+                                                <div className="crd-img">
+                                                    <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
                                                 </div>
-                                                <div className="fw-bold">
-                                                    <i className="bi bi-cash "></i> Prix: {res.price}
+                                                <div className="crd-txt">
+                                                    <h2 className="fw-bold">{res.name}</h2>
+                                                    <div className="location-desc">
+                                                        <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                                    </div>
+                                                    <div className="fw-bold">
+                                                        <i className="bi bi-cash "></i> Prix: {res.price}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
+                                    </>
+
                                     )
                                 })
                             }
@@ -228,30 +246,33 @@ export function Overlay(props) {
                 {
                     services.photographie.length !== 0 && <div>
 
-                        <h1 className="my-4 fw-bold">
+                        <h2 className="my-4 fw-bold">
                             Selectionner le service de photographe
-                        </h1>
-                        <p>
-                            Vous pouvez choisir un espace à louer en cliquant l'un des cartes en dessous.
-                        </p>
-                        <div className="d-flex align-items-center justify-content-center m-5">
+                        </h2>
+                        <div className="d-flex align-items-center m-5 overflow-control">
                             {
                                 services.photographie.map((res, index) => {
-                                    return (
-                                        <div className="crd" key={index}>
-                                            <div className="crd-img">
-                                                <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
-                                            </div>
-                                            <div className="crd-txt">
-                                                <h2 className="fw-bold">{res.name}</h2>
-                                                <div className="location-desc">
-                                                    <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                    return (<>
+                                        <label for={res.id}>
+                                            <input type="radio" id={res.id} name="divertissement" value={res.id} className="radio-input" />
+                                            <h4><span className="badge bg-success">Selectionné</span></h4>
+                                            <div className="crd" key={index}>
+                                                <div className="crd-img">
+                                                    <img src={`http://localhost:9001/images/${res.image}`} alt="KKK" className="img-fluid" />
                                                 </div>
-                                                <div className="fw-bold">
-                                                    <i className="bi bi-cash "></i> Prix: {res.price}
+                                                <div className="crd-txt">
+                                                    <h2 className="fw-bold">{res.name}</h2>
+                                                    <div className="location-desc">
+                                                        <i className="bi bi-geo-alt-fill"></i> {res.location}
+                                                    </div>
+                                                    <div className="fw-bold">
+                                                        <i className="bi bi-cash "></i> Prix: {res.price}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
+                                    </>
+
                                     )
                                 })
                             }
